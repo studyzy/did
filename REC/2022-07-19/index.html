@@ -521,18 +521,8 @@
     }
   </style>
 
-  <meta name="description" content="Decentralized identifiers (DIDs) are a new type of identifier that
-enables verifiable, decentralized digital identity. A DID refers to any
-subject (e.g., a person, organization, thing, data model, abstract entity, etc.)
-as determined by the controller of the DID. In contrast to
-typical, federated identifiers, DIDs have been designed so that they may
-be decoupled from centralized registries, identity providers, and certificate
-authorities. Specifically, while other parties might be used to help enable the
-discovery of information related to a DID, the design enables the
-controller of a DID to prove control over it without requiring permission
-from any other party. DIDs are URIs that associate a DID
-subject with a DID document allowing trustable interactions
-associated with that subject.">
+  <meta name="description"
+    content="去中心化标识符（DID）是一种新型标识符，实现可验证的、去中心化的数字身份。DID可以引用由DID控制器确定的任何主体（例如，人、组织、事物、数据模型、抽象实体等）。与典型的联合标识符不同，DID的设计使其可以从集中式注册表、身份提供商和证书颁发机构中解耦。具体来说，尽管其他方可能被用于帮助发现与DID相关的信息，但设计使得DID的控制器可以在不需要其他方许可的情况下证明对其的控制。DID是将DID主体与DID文档关联起来的URI，允许与该主体相关的可信赖交互。">
   <link rel="canonical" href="https://www.w3.org/TR/did-core/">
   <style>
     .hljs {
@@ -650,9 +640,9 @@ associated with that subject.">
       color: #daca88;
       text-indent: 0;
       font-weight: 400
-    }
 
-    var[data-type]:hover::after,
+
+    }var[data-type]:hover::after,
     var[data-type]:hover::before {
       opacity: 1
     }
@@ -956,40 +946,40 @@ associated with that subject.">
     <p class="logos"><a class="logo" href="https://www.w3.org/"><img crossorigin="" alt="W3C" height="48"
           src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72">
       </a></p>
-    <h1 id="title" class="title">Decentralized Identifiers (DIDs) v1.0</h1>
-    <h2 id="subtitle" class="subtitle">Core architecture, data model, and representations</h2>
-    <p id="w3c-state"><a href="https://www.w3.org/standards/types#REC">W3C Recommendation</a> <time class="dt-published"
-        datetime="2022-07-19">19 July 2022</time></p>
+    <h1 id="title" class="title">去中心化标识符（DID）v1.0</h1>
+    <h2 id="subtitle" class="subtitle">核心架构、数据模型和表示</h2>
+    <p id="w3c-state"><a href="https://www.w3.org/standards/types#REC">W3C推荐标准</a> <time class="dt-published"
+        datetime="2022-07-19">2022年7月19日</time></p>
     <details open="">
-      <summary>More details about this document</summary>
+      <summary>关于本文档的更多细节</summary>
       <dl>
-        <dt>This version:</dt>
+        <dt>本版本：</dt>
         <dd>
           <a class="u-url"
             href="https://www.w3.org/TR/2022/REC-did-core-20220719/">https://www.w3.org/TR/2022/REC-did-core-20220719/</a>
         </dd>
-        <dt>Latest published version:</dt>
+        <dt>最新发布版本：</dt>
         <dd>
           <a href="https://www.w3.org/TR/did-core/">https://www.w3.org/TR/did-core/</a>
         </dd>
-        <dt>Latest editor's draft:</dt>
+        <dt>最新编辑草稿：</dt>
         <dd><a href="https://w3c.github.io/did-core/">https://w3c.github.io/did-core/</a></dd>
-        <dt>History:</dt>
+        <dt>历史：</dt>
         <dd>
           <a href="https://www.w3.org/standards/history/did-core">https://www.w3.org/standards/history/did-core</a>
         </dd>
         <dd>
-          <a href="https://github.com/w3c/did-core/commits/main">Commit history</a>
+          <a href="https://github.com/w3c/did-core/commits/main">提交历史</a>
         </dd>
 
-        <dt>Implementation report:</dt>
+        <dt>实现报告：</dt>
         <dd>
           <a href="https://w3c.github.io/did-test-suite/">https://w3c.github.io/did-test-suite/</a>
         </dd>
 
 
 
-        <dt>Editors:</dt>
+        <dt>编辑：</dt>
         <dd class="editor p-author h-card vcard" data-editor-id="41758">
           <a class="u-url url p-name fn" href="http://manu.sporny.org/">Manu Sporny</a> (<a class="p-org org h-org"
             href="https://digitalbazaar.com/">Digital Bazaar</a>)
@@ -1007,7 +997,7 @@ associated with that subject.">
             class="p-org org h-org" href="https://www.evernym.com/">Evernym/Avast</a>)
         </dd>
 
-        <dt>Authors:</dt>
+        <dt>作者:</dt>
         <dd class="editor p-author h-card vcard" data-editor-id="41758">
           <a class="u-url url p-name fn" href="http://manu.sporny.org/">Manu Sporny</a> (<a class="p-org org h-org"
             href="https://digitalbazaar.com/">Digital Bazaar</a>)
@@ -1032,7 +1022,14 @@ associated with that subject.">
           <a class="u-url url p-name fn" href="https://www.linkedin.com/in/christophera">Christopher Allen</a> (<a
             class="p-org org h-org" href="https://www.BlockchainCommons.com">Blockchain Commons</a>)
         </dd>
-        <dt>Feedback:</dt>
+        <dt>翻译:</dt>
+        <dd class="editor p-author h-card vcard" data-editor-id="41758">
+          <a class="u-url url p-name fn" href="https://github.com/studyzy">曾毅</a> (<a class="p-org org h-org"
+            href="https://www.cnblogs.com/studyzy">深蓝居</a>)
+        </dd>
+        <dd class="editor p-author h-card vcard" data-editor-id="48025">
+        </dd>
+        <dt>反馈:</dt>
         <dd>
           <a href="https://github.com/w3c/did-core/">GitHub w3c/did-core</a>
           (<a href="https://github.com/w3c/did-core/pulls/">pull requests</a>,
@@ -1042,24 +1039,24 @@ associated with that subject.">
         <dd><a href="mailto:public-did-wg@w3.org?subject=%5Bdid-core%5D%20YOUR%20TOPIC%20HERE">public-did-wg@w3.org</a>
           with subject line <kbd>[did-core] <em>… message topic …</em></kbd> (<a rel="discussion"
             href="https://lists.w3.org/Archives/Public/public-did-wg/">archives</a>)</dd>
-        <dt>Errata:</dt>
-        <dd><a href="https://w3c.github.io/did-core/errata.html">Errata exists</a>.</dd>
-        <dt>Related Documents</dt>
+        <dt>勘误：</dt>
+        <dd><a href="https://w3c.github.io/did-core/errata.html">勘误</a>。</dd>
+        <dt>相关文档：</dt>
         <dd>
-          <a href="https://www.w3.org/TR/did-use-cases/">DID Use Cases and Requirements</a>
+          <a href="https://www.w3.org/TR/did-use-cases/">DID使用案例和需求</a>
         </dd>
         <dd>
-          <a href="https://www.w3.org/TR/did-spec-registries/">DID Specification Registries</a>
+          <a href="https://www.w3.org/TR/did-spec-registries/">DID规范注册表</a>
         </dd>
         <dd>
-          <a href="https://w3c.github.io/did-test-suite/">DID Core Implementation Report</a>
+          <a href="https://w3c.github.io/did-test-suite/">DID核心实现报告</a>
         </dd>
       </dl>
     </details>
     <p>
-      See also
+      参见其他
       <a href="https://www.w3.org/Translations/?technology=did-core">
-        <strong>translations</strong></a>.
+        <strong>翻译</strong></a>.
     </p>
 
     <p class="copyright">
@@ -1081,138 +1078,104 @@ associated with that subject.">
     <hr title="Separator for header">
   </div>
   <section id="abstract" class="introductory">
-    <h2>Abstract</h2>
+    <h2>摘要</h2>
 
     <p>
       <a href="#dfn-decentralized-identifiers" class="internalDFN" data-link-type="dfn"
-        id="ref-for-dfn-decentralized-identifiers-1">Decentralized identifiers</a> (DIDs) are a new type of identifier
-      that
-      enables verifiable, decentralized digital identity. A <a href="#dfn-decentralized-identifiers" class="internalDFN"
-        data-link-type="dfn" id="ref-for-dfn-decentralized-identifiers-2">DID</a> refers to any
-      subject (e.g., a person, organization, thing, data model, abstract entity, etc.)
-      as determined by the controller of the <a href="#dfn-decentralized-identifiers" class="internalDFN"
-        data-link-type="dfn" id="ref-for-dfn-decentralized-identifiers-3">DID</a>. In contrast to
-      typical, federated identifiers, <a href="#dfn-decentralized-identifiers" class="internalDFN" data-link-type="dfn"
-        id="ref-for-dfn-decentralized-identifiers-4">DIDs</a> have been designed so that they may
-      be decoupled from centralized registries, identity providers, and certificate
-      authorities. Specifically, while other parties might be used to help enable the
-      discovery of information related to a <a href="#dfn-decentralized-identifiers" class="internalDFN"
-        data-link-type="dfn" id="ref-for-dfn-decentralized-identifiers-5">DID</a>, the design enables the
-      controller of a <a href="#dfn-decentralized-identifiers" class="internalDFN" data-link-type="dfn"
-        id="ref-for-dfn-decentralized-identifiers-6">DID</a> to prove control over it without requiring permission
-      from any other party. <a href="#dfn-decentralized-identifiers" class="internalDFN" data-link-type="dfn"
-        id="ref-for-dfn-decentralized-identifiers-7">DIDs</a> are <a href="#dfn-uri" class="internalDFN"
-        data-link-type="dfn" id="ref-for-dfn-uri-1">URIs</a> that associate a <a href="#dfn-did-subjects"
-        class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-subjects-1">DID
-        subject</a> with a <a href="#dfn-did-documents" class="internalDFN" data-link-type="dfn"
-        id="ref-for-dfn-did-documents-1">DID document</a> allowing trustable interactions
-      associated with that subject.
+        id="ref-for-dfn-decentralized-identifiers-1">去中心化标识符</a>（DID）是一种新型标识符，可以实现可验证的、去中心化的数字身份。一个<a
+       href="#dfn-decentralized-identifiers" class="internalDFN"
+        data-link-type="dfn" id="ref-for-dfn-decentralized-identifiers-2">DID</a> 可以指代任何主体（例如，人、组织、事物、数据模型、抽象实体等），具体由<a
+       href="#dfn-decentralized-identifiers" class="internalDFN"
+        data-link-type="dfn" id="ref-for-dfn-decentralized-identifiers-3">DID</a>的控制者决定。与典型的联合标识符不同， <a href="#dfn-decentralized-identifiers" class="internalDFN" data-link-type="dfn"
+        id="ref-for-dfn-decentralized-identifiers-4">DID</a>的设计使其可以从中心化注册表、身份提供商和证书颁发机构中解耦。具体而言，尽管其他方可能会用于帮助发现与<a
+       href="#dfn-decentralized-identifiers" class="internalDFN"
+        data-link-type="dfn" id="ref-for-dfn-decentralized-identifiers-5">DID</a>相关的信息，但该设计使得 <a href="#dfn-decentralized-identifiers" class="internalDFN" data-link-type="dfn"
+        id="ref-for-dfn-decentralized-identifiers-6">DID</a> 的控制者可以在不需要任何其他方许可的情况下证明对其的控制。 <a
+       href="#dfn-decentralized-identifiers" class="internalDFN" data-link-type="dfn"
+        id="ref-for-dfn-decentralized-identifiers-7">DID</a>是将<a href="#dfn-did-subjects" class="internalDFN"
+        data-link-type="dfn" id="ref-for-dfn-did-subjects-1">DID主体</a>与<a href="#dfn-did-documents"
+        class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-documents-1">DID
+        文档</a>关联起来的<a href="#dfn-uri" class="internalDFN" data-link-type="dfn"
+        id="ref-for-dfn-uri-1">URI</a>，允许与该主体相关的可信赖交互。
     </p>
     <p>
-      Each <a href="#dfn-did-documents" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-documents-2">DID
-        document</a> can express cryptographic material, <a href="#dfn-verification-method" class="internalDFN"
-        data-link-type="dfn" id="ref-for-dfn-verification-method-1">verification
-        methods</a>, or <a href="#dfn-service" class="internalDFN" data-link-type="dfn"
-        id="ref-for-dfn-service-1">services</a>, which provide a set of mechanisms enabling a
+      每个 <a href="#dfn-did-documents" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-documents-2">DID
+        文档</a>可以表达加密材料、 <a href="#dfn-verification-method" class="internalDFN"
+        data-link-type="dfn" id="ref-for-dfn-verification-method-1">验证方法</a>或 <a href="#dfn-service" class="internalDFN" data-link-type="dfn"
+        id="ref-for-dfn-service-1">服务</a>，这些提供了一组机制，使
       <a href="#dfn-did-controllers" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-controllers-1">DID
-        controller</a> to prove control of the <a href="#dfn-decentralized-identifiers" class="internalDFN"
-        data-link-type="dfn" id="ref-for-dfn-decentralized-identifiers-8">DID</a>. <a href="#dfn-service"
-        class="internalDFN" data-link-type="dfn" id="ref-for-dfn-service-2">Services</a> enable
-      trusted interactions associated with the <a href="#dfn-did-subjects" class="internalDFN" data-link-type="dfn"
-        id="ref-for-dfn-did-subjects-2">DID subject</a>. A <a href="#dfn-decentralized-identifiers" class="internalDFN"
-        data-link-type="dfn" id="ref-for-dfn-decentralized-identifiers-9">DID</a> might
-      provide the means to return the <a href="#dfn-did-subjects" class="internalDFN" data-link-type="dfn"
-        id="ref-for-dfn-did-subjects-3">DID subject</a> itself, if the <a href="#dfn-did-subjects" class="internalDFN"
-        data-link-type="dfn" id="ref-for-dfn-did-subjects-4">DID
-        subject</a> is an information resource such as a data model.
+        控制者</a>能够证明对 <a href="#dfn-decentralized-identifiers" class="internalDFN"
+        data-link-type="dfn" id="ref-for-dfn-decentralized-identifiers-8">DID</a>的控制。 <a href="#dfn-service"
+        class="internalDFN" data-link-type="dfn" id="ref-for-dfn-service-2">服务</a>使得与 <a href="#dfn-did-subjects" class="internalDFN" data-link-type="dfn"
+        id="ref-for-dfn-did-subjects-2">DID 主体</a>相关的可信赖交互成为可能。如果<a href="#dfn-did-subjects" class="internalDFN"
+        data-link-type="dfn" id="ref-for-dfn-did-subjects-4">DID主体</a>是一个信息资源，如数据模型，<a
+        href="#dfn-decentralized-identifiers" class="internalDFN" data-link-type="dfn"
+        id="ref-for-dfn-decentralized-identifiers-9">DID</a>可能提供返回 <a href="#dfn-did-subjects" class="internalDFN"
+        data-link-type="dfn" id="ref-for-dfn-did-subjects-3">DID
+        主体</a>本身的方法。
     </p>
     <p>
-      This document specifies the DID syntax, a common data model, core properties,
-      serialized representations, DID operations, and an explanation of the process
-      of resolving DIDs to the resources that they represent.
+      本文档规定了DID语法、通用数据模型、核心属性、序列化表示、DID操作以及解析DID到它们所代表的资源的过程的解释。
     </p>
   </section>
 
   <section id="sotd" class="introductory">
-    <h2>Status of This Document</h2>
-    <p><em>This section describes the status of this
-        document at the time of its publication. A list of current <abbr title="World Wide Web Consortium">W3C</abbr>
-        publications and the latest revision of this technical report can be found
-        in the <a href="https://www.w3.org/TR/"><abbr title="World Wide Web Consortium">W3C</abbr> technical reports
-          index</a> at
-        https://www.w3.org/TR/.</em></p>
+    <h2>本文档状态</h2>
+    <p><em>本节描述了本文档在发布时的状态。您可以在<a href="https://www.w3.org/TR/"><abbr
+            title="World Wide Web Consortium">W3C</abbr>技术报告索引</a>中找到当前的<a
+        href="https://www.w3.org/TR/">W3C</a>出版物列表和最新版本的技术报告。</em></p>
 
     <p>
-      At the time of publication, there existed
+      在发布时，存在
       <a href="https://w3c.github.io/did-spec-registries/#did-methods">103
-        experimental DID Method specifications</a>, 32 experimental DID Method driver
-      implementations, a <a href="https://w3c.github.io/did-test-suite/">test suite</a> that determines
-      whether or not a given implementation is conformant with this specification
-      and 46 implementations submitted to the conformance test suite.
-      Readers are advised to heed the <a href="https://github.com/w3c/did-core/issues">DID Core issues</a> and <a
-        href="https://github.com/w3c/did-test-suite/issues"> DID Core Test Suite
-        issues</a> that each contain the latest list of concerns and proposed changes
-      that might result in alterations to this specification. At the time of
-      publication, no additional substantive issues, changes, or modifications
-      are expected.
+        个实验性的DID方法规范</a>，32个实验性的DID方法驱动实现，一个<a href="https://w3c.github.io/did-test-suite/">测试套件</a>用于确定给定的实现是否符合此规范
+      以及46个提交到一致性测试套件的实现。读者被建议注意<a href="https://github.com/w3c/did-core/issues">DID核心问题</a>和 <a
+        href="https://github.com/w3c/did-test-suite/issues"> DID 核心测试套件问题</a>，每个问题都包含可能导致对此规范进行修改的最新问题列表和建议的更改。在发布时，不再预期有其他实质性的问题、更改或修改。
+    </p>
+        <p>
+      欢迎提供有关本文档的评论。请直接在<a href="https://github.com/w3c/did-core/issues/">GitHub</a>上提交问题，
+      或发送至<a href="mailto:public-did-wg@w3.org">public-did-wg@w3.org</a>（
+      <a href="mailto:public-did-wg-request@w3.org?subject=subscribe">订阅</a>，
+      <a href="https://lists.w3.org/Archives/Public/public-did-wg/">存档</a>）。
     </p>
 
     <p>
-      Comments regarding this document are welcome. Please file issues
-      directly on <a href="https://github.com/w3c/did-core/issues/">GitHub</a>,
-      or send them
-      to <a href="mailto:public-did-wg@w3.org">public-did-wg@w3.org</a> (
-      <a href="mailto:public-did-wg-request@w3.org?subject=subscribe">subscribe</a>,
-      <a href="https://lists.w3.org/Archives/Public/public-did-wg/">archives</a>).
-    </p>
-
-    <p>
-      This document was published by the <a href="https://www.w3.org/groups/wg/did">Decentralized Identifier Working
-        Group</a> as
-      a Recommendation using the
-      <a href="https://www.w3.org/2021/Process-20211102/#recs-and-notes">Recommendation track</a>.
+      此文档由<a href="https://www.w3.org/groups/wg/did">去中心化标识符工作组</a>作为推荐标准使用<a
+        href="https://www.w3.org/2021/Process-20211102/#recs-and-notes">推荐跟踪</a>发布。
     </p>
     <p>
-      <abbr title="World Wide Web Consortium">W3C</abbr> recommends the wide deployment of this specification as a
-      standard for
-      the Web.
+      <abbr title="World Wide Web Consortium">W3C</abbr>推荐是广泛部署此规范作为Web的标准。
     </p>
     <p>
-      A <abbr title="World Wide Web Consortium">W3C</abbr> Recommendation is a specification that, after extensive
-      consensus-building, is endorsed by
-      <abbr title="World Wide Web Consortium">W3C</abbr> and its Members, and
-      has commitments from Working Group members to
-      <a href="https://www.w3.org/Consortium/Patent-Policy/#sec-Requirements">royalty-free licensing</a>
-      for implementations.
-
-    </p>
+      <abbr title="World Wide Web Consortium">W3C</abbr>推荐是一个经过广泛共识建立的规范，得到了
+      <abbr title="World Wide Web Consortium">W3C</abbr>及其成员的认可，并且
+      工作组成员承诺对实现进行
+      <a href="https://www.w3.org/Consortium/Patent-Policy/#sec-Requirements">免版税许可</a>。
+      </p>
     <p>
 
-      This document was produced by a group
-      operating under the
-      <a href="https://www.w3.org/Consortium/Patent-Policy/"><abbr title="World Wide Web Consortium">W3C</abbr> Patent
-        Policy</a>.
+      本文档由一个遵循
+      <a href="https://www.w3.org/Consortium/Patent-Policy/"><abbr title="World Wide Web Consortium">W3C</abbr>专利政策</a>
+      运作的团体制作。
 
-
-      <abbr title="World Wide Web Consortium">W3C</abbr> maintains a
-      <a rel="disclosure" href="https://www.w3.org/groups/wg/did/ipr">public list of any patent disclosures</a>
-      made in connection with the deliverables of
-      the group; that page also includes
-      instructions for disclosing a patent. An individual who has actual
-      knowledge of a patent which the individual believes contains
-      <a href="https://www.w3.org/Consortium/Patent-Policy/#def-essential">Essential Claim(s)</a>
-      must disclose the information in accordance with
-      <a href="https://www.w3.org/Consortium/Patent-Policy/#sec-Disclosure">section 6 of the <abbr
-          title="World Wide Web Consortium">W3C</abbr> Patent Policy</a>.
-
+      <abbr title="World Wide Web Consortium">W3C</abbr>维护着一个
+      <a rel="disclosure" href="https://www.w3.org/groups/wg/did/ipr">公开的专利披露列表</a>，
+      该列表包含与该团体的成果相关的专利披露，并提供了披露专利的说明。
+      任何了解包含
+      <a href="https://www.w3.org/Consortium/Patent-Policy/#def-essential">基本要求声明（Essential Claim(s)）</a>
+      的专利的个人，必须根据
+      <a href="https://www.w3.org/Consortium/Patent-Policy/#sec-Disclosure">《<abbr
+          title="World Wide Web Consortium">W3C</abbr>专利政策》第6节</a>
+      的规定披露相关信息。
     </p>
     <p>
-      This document is governed by the
-      <a id="w3c_process_revision" href="https://www.w3.org/2021/Process-20211102/">2 November 2021 <abbr
-          title="World Wide Web Consortium">W3C</abbr> Process Document</a>.
+      本文档受
+       <a id="w3c_process_revision" href="https://www.w3.org/2021/Process-20211102/">2021年11月2日 <abbr
+      title="World Wide Web Consortium">W3C</abbr>流程文档</a>的约束。
     </p>
-  </section>
-  <nav id="toc">
+
+    </section>
+    <nav id="toc">
     <h2 class="introductory" id="table-of-contents">Table of Contents</h2>
     <ol class="toc">
       <li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li>
@@ -1476,142 +1439,98 @@ associated with that subject.">
 
   <section class="informative" id="introduction">
     <div class="header-wrapper">
-      <h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction</h2><a class="self-link" href="#introduction"
-        aria-label="Permalink for Section 1."></a>
+      <h2 id="x1-introduction"><bdi class="secno">1. </bdi>介绍</h2><a class="self-link" href="#introduction"
+        aria-label="Section 1.的永久链接"></a>
     </div>
-    <p><em>This section is non-normative.</em></p>
-
+    <p><em>本节为非规范性内容。</em></p>
     <p>
-      As individuals and organizations, many of us use globally unique identifiers in
-      a wide variety of contexts. They serve as communications addresses (telephone
-      numbers, email addresses, usernames on social media), ID numbers (for passports,
-      drivers licenses, tax IDs, health insurance), and product identifiers (serial
-      numbers, barcodes, RFIDs). URIs (Uniform Resource Identifiers) are used for
-      resources on the Web and each web page you view in a browser has a globally
-      unique URL (Uniform Resource Locator).
+      作为个人和组织，我们许多人在各种各样的场合中使用全球唯一标识符。它们用作通信地址（电话号码、电子邮件地址、社交媒体上的用户名）、身份证号（护照、驾驶执照、税务编号、医疗保险）和产品标识符（序列号、条形码、RFID）。URI（统一资源标识符）用于Web资源，您在浏览器中查看的每个网页都有一个全球唯一的URL（统一资源定位符）。
     </p>
     <p>
-      The vast majority of these globally unique identifiers are not under our
-      control. They are issued by external authorities that decide who or what they
-      refer to and when they can be revoked. They are useful only in certain contexts
-      and recognized only by certain bodies not of our choosing. They might
-      disappear or cease to be valid with the failure of an organization. They might
-      unnecessarily reveal personal information. In many cases, they can be
-      fraudulently replicated and asserted by a malicious third-party, which is
-      more commonly known as "identity theft".
+      这些全球唯一标识符中的绝大多数并不受我们的控制。它们由外部权威机构颁发，这些机构决定它们指向谁或什么以及何时可以撤销。它们只在某些特定场合有用，并且只有我们选择的某些机构才认可。如果一个组织失败，它们可能会消失或失效。它们可能会不必要地泄露个人信息。在许多情况下，它们可能被恶意第三方伪造和声明，这种现象更常被称为“身份盗窃”。
     </p>
     <p>
-      The Decentralized Identifiers (DIDs) defined in this specification are a new
-      type of globally unique identifier. They are designed to enable individuals and
-      organizations to generate their own identifiers using systems they trust. These
-      new identifiers enable entities to prove control over them by authenticating
-      using cryptographic proofs such as digital signatures.
+      本规范中定义的去中心化标识符（DID）是一种新型全球唯一标识符。它们旨在使个人和组织能够使用他们信任的系统生成自己的标识符。这些新的标识符使实体能够通过使用数字签名等加密证明进行认证，从而证明对它们的控制。
     </p>
     <p>
-      Since the generation and assertion of Decentralized Identifiers is
-      entity-controlled, each entity can have as many DIDs as necessary to maintain
-      their desired separation of identities, personas, and interactions. The use of
-      these identifiers can be scoped appropriately to different contexts. They
-      support interactions with other people, institutions, or systems that require
-      entities to identify themselves, or things they control, while providing control
-      over how much personal or private data should be revealed, all without depending
-      on a central authority to guarantee the continued existence of the identifier.
-      These ideas are explored in the DID Use Cases document [<cite><a class="bibref" data-link-type="biblio"
+      由于去中心化标识符的生成和声明是实体控制的，每个实体可以拥有尽可能多的DID，以维持他们希望的身份、角色和互动的分离。这些标识符的使用可以适当地限定在不同的场景中。它们支持与其他人、机构或需要实体识别自己或其控制的事物的系统进行互动，同时在不依赖中央权威机构来保证标识符持续存在的情况下，控制应该透露多少个人或私有数据。这些想法在DID用例文档中得到了探讨 [<cite><a class="bibref" data-link-type="biblio"
           href="#bib-did-use-cases"
-          title="Use Cases and Requirements for Decentralized Identifiers">DID-USE-CASES</a></cite>].
+          title="Use Cases and Requirements for Decentralized Identifiers">DID-USE-CASES</a></cite>]。
     </p>
     <p>
-      This specification does not presuppose any particular technology or cryptography
-      to underpin the generation, persistence, resolution, or interpretation of DIDs.
-      For example, implementers can create Decentralized Identifiers based on
-      identifiers registered in federated or centralized identity management systems.
-      Indeed, almost all types of identifier systems can add support for DIDs. This
-      creates an interoperability bridge between the worlds of centralized, federated,
-      and decentralized identifiers. This also enables implementers to design specific
-      types of DIDs to work with the computing infrastructure they trust, such as
-      distributed ledgers, decentralized file systems, distributed databases, and
-      peer-to-peer networks.
+      本规范并不预设用于生成、持久化、解析或解释DID的任何特定技术或加密方法。例如，实现者可以基于联合或集中式身份管理系统中注册的标识符创建去中心化标识符。实际上，几乎所有类型的标识符系统都可以添加对DID的支持。这在集中式、联合式和去中心化标识符的世界之间建立了互操作性桥梁。这也使实现者能够设计特定类型的DID，以便与他们信任的计算基础设施一起使用，如分布式账本、去中心化文件系统、分布式数据库和点对点网络。
     </p>
     <p>
-      This specification is for:
+      本规范适用于：
     </p>
     <ul>
       <li>
-        Anyone that wants to understand the core architectural principles that
-        are the foundation for Decentralized Identifiers;
+        希望了解去中心化标识符基础架构核心原则的任何人；
       </li>
 
       <li>
-        Software developers that want to produce and consume Decentralized Identifiers
-        and their associated data formats;
+        希望生成和使用去中心化标识符及其相关数据格式的软件开发人员；
       </li>
       <li>
-        Systems integrators that want to understand how to use Decentralized
-        Identifiers in their software and hardware systems;
+        希望了解如何在其软件和硬件系统中使用去中心化标识符的系统集成商；
       </li>
       <li>
-        Specification authors that want to create new DID infrastructures, known as DID
-        methods, that conform to the ecosystem described by this document.
+        希望创建符合本文档描述的生态系统的新DID基础设施（称为 DID
+        方法）的规范作者。
       </li>
     </ul>
 
     <p>
-      In addition to this specification, readers might find the
-      Use Cases and Requirements for Decentralized Identifiers [<cite><a class="bibref" data-link-type="biblio"
+      除了本规范外，读者可能会发现去中心化标识符的用例和需求文档 [<cite><a class="bibref" data-link-type="biblio"
           href="#bib-did-use-cases"
           title="Use Cases and Requirements for Decentralized Identifiers">DID-USE-CASES</a></cite>]
-      document useful.
+      也很有用。
     </p>
 
     <section class="informative" id="a-simple-example">
       <div class="header-wrapper">
-        <h3 id="x1-1-a-simple-example"><bdi class="secno">1.1 </bdi>A Simple Example</h3><a class="self-link"
-          href="#a-simple-example" aria-label="Permalink for Section 1.1"></a>
+        <h3 id="x1-1-a-simple-example"><bdi class="secno">1.1 </bdi>一个简单的例子</h3><a class="self-link"
+          href="#a-simple-example" aria-label="Section 1.1的永久链接"></a>
       </div>
-      <p><em>This section is non-normative.</em></p>
+      <p><em>本节为非规范性内容。</em></p>
 
 
       <p>
-        A <a href="#dfn-decentralized-identifiers" class="internalDFN" data-link-type="dfn"
-          id="ref-for-dfn-decentralized-identifiers-10">DID</a> is a simple text string consisting of three parts: 1)
-        the
-        <code>did</code> URI scheme identifier, 2) the identifier for the <a href="#dfn-did-methods" class="internalDFN"
-          data-link-type="dfn" id="ref-for-dfn-did-methods-1">DID
-          method</a>, and 3) the DID method-specific identifier.
+        一个 DID（去中心化标识符）是一个由三个部分组成的简单文本字符串：1）did URI 方案标识符，2）DID
+          方法的标识符，以及 3）DID 方法特定的标识符。
       </p>
 
       <figure id="parts-of-a-did">
         <img style="margin: auto; display: block; width: 75%;" src="diagrams/parts-of-a-did.svg" alt="
-A diagram showing the parts of a DID. The left-most letters spell 'did' in blue,
-are enclosed in a horizontal bracket from above and a label that reads 'scheme'
-above the bracket. A gray colon follows the 'did' letters. The middle letters
-spell 'example' in magenta, are enclosed in a horizontal bracket from below and
-a label that reads 'DID Method' below the bracket. A gray colon follows the
-DID Method. Finally, the letters at the end read '123456789abcdefghi' in
-green, are enclosed in a horizontal bracket from below and a label that
-reads 'DID Method Specific String' below the bracket.
-        " height="157" width="500">
-        <figcaption>Figure <bdi class="figno">1</bdi> <span class="fig-title">
-            A simple example of a decentralized identifier (DID)
+一个展示DID组成部分的图表。最左边的字母以蓝色拼写出'did'，
+上方有一个水平括号将其括起，并在括号上方标注有'scheme'。
+紧接着是一个灰色的冒号。中间的字母以品红色拼写出'example'，
+下方有一个水平括号将其括起，并在括号下方标注有'DID Method'。
+紧接着是一个灰色的冒号。最后，末尾的字母以绿色拼写出
+'123456789abcdefghi'，下方有一个水平括号将其括起，
+并在括号下方标注有'DID Method Specific String'。
+  " height="157" width="500">
+        <figcaption>图 <bdi class="figno">1</bdi> <span class="fig-title">
+            一个去中心化标识符（DID）的简单示例
           </span></figcaption>
       </figure>
-
       <p>
-        The example <a href="#dfn-decentralized-identifiers" class="internalDFN" data-link-type="dfn"
-          id="ref-for-dfn-decentralized-identifiers-11">DID</a> above resolves to a <a href="#dfn-did-documents"
-          class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-documents-3">DID document</a>. A <a
+        上述示例中的 <a href="#dfn-decentralized-identifiers" class="internalDFN" data-link-type="dfn"
+          id="ref-for-dfn-decentralized-identifiers-11">DID</a> 解析为一个 <a href="#dfn-did-documents"
+          class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-documents-3">DID 文档</a>。一个 <a
           href="#dfn-did-documents" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-documents-4">DID
-          document</a> contains information associated with the <a href="#dfn-decentralized-identifiers"
-          class="internalDFN" data-link-type="dfn" id="ref-for-dfn-decentralized-identifiers-12">DID</a>, such as ways
-        to cryptographically <a href="#dfn-authenticated" class="internalDFN" data-link-type="dfn"
-          id="ref-for-dfn-authenticated-1">authenticate</a> a <a href="#dfn-did-controllers" class="internalDFN"
-          data-link-type="dfn" id="ref-for-dfn-did-controllers-2">DID controller</a>.
+          文档</a>包含与 <a href="#dfn-decentralized-identifiers"
+          class="internalDFN" data-link-type="dfn" id="ref-for-dfn-decentralized-identifiers-12">DID</a>相关的信息，例如如何以加密方式 <a href="#dfn-authenticated" class="internalDFN" data-link-type="dfn"
+          id="ref-for-dfn-authenticated-1">验证</a>一个<a
+          href="#dfn-did-controllers" class="internalDFN"
+          data-link-type="dfn" id="ref-for-dfn-did-controllers-2">DID 控制器</a>。
       </p>
 
       <div class="example" id="example-a-simple-did-document">
         <div class="marker">
-          <a class="self-link" href="#example-a-simple-did-document">Example<bdi> 1</bdi></a><span
-            class="example-title">: A simple DID document</span>
+          <a class="self-link" href="#example-a-simple-did-document">示例<bdi> 1</bdi></a><span
+            class="example-title">:
+            一个简单的DID文档</span>
         </div>
         <pre class="nohighlight">{
   "@context": [
@@ -1632,30 +1551,26 @@ reads 'DID Method Specific String' below the bracket.
 
     <section class="informative" id="design-goals">
       <div class="header-wrapper">
-        <h3 id="x1-2-design-goals"><bdi class="secno">1.2 </bdi>Design Goals</h3><a class="self-link"
-          href="#design-goals" aria-label="Permalink for Section 1.2"></a>
+        <h3 id="x1-2-design-goals"><bdi class="secno">1.2 </bdi>设计目标</h3><a class="self-link"
+          href="#design-goals"
+          aria-label="Permalink for Section 1.2"></a>
       </div>
-      <p><em>This section is non-normative.</em></p>
-
+      <p><em>本节为非规范性内容。</em></p>
 
       <p>
         <a href="#dfn-decentralized-identifiers" class="internalDFN" data-link-type="dfn"
-          id="ref-for-dfn-decentralized-identifiers-13">Decentralized Identifiers</a> are a component of larger systems,
-        such as the
-        Verifiable Credentials ecosystem [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model"
-            title="Verifiable Credentials Data Model v1.1">VC-DATA-MODEL</a></cite>], which influenced the design
-        goals for this specification. The design goals for Decentralized Identifiers
-        are summarized here.
+          id="ref-for-dfn-decentralized-identifiers-13">去中心化标识符</a>是更大系统的组成部分，如可验证凭证生态系统 [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model"
+            title="Verifiable Credentials Data Model v1.1">VC-DATA-MODEL</a></cite>]，这影响了本规范的设计目标。去中心化标识符的设计目标在此进行总结。
       </p>
 
       <table class="simple">
         <thead>
           <tr>
             <th>
-              Goal
+              目标
             </th>
             <th>
-              Description
+              描述
             </th>
           </tr>
         </thead>
@@ -1663,111 +1578,109 @@ reads 'DID Method Specific String' below the bracket.
         <tbody>
           <tr>
             <td>
-              Decentralization
+              去中心化
             </td>
             <td>
-              Eliminate the requirement for centralized authorities or single point failure in
-              identifier management, including the registration of globally unique
-              identifiers, public verification keys, <a href="#dfn-service" class="internalDFN" data-link-type="dfn"
-                id="ref-for-dfn-service-3">services</a>, and other information.
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              Control
-            </td>
-            <td>
-              Give entities, both human and non-human, the power to directly control their
-              digital identifiers without the need to rely on external authorities.
+              消除对集中式权威或单点故障的需求
+              在标识符管理中，包括全球唯一
+              标识符、公共验证密钥， <a href="#dfn-service" class="internalDFN" data-link-type="dfn"
+                id="ref-for-dfn-service-3">服务</a>和其他信息的注册。
             </td>
           </tr>
 
           <tr>
             <td>
-              Privacy
+              控制
             </td>
             <td>
-              Enable entities to control the privacy of their information, including minimal,
-              selective, and progressive disclosure of attributes or other data.
+              赋予实体（无论是人类还是非人类）直接控制其
+              数字标识符的能力，无需依赖外部权威。
             </td>
           </tr>
 
           <tr>
             <td>
-              Security
+              隐私
             </td>
             <td>
-              Enable sufficient security for requesting parties to depend on <a href="#dfn-did-documents"
+              使实体能够控制其信息的隐私，包括最小化、
+              有选择性地和逐步披露属性或其他数据。
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              安全
+            </td>
+            <td>
+              为请求方提供足够的安全性，使其可以依赖 <a href="#dfn-did-documents"
                 class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-documents-5">DID
-                documents</a> for their required level of assurance.
+                文档</a>以获得所需的保证水平。
             </td>
           </tr>
 
           <tr>
             <td>
-              Proof-based
+              基于证明
             </td>
             <td>
-              Enable <a href="#dfn-did-controllers" class="internalDFN" data-link-type="dfn"
-                id="ref-for-dfn-did-controllers-3">DID controllers</a> to provide cryptographic proof when interacting
-              with other entities.
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              Discoverability
-            </td>
-            <td>
-              Make it possible for entities to discover <a href="#dfn-decentralized-identifiers" class="internalDFN"
-                data-link-type="dfn" id="ref-for-dfn-decentralized-identifiers-14">DIDs</a> for other entities, to
-              learn more about or interact with those entities.
+              允许 <a href="#dfn-did-controllers" class="internalDFN" data-link-type="dfn"
+                id="ref-for-dfn-did-controllers-3">DID 控制器</a>在与其他实体互动时提供加密证明。
             </td>
           </tr>
 
           <tr>
             <td>
-              Interoperability
+              可发现性
             </td>
             <td>
-              Use interoperable standards so <a href="#dfn-decentralized-identifiers" class="internalDFN"
-                data-link-type="dfn" id="ref-for-dfn-decentralized-identifiers-15">DID</a> infrastructure can make use
-              of
-              existing tools and software libraries designed for interoperability.
+              使实体能够发现其他实体的 <a href="#dfn-decentralized-identifiers" class="internalDFN"
+                data-link-type="dfn" id="ref-for-dfn-decentralized-identifiers-14">DID</a>，以
+              了解更多关于这些实体或与这些实体互动的信息。
             </td>
           </tr>
 
           <tr>
             <td>
-              Portability
+              互操作性
             </td>
             <td>
-              Be system- and network-independent and enable entities to use their digital
-              identifiers with any system that supports <a href="#dfn-decentralized-identifiers" class="internalDFN"
-                data-link-type="dfn" id="ref-for-dfn-decentralized-identifiers-16">DIDs</a> and <a
+              使用互操作性标准，使 <a href="#dfn-decentralized-identifiers" class="internalDFN"
+                data-link-type="dfn" id="ref-for-dfn-decentralized-identifiers-15">DID</a> 基础设施可以使用
+              为互操作性而设计的现有工具和软件库。
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              可移植性
+            </td>
+            <td>
+              实现系统和网络独立，并使实体能够在任何支持 <a href="#dfn-decentralized-identifiers" class="internalDFN"
+                data-link-type="dfn" id="ref-for-dfn-decentralized-identifiers-16">DID</a>和 <a
                 href="#dfn-did-methods" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-methods-2">DID
-                methods</a>.
+                方法</a>的系统中使用其数字
+              标识符。
             </td>
           </tr>
 
           <tr>
             <td>
-              Simplicity
+              简单性
             </td>
             <td>
-              Favor a reduced set of simple features to make the technology easier to
-              understand, implement, and deploy.
+              优先考虑简化功能集，使技术更容易
+              理解、实现和部署。
             </td>
           </tr>
 
           <tr>
             <td>
-              Extensibility
+              可扩展性
             </td>
             <td>
-              Where possible, enable extensibility provided it does not greatly hinder
-              interoperability, portability, or simplicity.
+              在可能的情况下，实现可扩展性，前提是它不会大大阻碍
+              互操作性、可移植性或简单性。
             </td>
           </tr>
         </tbody>
@@ -1777,221 +1690,143 @@ reads 'DID Method Specific String' below the bracket.
     <section class="informative" id="architecture-overview">
       <div class="header-wrapper">
         <h3 id="x1-3-architecture-overview"><bdi class="secno">1.3 </bdi>
-          Architecture Overview
+          架构概述
         </h3><a class="self-link" href="#architecture-overview" aria-label="Permalink for Section 1.3"></a>
       </div>
-      <p><em>This section is non-normative.</em></p>
+      <p><em>本节为非规范性内容。</em></p>
 
 
       <p>
-        This section provides a basic overview of the major components of
-        Decentralized Identifier architecture.
+        本节提供了去中心化标识符架构的主要组成部分的基本概述。
       </p>
 
       <figure id="brief-architecture-overview">
         <img style="margin: auto; display: block; width: 75%;" src="diagrams/did_brief_architecture_overview.svg" alt="
-DIDs and DID documents are recorded on a Verifiable Data Registry; DIDs resolve
-to DID documents; DIDs refer to DID subjects; a DID controller controls a DID
-document; DID URLs contains a DID; DID URLs dereferenced to DID document
-fragments or external resources.
+DID 和 DID 文档记录在可验证数据注册表上；DID 解析为 DID 文档；DID 指向 DID 主题；DID 控制器控制 DID 文档；DID URL 包含 DID；DID URL 解引用为 DID 文档片段或外部资源。
         " height="555" width="944">
-        <figcaption>Figure <bdi class="figno">2</bdi> <span class="fig-title">
-            Overview of DID architecture and the relationship of the basic components.
-            See also: <a class="longdesc-link" href="#brief-architecture-overview-longdesc">narrative description</a>.
+        <figcaption>图 <bdi class="figno">2</bdi> <span class="fig-title">
+             DID 架构概述以及基本组件之间的关系。
+            另见：<a class="longdesc-link" href="#brief-architecture-overview-longdesc">叙述性描述</a>。
           </span></figcaption>
       </figure>
 
       <div class="longdesc" id="brief-architecture-overview-longdesc">
         <p>
-          Six internally-labeled shapes appear in the diagram, with labeled arrows
-          between them, as follows. In the center of the diagram is a rectangle labeled
-          DID URL, containing small typewritten text "did:example:123/path/to/rsrc". At
-          the center top of the diagram is a rectangle labeled, "DID", containing small
-          typewritten text "did:example:123". At the top left of the diagram is an oval,
-          labeled "DID Subject". At the bottom center of the diagram is a rectangle
-          labeled, "DID document". At the bottom left is an oval, labeled, "DID
-          Controller". On the center right of the diagram is a two-dimensional rendering
-          of a cylinder, labeled, "Verifiable Data Registry".
+          图中有六个带内部标签的形状，它们之间有带标签的箭头，如下所示。图的中心是一个标有
+          DID URL的矩形，包含小型打字机文字 "did:example:123/path/to/rsrc"。图的中上部是一个标有 "DID"
+          的矩形，包含小型打字机文字 "did:example:123"。图的左上角是一个椭圆形，标有 "DID 主题"。图的底部中心是一个标有 "DID 文档" 的矩形。左下角是一个椭圆形，标有 "DID
+          控制器"。图的中右部是一个二维渲染的圆柱体，标有 "可验证数据注册表"。
         </p>
         <p>
-          From the top of the "DID URL" rectangle, an arrow, labeled "contains", extends
-          upwards, pointing to the "DID" rectangle. From the bottom of the "DID URL"
-          rectangle, an arrow, labeled "refers, and
-          <strong><em>dereferences</em></strong>, to", extends downward, pointing to the
-          "DID document" rectangle. An arrow from the "DID" rectangle, labeled
-          "<strong><em>resolves</em></strong> to", points down to the "DID document"
-          rectangle. An arrow from the "DID" rectangle, labeled "refers to", points left
-          to the "DID subject" oval. An arrow from the "DID controller" oval, labeled
-          "controls", points right to the "DID document" rectangle. An arrow from the
-          "DID" rectangle, labeled "recorded on", points downards to the right, to the
-          "Verifiable Data Registry" cylinder. An arrow from the "DID document" rectangle,
-          labeled "recorded on", points upwards to the right to the "Verifiable Data
-          Registry" cylinder.
+          从 "DID URL" 矩形的顶部，一个标有 "包含" 的箭头向上延伸，指向 "DID" 矩形。从 "DID URL"
+          矩形的底部，一个标有 "指向，并
+          <strong><em>解引用</em></strong>，至" 的箭头向下延伸，指向
+          "DID 文档" 矩形。从 "DID" 矩形出发的箭头，标有
+          "<strong><em>解析</em></strong> 为"，指向
+          "DID 文档" 矩形。从 "DID" 矩形出发的箭头，标有 "指向"，指向左侧的 "DID 主题" 椭圆形。从 "DID 控制器" 椭圆形出发的箭头，标有 "控制"，指向 "DID 文档" 矩形。从
+          "DID"
+          矩形出发的箭头，标有 "记录在"，向右下方指向 "可验证数据注册表" 圆柱体。从 "DID 文档" 矩形出发的箭头，标有 "记录在"，向右上方指向 "可验证数据注册表" 圆柱体。
         </p>
       </div>
 
       <dl>
         <dt>
-          DIDs and DID URLs
+          DIDs 和 DID URLs
         </dt>
         <dd>
-          A Decentralized Identifier, or <a href="#dfn-decentralized-identifiers" class="internalDFN"
-            data-link-type="dfn" id="ref-for-dfn-decentralized-identifiers-17">DID</a>, is a <a href="#dfn-uri"
-            class="internalDFN" data-link-type="dfn" id="ref-for-dfn-uri-2">URI</a> composed of three
-          parts: the scheme <code>did:</code>, a method identifier, and a unique,
-          method-specific identifier specified by the <a href="#dfn-did-methods" class="internalDFN"
-            data-link-type="dfn" id="ref-for-dfn-did-methods-3">DID method</a>. <a href="#dfn-decentralized-identifiers"
-            class="internalDFN" data-link-type="dfn" id="ref-for-dfn-decentralized-identifiers-18">DIDs</a> are
-          resolvable to <a href="#dfn-did-documents" class="internalDFN" data-link-type="dfn"
-            id="ref-for-dfn-did-documents-6">DID documents</a>. A <a href="#dfn-did-urls" class="internalDFN"
-            data-link-type="dfn" id="ref-for-dfn-did-urls-1">DID URL</a> extends the syntax of a
-          basic <a href="#dfn-decentralized-identifiers" class="internalDFN" data-link-type="dfn"
-            id="ref-for-dfn-decentralized-identifiers-19">DID</a> to incorporate other standard <a href="#dfn-uri"
-            class="internalDFN" data-link-type="dfn" id="ref-for-dfn-uri-3">URI</a> components such as
-          path, query, and fragment in order to locate a particular
-          <a href="#dfn-resources" class="internalDFN" data-link-type="dfn"
-            id="ref-for-dfn-resources-1">resource</a>—for example, a cryptographic public key inside a <a
-            href="#dfn-did-documents" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-documents-7">DID
-            document</a>, or a <a href="#dfn-resources" class="internalDFN" data-link-type="dfn"
-            id="ref-for-dfn-resources-2">resource</a> external to the <a href="#dfn-did-documents" class="internalDFN"
-            data-link-type="dfn" id="ref-for-dfn-did-documents-8">DID document</a>.
-          These concepts are elaborated upon in <a href="#did-syntax" class="sec-ref"><bdi class="secno">3.1 </bdi>DID
-            Syntax</a> and <a href="#did-url-syntax" class="sec-ref"><bdi class="secno">3.2 </bdi>DID URL Syntax</a>.
+          去中心化标识符（Decentralized
+          Identifier），或称为DID，是由三个部分组成的URI：方案（scheme）did:、方法标识符和由DID方法指定的唯一的、方法特定的标识符。DID可以解析为DID文档。DID
+          URL扩展了基本的DID语法，以包含其他标准的URI组件，如路径、查询和片段，以定位特定的资源，例如DID
+            文档内的加密公钥或DID文档外的资源。这些概念在DID
+            语法和DID URL语法中有详细说明。
         </dd>
 
         <dt>
-          DID subjects
+          DID 主题
         </dt>
         <dd>
-          The subject of a <a href="#dfn-decentralized-identifiers" class="internalDFN" data-link-type="dfn"
-            id="ref-for-dfn-decentralized-identifiers-20">DID</a> is, by definition, the entity identified by the
-          <a href="#dfn-decentralized-identifiers" class="internalDFN" data-link-type="dfn"
-            id="ref-for-dfn-decentralized-identifiers-21">DID</a>. The <a href="#dfn-did-subjects" class="internalDFN"
-            data-link-type="dfn" id="ref-for-dfn-did-subjects-5">DID subject</a> might also be the <a
-            href="#dfn-did-controllers" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-controllers-4">DID
-            controller</a>.
-          Anything can be the subject of a <a href="#dfn-decentralized-identifiers" class="internalDFN"
-            data-link-type="dfn" id="ref-for-dfn-decentralized-identifiers-22">DID</a>: person, group, organization,
-          thing, or concept. This is further defined in <a href="#did-subject" class="sec-ref"><bdi class="secno">5.1.1
-            </bdi>DID Subject</a>.
+           <a href="#dfn-decentralized-identifiers" class="internalDFN" data-link-type="dfn"
+            id="ref-for-dfn-decentralized-identifiers-20">DID</a> 的主题是根据定义，由 DID 标识的实体。DID 主题也可以是DID
+            控制器。任何东西都可以成为 DID
+          的主题：个人、群组、组织、物体或概念。这在 <a href="#did-subject" class="sec-ref"><bdi class="secno">5.1.1
+            </bdi>DID 主题</a>
+          中有进一步定义。
         </dd>
 
         <dt>
-          DID controllers
+          DID 控制器
         </dt>
         <dd>
-          The <a href="#dfn-controller" class="internalDFN" data-link-type="dfn"
-            id="ref-for-dfn-controller-1">controller</a> of a <a href="#dfn-decentralized-identifiers"
-            class="internalDFN" data-link-type="dfn" id="ref-for-dfn-decentralized-identifiers-23">DID</a> is the entity
-          (person, organization, or
-          autonomous software) that has the capability—as defined by a <a href="#dfn-did-methods" class="internalDFN"
+           <a href="#dfn-controller" class="internalDFN" data-link-type="dfn"
+            id="ref-for-dfn-controller-1">DID
+          控制器</a>是具有能力（由<a href="#dfn-did-methods" class="internalDFN"
             data-link-type="dfn" id="ref-for-dfn-did-methods-4">DID
-            method</a>—to make changes to a <a href="#dfn-did-documents" class="internalDFN" data-link-type="dfn"
-            id="ref-for-dfn-did-documents-9">DID document</a>. This capability is
-          typically asserted by the control of a set of cryptographic keys used by
-          software acting on behalf of the controller, though it might also be asserted
-          via other mechanisms. Note that a <a href="#dfn-decentralized-identifiers" class="internalDFN"
-            data-link-type="dfn" id="ref-for-dfn-decentralized-identifiers-24">DID</a> might have more than one
-          controller, and the <a href="#dfn-did-subjects" class="internalDFN" data-link-type="dfn"
-            id="ref-for-dfn-did-subjects-6">DID subject</a> can be the <a href="#dfn-did-controllers"
-            class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-controllers-5">DID controller</a>, or one
-          of them. This concept is documented in <a href="#did-controller" class="sec-ref"><bdi class="secno">5.1.2
-            </bdi>DID Controller</a>.
+            方法</a>定义）对 <a href="#dfn-did-documents" class="internalDFN" data-link-type="dfn"
+            id="ref-for-dfn-did-documents-9">DID
+          文档</a>进行更改的实体（个人、组织或自主软件）。这种能力通常通过控制一组由代表控制器的软件使用的加密密钥来声明，但也可以通过其他机制来声明。请注意，一个<a
+           href="#dfn-decentralized-identifiers" class="internalDFN"
+            data-link-type="dfn" id="ref-for-dfn-decentralized-identifiers-24">DID</a> 可能有多个控制器，而 <a href="#dfn-did-subjects" class="internalDFN" data-link-type="dfn"
+            id="ref-for-dfn-did-subjects-6">DID 主题</a>可以是 <a href="#dfn-did-controllers"
+            class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-controllers-5">DID
+          控制器</a>之一。这个概念在 <a href="#did-controller" class="sec-ref"><bdi class="secno">5.1.2
+            </bdi>DID 控制器</a>中有详细说明。
         </dd>
 
         <dt>
-          Verifiable data registries
+          可验证数据注册表
         </dt>
         <dd>
-          In order to be resolvable to <a href="#dfn-did-documents" class="internalDFN" data-link-type="dfn"
-            id="ref-for-dfn-did-documents-10">DID documents</a>, <a href="#dfn-decentralized-identifiers"
-            class="internalDFN" data-link-type="dfn" id="ref-for-dfn-decentralized-identifiers-25">DIDs</a> are
-          typically
-          recorded on an underlying system or network of some kind. Regardless of the
-          specific technology used, any such system that supports recording <a href="#dfn-decentralized-identifiers"
-            class="internalDFN" data-link-type="dfn" id="ref-for-dfn-decentralized-identifiers-26">DIDs</a>
-          and returning data necessary to produce <a href="#dfn-did-documents" class="internalDFN" data-link-type="dfn"
-            id="ref-for-dfn-did-documents-11">DID documents</a> is called a
-          <a href="#dfn-verifiable-data-registry" class="internalDFN" data-link-type="dfn"
-            id="ref-for-dfn-verifiable-data-registry-1">verifiable data registry</a>. Examples include <a
+          为了能够解析为 <a href="#dfn-did-documents" class="internalDFN" data-link-type="dfn"
+            id="ref-for-dfn-did-documents-10">DID 文档</a>， <a href="#dfn-decentralized-identifiers"
+            class="internalDFN" data-link-type="dfn" id="ref-for-dfn-decentralized-identifiers-25">DID</a>通常会记录在某种底层系统或网络上。无论使用的具体技术是什么，任何支持记录<a
+           href="#dfn-decentralized-identifiers"
+            class="internalDFN" data-link-type="dfn" id="ref-for-dfn-decentralized-identifiers-26">DID</a>
+          并返回生成 <a href="#dfn-did-documents" class="internalDFN" data-link-type="dfn"
+            id="ref-for-dfn-did-documents-11">DID 文档</a>所需数据的系统都被称为< a
+           href="#dfn-verifiable-data-registry" class="internalDFN" data-link-type="dfn"
+            id="ref-for-dfn-verifiable-data-registry-1">可验证数据注册表</a>。示例包括 <a
             href="#dfn-distributed-ledger-technology" class="internalDFN" data-link-type="dfn"
-            id="ref-for-dfn-distributed-ledger-technology-1">distributed ledgers</a>,
-          decentralized file systems, databases of any kind, peer-to-peer networks, and
-          other forms of trusted data storage. This concept is further elaborated upon in
-          <a href="#methods" class="sec-ref"><bdi class="secno">8. </bdi>Methods</a>.
+            id="ref-for-dfn-distributed-ledger-technology-1">分布式账本</a>、去中心化文件系统、任何类型的数据库、点对点网络和其他形式的可信数据存储。这个概念在<a
+           href="#methods" class="sec-ref"><bdi class="secno">8. </bdi>Methods</a>中有进一步阐述。
         </dd>
 
         <dt>
-          DID documents
+          DID文档
         </dt>
         <dd>
           <a href="#dfn-did-documents" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-documents-12">DID
-            documents</a> contain information associated with a <a href="#dfn-decentralized-identifiers"
-            class="internalDFN" data-link-type="dfn" id="ref-for-dfn-decentralized-identifiers-27">DID</a>. They
-          typically express <a href="#dfn-verification-method" class="internalDFN" data-link-type="dfn"
-            id="ref-for-dfn-verification-method-2">verification methods</a>, such as cryptographic public
-          keys, and <a href="#dfn-service" class="internalDFN" data-link-type="dfn"
-            id="ref-for-dfn-service-4">services</a> relevant to interactions with the <a href="#dfn-did-subjects"
-            class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-subjects-7">DID subject</a>.
-          The generic properties supported in a <a href="#dfn-did-documents" class="internalDFN" data-link-type="dfn"
-            id="ref-for-dfn-did-documents-13">DID document</a> are specified in <a href="#core-properties"
-            class="sec-ref"><bdi class="secno">5. </bdi>Core Properties</a>. A <a href="#dfn-did-documents"
-            class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-documents-14">DID document</a> can be
-          serialized to a byte
-          stream (see <a href="#representations" class="sec-ref"><bdi class="secno">6. </bdi>Representations</a>). The
-          properties present in
-          a <a href="#dfn-did-documents" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-documents-15">DID
-            document</a> can be updated according to the applicable operations
-          outlined in <a href="#methods" class="sec-ref"><bdi class="secno">8. </bdi>Methods</a>.
+            文档</a>包含与DID相关的信息。它们通常包含验证方法（如加密公钥）和与DID主题交互相关的服务。在<a
+           href="#core-properties"
+            class="sec-ref"><bdi class="secno">5. </bdi>核心属性</a>中指定了DID文档支持的通用属性。DID文档可以序列化为字节流（参见<a href="#representations" class="sec-ref"><bdi
+              class="secno">6. </bdi>表示</a>）。根据适用的操作，可以更新DID
+            文档中的属性，这些操作在<a href="#methods" class="sec-ref"><bdi
+              class="secno">8. </bdi>方法</a>中有详细说明。
         </dd>
 
         <dt>
-          DID methods
+          DID方法
         </dt>
         <dd>
           <a href="#dfn-did-methods" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-methods-5">DID
-            methods</a> are the mechanism by which a particular type of <a href="#dfn-decentralized-identifiers"
-            class="internalDFN" data-link-type="dfn" id="ref-for-dfn-decentralized-identifiers-28">DID</a>
-          and its associated <a href="#dfn-did-documents" class="internalDFN" data-link-type="dfn"
-            id="ref-for-dfn-did-documents-16">DID document</a> are created, resolved, updated, and
-          deactivated. <a href="#dfn-did-methods" class="internalDFN" data-link-type="dfn"
-            id="ref-for-dfn-did-methods-6">DID methods</a> are defined using separate DID method
-          specifications as defined in <a href="#methods" class="sec-ref"><bdi class="secno">8. </bdi>Methods</a>.
+            方法</a>是创建、解析、更新和停用特定类型的DID及其关联的DID文档的机制。使用单独的DID方法规范来定义DID方法，如<a
+           href="#methods" class="sec-ref"><bdi class="secno">8. </bdi>方法</a>中所定义。
         </dd>
 
         <dt>
-          DID resolvers and DID resolution
+          DID 解析器和 DID 解析
         </dt>
         <dd>
-          A <a href="#dfn-did-resolvers" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-resolvers-1">DID
-            resolver</a> is a system component that takes a <a href="#dfn-decentralized-identifiers" class="internalDFN"
-            data-link-type="dfn" id="ref-for-dfn-decentralized-identifiers-29">DID</a> as input and
-          produces a conforming <a href="#dfn-did-documents" class="internalDFN" data-link-type="dfn"
-            id="ref-for-dfn-did-documents-17">DID document</a> as output. This process is called
-          <a href="#dfn-did-resolution" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-resolution-1">DID
-            resolution</a>. The steps for resolving a specific type of <a href="#dfn-decentralized-identifiers"
-            class="internalDFN" data-link-type="dfn" id="ref-for-dfn-decentralized-identifiers-30">DID</a> are
-          defined by the relevant <a href="#dfn-did-methods" class="internalDFN" data-link-type="dfn"
-            id="ref-for-dfn-did-methods-7">DID method</a> specification. The process of <a href="#dfn-did-resolution"
-            class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-resolution-2">DID
-            resolution</a> is elaborated upon in <a href="#resolution" class="sec-ref"><bdi class="secno">7.
-            </bdi>Resolution</a>.
+          DID
+            解析器是一个系统组件，它以 DID 作为输入，并生成符合规范的 DID 文档作为输出。这个过程被称为DID
+            解析。解析特定类型的 DID 的步骤由相关的 DID 方法规范定义。DID
+            解析的过程在解析中详细说明。
         </dd>
         <dt>
-          DID URL dereferencers and DID URL dereferencing
+          DID URL 解引用器和 DID URL 解引用
         </dt>
         <dd>
-          A <a href="#dfn-did-url-dereferencers" class="internalDFN" data-link-type="dfn"
-            id="ref-for-dfn-did-url-dereferencers-1">DID URL dereferencer</a> is a system component that takes a <a
-            href="#dfn-did-urls" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-urls-2">DID URL</a>
-          as input and produces a <a href="#dfn-resources" class="internalDFN" data-link-type="dfn"
-            id="ref-for-dfn-resources-3">resource</a> as output. This process is
-          called <a href="#dfn-did-url-dereferencing" class="internalDFN" data-link-type="dfn"
-            id="ref-for-dfn-did-url-dereferencing-1">DID URL dereferencing</a>. The process of <a
-            href="#dfn-did-url-dereferencing" class="internalDFN" data-link-type="dfn"
-            id="ref-for-dfn-did-url-dereferencing-2">DID URL dereferencing</a>
-          is elaborated upon in <a href="#did-url-dereferencing" class="sec-ref"><bdi class="secno">7.2 </bdi>DID URL
-            Dereferencing</a>.
+          DID URL 解引用器是一个系统组件，它以 DID URL 作为输入，并生成资源作为输出。这个过程被称为 DID URL 解引用。DID URL 解引用的过程在DID URL
+            解引用中详细说明。
         </dd>
       </dl>
 
@@ -1999,134 +1834,60 @@ fragments or external resources.
 
     <section id="conformance">
       <div class="header-wrapper">
-        <h3 id="x1-4-conformance"><bdi class="secno">1.4 </bdi>Conformance</h3><a class="self-link" href="#conformance"
+        <h3 id="x1-4-conformance"><bdi class="secno">1.4 </bdi>一致性</h3><a class="self-link" href="#conformance"
           aria-label="Permalink for Section 1.4"></a>
       </div>
-      <p>As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this
-        specification are non-normative. Everything else in this specification is normative.</p>
+      <p>除了标记为非规范性的部分外，本规范中的所有撰写指南、图表、示例和注释都是非规范性的。本规范中的其他内容均为规范性的。</p>
       <p>
-        The key words <em class="rfc2119">MAY</em>, <em class="rfc2119">MUST</em>, <em class="rfc2119">MUST NOT</em>,
-        <em class="rfc2119">OPTIONAL</em>, <em class="rfc2119">RECOMMENDED</em>, <em class="rfc2119">REQUIRED</em>, <em
-          class="rfc2119">SHOULD</em>, and <em class="rfc2119">SHOULD NOT</em> in this document
-        are to be interpreted as described in
+        本文档中的关键词 <em class="rfc2119">MAY</em>、<em class="rfc2119">MUST</em>、<em class="rfc2119">MUST NOT</em>、
+        <em class="rfc2119">OPTIONAL</em>、<em class="rfc2119">RECOMMENDED</em>、<em class="rfc2119">REQUIRED</em>、 <em
+          class="rfc2119">SHOULD</em>和 <em class="rfc2119">SHOULD NOT</em>
+        的解释如
         <a href="https://datatracker.ietf.org/doc/html/bcp14">BCP 14</a>
         [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc2119"
-            title="Key words for use in RFCs to Indicate Requirement Levels">RFC2119</a></cite>] [<cite><a
+            title="用于RFC中指示要求级别的关键词">RFC2119</a></cite>] [<cite><a
             class="bibref" data-link-type="biblio" href="#bib-rfc8174"
-            title="Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words">RFC8174</a></cite>]
-        when, and only when, they appear in all capitals, as shown here.
+            title="RFC 2119关键词的大写和小写的歧义性">RFC8174</a></cite>]
+        ，只有当它们以全大写形式出现时，才按照此处所示进行解释。
       </p>
 
       <p>
-        This document contains examples that contain JSON and JSON-LD content.
-        Some of these examples contain characters that are invalid, such as inline
-        comments (<code>//</code>) and the use of ellipsis (<code>...</code>) to denote
-        information that adds little value to the example. Implementers are cautioned to
-        remove this content if they desire to use the information as valid JSON
-        or JSON-LD.
+        本文档包含包含JSON和JSON-LD内容的示例。其中一些示例包含无效的字符，例如行内注释（<code>//</code>）和使用省略号（<code>...</code>）来表示对示例添加很少价值的信息。如果实现者希望将信息用作有效的JSON或JSON-LD，则应删除此内容。
       </p>
 
       <p>
-        Some examples contain terms, both property names and values, that are not
-        defined in this specification. These are indicated with a comment (<code>//
-external (property name|value)</code>). Such terms, when used in a <a href="#dfn-did-documents" class="internalDFN"
-          data-link-type="dfn" id="ref-for-dfn-did-documents-18">DID
-          document</a>, are expected to be registered in the DID Specification Registries
-        [<cite><a class="bibref" data-link-type="biblio" href="#bib-did-spec-registries"
-            title="DID Specification Registries">DID-SPEC-REGISTRIES</a></cite>] with links to both a formal definition
-        and a JSON-LD
-        context.
+        一个符合规范的DID（conforming DID）是指符合
+        <a href="#identifier" class="sec-ref"><bdi class="secno">3. </bdi>标识符</a>部分相关规范性声明的具体表达方式。
       </p>
 
       <p>
-        Interoperability of implementations for <a href="#dfn-decentralized-identifiers" class="internalDFN"
-          data-link-type="dfn" id="ref-for-dfn-decentralized-identifiers-31">DIDs</a> and <a href="#dfn-did-documents"
-          class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-documents-19">DID documents</a> is
-        tested by evaluating an implementation's ability to create and parse <a href="#dfn-decentralized-identifiers"
-          class="internalDFN" data-link-type="dfn" id="ref-for-dfn-decentralized-identifiers-32">DIDs</a>
-        and <a href="#dfn-did-documents" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-documents-20">DID
-          documents</a> that conform to this specification. Interoperability
-        for producers and consumers of <a href="#dfn-decentralized-identifiers" class="internalDFN" data-link-type="dfn"
-          id="ref-for-dfn-decentralized-identifiers-33">DIDs</a> and <a href="#dfn-did-documents" class="internalDFN"
-          data-link-type="dfn" id="ref-for-dfn-did-documents-21">DID documents</a> is provided
-        by ensuring the <a href="#dfn-decentralized-identifiers" class="internalDFN" data-link-type="dfn"
-          id="ref-for-dfn-decentralized-identifiers-34">DIDs</a> and <a href="#dfn-did-documents" class="internalDFN"
-          data-link-type="dfn" id="ref-for-dfn-did-documents-22">DID documents</a> conform. Interoperability
-        for <a href="#dfn-did-methods" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-methods-8">DID
-          method</a> specifications is provided by the details in each <a href="#dfn-did-methods" class="internalDFN"
-          data-link-type="dfn" id="ref-for-dfn-did-methods-9">DID
-          method</a> specification. It is understood that, in the same way that a web
-        browser is not required to implement all known <a href="#dfn-uri" class="internalDFN" data-link-type="dfn"
-          id="ref-for-dfn-uri-4">URI</a> schemes, conformant
-        software that works with <a href="#dfn-decentralized-identifiers" class="internalDFN" data-link-type="dfn"
-          id="ref-for-dfn-decentralized-identifiers-35">DIDs</a> is not required to implement all known
-        <a href="#dfn-did-methods" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-methods-10">DID
-          methods</a>. However, all implementations of a given <a href="#dfn-did-methods" class="internalDFN"
-          data-link-type="dfn" id="ref-for-dfn-did-methods-11">DID method</a>
-        are expected to be interoperable for that method.
+        一个符合规范的DID文档（conforming DID document）是指符合本规范中描述的数据模型，并符合<a href="#data-model" class="sec-ref"><bdi
+            class="secno">4. </bdi>数据模型</a>和 <a
+          href="#core-properties" class="sec-ref"><bdi class="secno">5. </bdi>核心属性</a>部分相关规范性声明的具体表达方式。符合规范的文档的序列化格式是确定性的、双向的和无损的，详见 <a href="#representations" class="sec-ref"><bdi class="secno">6.
+          </bdi>表示</a>部分。
       </p>
 
       <p>
-        A <dfn data-plurals="conforming dids" id="dfn-conforming-did" tabindex="0" aria-haspopup="dialog"
-          data-dfn-type="dfn">conforming DID</dfn> is any concrete expression of the rules specified in
-        <a href="#identifier" class="sec-ref"><bdi class="secno">3. </bdi>Identifier</a> which complies with relevant
-        normative statements in
-        that section.
+        一个符合规范的生产者（conforming producer）是指作为软件和/或硬件实现的算法，能够生成符合规范的DID或 DID
+          文档，并符合 <a href="#representations"
+          class="sec-ref"><bdi class="secno">6. </bdi>表示</a>部分相关规范性声明。
       </p>
 
       <p>
-        A <dfn data-plurals="conforming did documents" id="dfn-conforming-did-document" tabindex="0"
-          aria-haspopup="dialog" data-dfn-type="dfn">conforming DID document</dfn> is any concrete expression of the
-        data
-        model described in this specification which complies with the relevant normative
-        statements in <a href="#data-model" class="sec-ref"><bdi class="secno">4. </bdi>Data Model</a> and <a
-          href="#core-properties" class="sec-ref"><bdi class="secno">5. </bdi>Core Properties</a>. A
-        serialization format for the conforming document is deterministic,
-        bi-directional, and lossless, as described in <a href="#representations" class="sec-ref"><bdi class="secno">6.
-          </bdi>Representations</a>.
+         <dfn class="lint-ignore" id="dfn-conforming-did-resolver" tabindex="0" aria-haspopup="dialog"
+          data-dfn-type="dfn">符合规范的DID解析器</dfn>是指作为软件和/或硬件实现的算法，符合<a href="#did-resolution" class="sec-ref"><bdi
+            class="secno">7.1 </bdi>DID解析</a>部分相关规范性声明。
       </p>
 
       <p>
-        A <dfn data-plurals="conforming producers" id="dfn-conforming-producer" tabindex="0" aria-haspopup="dialog"
-          data-dfn-type="dfn">conforming producer</dfn> is any algorithm realized as software and/or
-        hardware that generates <a href="#dfn-conforming-did" class="internalDFN" data-link-type="dfn"
-          id="ref-for-dfn-conforming-did-1">conforming DIDs</a> or <a href="#dfn-conforming-did-document"
-          class="internalDFN" data-link-type="dfn" id="ref-for-dfn-conforming-did-document-1">conforming DID
-          Documents</a> and complies with the relevant normative statements in <a href="#representations"
-          class="sec-ref"><bdi class="secno">6. </bdi>Representations</a>.
+         <dfn class="lint-ignore" id="dfn-conforming-did-url-dereferencer" tabindex="0" aria-haspopup="dialog"
+          data-dfn-type="dfn">符合规范的DID URL解引用器</dfn>是指作为软件和/或硬件实现的算法，符合<a href="#did-url-dereferencing" class="sec-ref"><bdi class="secno">7.2 </bdi>DID URL解引用</a>部分相关规范性声明。
       </p>
 
       <p>
-        A <dfn data-plurals="conforming consumers" id="dfn-conforming-consumer" tabindex="0" aria-haspopup="dialog"
-          data-dfn-type="dfn">conforming consumer</dfn> is any algorithm realized as software and/or
-        hardware that consumes <a href="#dfn-conforming-did" class="internalDFN" data-link-type="dfn"
-          id="ref-for-dfn-conforming-did-2">conforming DIDs</a> or <a href="#dfn-conforming-did-document"
-          class="internalDFN" data-link-type="dfn" id="ref-for-dfn-conforming-did-document-2">conforming DID
-          documents</a>
-        and complies with the relevant normative statements in <a href="#representations" class="sec-ref"><bdi
-            class="secno">6. </bdi>Representations</a>.
-      </p>
-
-      <p>
-        A <dfn class="lint-ignore" id="dfn-conforming-did-resolver" tabindex="0" aria-haspopup="dialog"
-          data-dfn-type="dfn">conforming DID resolver</dfn> is any algorithm
-        realized as software and/or hardware that complies with the relevant normative
-        statements in <a href="#did-resolution" class="sec-ref"><bdi class="secno">7.1 </bdi>DID Resolution</a>.
-      </p>
-
-      <p>
-        A <dfn class="lint-ignore" id="dfn-conforming-did-url-dereferencer" tabindex="0" aria-haspopup="dialog"
-          data-dfn-type="dfn">conforming DID URL dereferencer</dfn> is any
-        algorithm realized as software and/or hardware that complies with the relevant
-        normative statements in <a href="#did-url-dereferencing" class="sec-ref"><bdi class="secno">7.2 </bdi>DID URL
-          Dereferencing</a>.
-      </p>
-
-      <p>
-        A <dfn class="lint-ignore" id="dfn-conforming-did-method" tabindex="0" aria-haspopup="dialog"
-          data-dfn-type="dfn">conforming DID method</dfn> is any specification that
-        complies with the relevant normative statements in <a href="#methods" class="sec-ref"><bdi class="secno">8.
-          </bdi>Methods</a>.
+         <dfn class="lint-ignore" id="dfn-conforming-did-method" tabindex="0" aria-haspopup="dialog"
+          data-dfn-type="dfn">符合规范的DID方法</dfn>是指符合 <a href="#methods" class="sec-ref"><bdi class="secno">8.
+          </bdi>方法</a>部分相关规范性声明的规范。
       </p>
 
     </section>
@@ -2135,10 +1896,10 @@ external (property name|value)</code>). Such terms, when used in a <a href="#dfn
 
   <section class="informative" id="terminology">
     <div class="header-wrapper">
-      <h2 id="x2-terminology"><bdi class="secno">2. </bdi>Terminology</h2><a class="self-link" href="#terminology"
+      <h2 id="x2-terminology"><bdi class="secno">2. </bdi>术语</h2><a class="self-link" href="#terminology"
         aria-label="Permalink for Section 2."></a>
     </div>
-    <p><em>This section is non-normative.</em></p>
+    <p><em>本节为非规范性内容。</em></p>
 
 
     <div>
@@ -7402,7 +7163,7 @@ external resources.
       <h2 id="x9-security-considerations"><bdi class="secno">9. </bdi>Security Considerations</h2><a class="self-link"
         href="#security-considerations" aria-label="Permalink for Section 9."></a>
     </div>
-    <p><em>This section is non-normative.</em></p>
+    <p><em>本节为非规范性内容。</em></p>
 
 
     <p>
@@ -8605,7 +8366,7 @@ external resources.
       <h2 id="x10-privacy-considerations"><bdi class="secno">10. </bdi>Privacy Considerations</h2><a class="self-link"
         href="#privacy-considerations" aria-label="Permalink for Section 10."></a>
     </div>
-    <p><em>This section is non-normative.</em></p>
+    <p><em>本节为非规范性内容。</em></p>
 
 
     <p>
@@ -9022,7 +8783,7 @@ external resources.
         <h3 id="a-1-did-documents"><bdi class="secno">A.1 </bdi>DID Documents</h3><a class="self-link"
           href="#did-documents" aria-label="Permalink for Appendix A.1"></a>
       </div>
-      <p><em>This section is non-normative.</em></p>
+      <p><em>本节为非规范性内容。</em></p>
 
 
       <p>
@@ -9241,7 +9002,7 @@ external resources.
         <h3 id="a-2-proving"><bdi class="secno">A.2 </bdi>Proving</h3><a class="self-link" href="#proving"
           aria-label="Permalink for Appendix A.2"></a>
       </div>
-      <p><em>This section is non-normative.</em></p>
+      <p><em>本节为非规范性内容。</em></p>
 
 
       <div class="note" role="note" id="issue-container-generatedID-16">
@@ -9459,7 +9220,7 @@ external resources.
         <h3 id="a-3-encrypting"><bdi class="secno">A.3 </bdi>Encrypting</h3><a class="self-link" href="#encrypting"
           aria-label="Permalink for Appendix A.3"></a>
       </div>
-      <p><em>This section is non-normative.</em></p>
+      <p><em>本节为非规范性内容。</em></p>
 
 
       <div class="note" role="note" id="issue-container-generatedID-17">
@@ -10876,6 +10637,10 @@ DID controller group to control a DID document
       </dl>
     </section>
   </section>
+
+
+
+
   <p role="navigation" id="back-to-top">
     <a href="#title"><abbr title="Back to Top">↑</abbr></a>
   </p>
