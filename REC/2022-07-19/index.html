@@ -1195,24 +1195,22 @@
       <li class="tocline"><a class="tocxref" href="#terminology"><bdi class="secno">2. </bdi>术语</a></li>
       <li class="tocline"><a class="tocxref" href="#identifier"><bdi class="secno">3. </bdi>标识</a>
         <ol class="toc">
-          <li class="tocline"><a class="tocxref" href="#did-syntax"><bdi class="secno">3.1 </bdi>DID Syntax</a></li>
-          <li class="tocline"><a class="tocxref" href="#did-url-syntax"><bdi class="secno">3.2 </bdi>DID URL Syntax</a>
+          <li class="tocline"><a class="tocxref" href="#did-syntax"><bdi class="secno">3.1 </bdi>DID语法</a></li>
+          <li class="tocline"><a class="tocxref" href="#did-url-syntax"><bdi class="secno">3.2 </bdi>DID URL语法</a>
             <ol class="toc">
-              <li class="tocline"><a class="tocxref" href="#did-parameters"><bdi class="secno">3.2.1 </bdi>DID
-                  Parameters</a></li>
-              <li class="tocline"><a class="tocxref" href="#relative-did-urls"><bdi class="secno">3.2.2 </bdi>Relative
-                  DID URLs</a></li>
+              <li class="tocline"><a class="tocxref" href="#did-parameters"><bdi class="secno">3.2.1 </bdi>DID参数</a></li>
+              <li class="tocline"><a class="tocxref" href="#relative-did-urls"><bdi class="secno">3.2.2 </bdi>                  DID URLs相关</a></li>
             </ol>
           </li>
         </ol>
       </li>
-      <li class="tocline"><a class="tocxref" href="#data-model"><bdi class="secno">4. </bdi>Data Model</a>
+      <li class="tocline"><a class="tocxref" href="#data-model"><bdi class="secno">4. </bdi>数据模型</a>
         <ol class="toc">
-          <li class="tocline"><a class="tocxref" href="#extensibility"><bdi class="secno">4.1 </bdi>Extensibility</a>
+          <li class="tocline"><a class="tocxref" href="#extensibility"><bdi class="secno">4.1 </bdi>可扩展性</a>
           </li>
         </ol>
       </li>
-      <li class="tocline"><a class="tocxref" href="#core-properties"><bdi class="secno">5. </bdi>Core Properties</a>
+      <li class="tocline"><a class="tocxref" href="#core-properties"><bdi class="secno">5. </bdi>核心属性</a>
         <ol class="toc">
           <li class="tocline"><a class="tocxref" href="#identifiers"><bdi class="secno">5.1 </bdi>Identifiers</a>
             <ol class="toc">
@@ -2450,26 +2448,26 @@ pct-encoded        = "%" HEXDIG HEXDIG</pre>
 
     <section class="notoc">
       <div class="header-wrapper">
-        <h4 id="path">Path</h4><a class="self-link" href="#path" aria-label="Permalink for this Section"></a>
+        <h4 id="path">Path路径</h4><a class="self-link" href="#path" aria-label="Permalink for this Section"></a>
       </div>
 
 
       <p>
-        A <a href="#dfn-did-paths" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-paths-2">DID path</a>
-        is identical to a generic <a href="#dfn-uri" class="internalDFN" data-link-type="dfn"
-          id="ref-for-dfn-uri-6">URI</a> path and conforms to the
-        <code>path-abempty</code> ABNF rule in <a
-          href="https://www.rfc-editor.org/rfc/rfc3986#section-3.3">RFC&nbsp;3986, section 3.3</a>. As with
-        <a href="#dfn-uri" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-uri-7">URIs</a>, path semantics
-        can be specified by <a href="#dfn-did-methods" class="internalDFN" data-link-type="dfn"
-          id="ref-for-dfn-did-methods-19">DID Methods</a>, which in
-        turn might enable <a href="#dfn-did-controllers" class="internalDFN" data-link-type="dfn"
-          id="ref-for-dfn-did-controllers-7">DID controllers</a> to further specialize those semantics.
+        一个<a href="#dfn-did-paths" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-paths-2">DID 路径</a>
+        与通用的<a href="#dfn-uri" class="internalDFN" data-link-type="dfn"
+          id="ref-for-dfn-uri-6">URI</a>路径相同，并符合
+        <a href="https://www.rfc-editor.org/rfc/rfc3986#section-3.3">RFC&nbsp;3986, 第3.3节</a>中的
+        <code>path-abempty</code> ABNF 规则。与
+        <a href="#dfn-uri" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-uri-7">URI</a>一样，路径语义
+        可以由<a href="#dfn-did-methods" class="internalDFN" data-link-type="dfn"
+          id="ref-for-dfn-did-methods-19">DID方法</a>指定，这些方法又
+        可能使<a href="#dfn-did-controllers" class="internalDFN" data-link-type="dfn"
+          id="ref-for-dfn-did-controllers-7">DID控制器</a>进一步专门化这些语义。
       </p>
 
       <div class="example" id="example-2">
         <div class="marker">
-          <a class="self-link" href="#example-2">Example<bdi> 2</bdi></a>
+          <a class="self-link" href="#example-2">示例<bdi> 2</bdi></a>
         </div>
         <pre class="nohighlight">did:example:123456/path</pre>
       </div>
@@ -2478,23 +2476,23 @@ pct-encoded        = "%" HEXDIG HEXDIG</pre>
 
     <section class="notoc">
       <div class="header-wrapper">
-        <h4 id="query">Query</h4><a class="self-link" href="#query" aria-label="Permalink for this Section"></a>
+        <h4 id="query">Query查询</h4><a class="self-link" href="#query" aria-label="Permalink for this Section"></a>
       </div>
 
 
       <p>
-        A <a href="#dfn-did-queries" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-queries-2">DID
-          query</a> is identical to a generic <a href="#dfn-uri" class="internalDFN" data-link-type="dfn"
-          id="ref-for-dfn-uri-8">URI</a> query and conforms to
-        the <code>query</code> ABNF rule in <a href="https://www.rfc-editor.org/rfc/rfc3986#section-3.4">RFC&nbsp;3986,
-          section 3.4</a>. This syntax
-        feature is elaborated upon in <a href="#did-parameters" class="sec-ref"><bdi class="secno">3.2.1 </bdi>DID
-          Parameters</a>.
+        一个<a href="#dfn-did-queries" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-queries-2">DID
+          查询</a>与一般的<a href="#dfn-uri" class="internalDFN" data-link-type="dfn"
+          id="ref-for-dfn-uri-8">URI</a>查询相同，并符合
+        <a href="https://www.rfc-editor.org/rfc/rfc3986#section-3.4">RFC&nbsp;3986,
+          第3.4节</a>中的<code>query</code> ABNF规则。这种语法
+        特性在<a href="#did-parameters" class="sec-ref"><bdi class="secno">3.2.1 </bdi>DID
+          参数</a>中有详细阐述。
       </p>
 
       <div class="example" id="example-3">
         <div class="marker">
-          <a class="self-link" href="#example-3">Example<bdi> 3</bdi></a>
+          <a class="self-link" href="#example-3">示例<bdi> 3</bdi></a>
         </div>
         <pre class="nohighlight">did:example:123456?versionId=1</pre>
       </div>
@@ -2502,31 +2500,30 @@ pct-encoded        = "%" HEXDIG HEXDIG</pre>
 
     <section class="notoc">
       <div class="header-wrapper">
-        <h4 id="fragment">Fragment</h4><a class="self-link" href="#fragment"
+        <h4 id="fragment">Fragment片段</h4><a class="self-link" href="#fragment"
           aria-label="Permalink for this Section"></a>
       </div>
 
 
       <p>
         <a href="#dfn-did-fragments" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-fragments-2">DID
-          fragment</a> syntax and semantics are identical to a generic <a href="#dfn-uri" class="internalDFN"
+          片段</a>的语法和语义与通用的<a href="#dfn-uri" class="internalDFN"
           data-link-type="dfn" id="ref-for-dfn-uri-9">URI</a>
-        fragment and conforms to the <code>fragment</code> ABNF rule in <a
-          href="https://www.rfc-editor.org/rfc/rfc3986#section-3.5">RFC&nbsp;3986, section 3.5</a>.
+        片段相同，并符合<a
+          href="https://www.rfc-editor.org/rfc/rfc3986#section-3.5">RFC&nbsp;3986, 第3.5节</a>中的<code>fragment</code> ABNF规则。
       </p>
 
       <p>
-        A <a href="#dfn-did-fragments" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-fragments-3">DID
-          fragment</a> is used as a method-independent reference into a <a href="#dfn-did-documents" class="internalDFN"
+        <a href="#dfn-did-fragments" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-fragments-3">DID
+          片段</a>用作方法无关的引用，指向<a href="#dfn-did-documents" class="internalDFN"
           data-link-type="dfn" id="ref-for-dfn-did-documents-44">DID
-          document</a> or external <a href="#dfn-resources" class="internalDFN" data-link-type="dfn"
-          id="ref-for-dfn-resources-6">resource</a>. Some examples of DID fragment
-        identifiers are shown below.
+          文档</a>或外部<a href="#dfn-resources" class="internalDFN" data-link-type="dfn"
+          id="ref-for-dfn-resources-6">资源</a>。以下是一些DID片段标识符的示例。
       </p>
 
       <div class="example" id="example-a-unique-verification-method-in-a-did-document">
         <div class="marker">
-          <a class="self-link" href="#example-a-unique-verification-method-in-a-did-document">Example<bdi>
+          <a class="self-link" href="#example-a-unique-verification-method-in-a-did-document">示例<bdi>
               4</bdi></a><span class="example-title">: A unique verification method in a DID Document</span>
         </div>
         <pre class="nohighlight">did:example:123#public-key-0</pre>
@@ -2534,7 +2531,7 @@ pct-encoded        = "%" HEXDIG HEXDIG</pre>
 
       <div class="example" id="example-a-unique-service-in-a-did-document">
         <div class="marker">
-          <a class="self-link" href="#example-a-unique-service-in-a-did-document">Example<bdi> 5</bdi></a><span
+          <a class="self-link" href="#example-a-unique-service-in-a-did-document">示例<bdi> 5</bdi></a><span
             class="example-title">: A unique service in a DID Document</span>
         </div>
         <pre class="nohighlight">did:example:123#agent</pre>
@@ -2542,63 +2539,54 @@ pct-encoded        = "%" HEXDIG HEXDIG</pre>
 
       <div class="example" id="example-a-resource-external-to-a-did-document">
         <div class="marker">
-          <a class="self-link" href="#example-a-resource-external-to-a-did-document">Example<bdi> 6</bdi></a><span
+          <a class="self-link" href="#example-a-resource-external-to-a-did-document">示例<bdi> 6</bdi></a><span
             class="example-title">: A resource external to a DID Document</span>
         </div>
         <pre class="nohighlight">did:example:123?service=agent&amp;relativeRef=/credentials#degree</pre>
       </div>
-
       <div class="note" role="note" id="issue-container-generatedID-0">
-        <div role="heading" class="note-title marker" id="h-note-0" aria-level="5"><span>Note</span><span
-            class="issue-label">: Fragment semantics across representations</span></div>
+        <div role="heading" class="note-title marker" id="h-note-0" aria-level="5"><span>注意</span><span
+            class="issue-label">：跨表现形式的片段语义</span></div>
         <p class="">
-          In order to maximize interoperability, implementers are urged to ensure that
+          为了最大化互操作性，我们强烈建议实施者确保
           <a href="#dfn-did-fragments" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-fragments-4">DID
-            fragments</a> are interpreted in the same way across
+            片段</a>在不同的
           <a href="#dfn-representations" class="internalDFN" data-link-type="dfn"
-            id="ref-for-dfn-representations-4">representations</a> (see <a href="#representations" class="sec-ref"><bdi
-              class="secno">6. </bdi>Representations</a>). For example, while
+            id="ref-for-dfn-representations-4">表现形式</a>中具有相同的解释（参见 <a href="#representations" class="sec-ref"><bdi
+              class="secno">6. </bdi>表现形式</a>）。例如，虽然
           JSON Pointer [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc6901"
-              title="JavaScript Object Notation (JSON) Pointer">RFC6901</a></cite>] can be used in a <a
+              title="JavaScript Object Notation (JSON) Pointer">RFC6901</a></cite>]可以在<a
             href="#dfn-did-fragments" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-fragments-5">DID
-            fragment</a>, it will not be
-          interpreted in the same way across non-JSON <a href="#dfn-representations" class="internalDFN"
-            data-link-type="dfn" id="ref-for-dfn-representations-5">representations</a>.
+            片段</a>中使用，但在非JSON的<a href="#dfn-representations" class="internalDFN"
+            data-link-type="dfn" id="ref-for-dfn-representations-5">表现形式</a>中，它的解释方式将不同。
         </p>
       </div>
 
       <p>
-        Additional semantics for fragment identifiers, which are compatible with and
-        layered upon the semantics in this section, are described for JSON-LD
-        representations in <a href="#application-did-ld-json" class="sec-ref"><bdi class="secno">E.2
-          </bdi>application/did+ld+json</a>. For information
-        about how to dereference a <a href="#dfn-did-fragments" class="internalDFN" data-link-type="dfn"
-          id="ref-for-dfn-did-fragments-6">DID fragment</a>, see <a href="#did-url-dereferencing" class="sec-ref"><bdi
-            class="secno">7.2 </bdi>DID URL Dereferencing</a>.
+        片段标识符的附加语义，与本节中的语义兼容并在其基础上进行了描述，适用于JSON-LD
+        表现形式，详见 <a href="#application-did-ld-json" class="sec-ref"><bdi class="secno">E.2
+          </bdi>application/did+ld+json</a>。关于如何解引用<a href="#dfn-did-fragments" class="internalDFN" data-link-type="dfn"
+          id="ref-for-dfn-did-fragments-6">DID片段</a>的信息，参见<a href="#did-url-dereferencing" class="sec-ref"><bdi
+            class="secno">7.2 </bdi>DID URL 解引用</a>。
       </p>
 
     </section>
 
     <section id="did-parameters">
       <div class="header-wrapper">
-        <h4 id="x3-2-1-did-parameters"><bdi class="secno">3.2.1 </bdi>DID Parameters</h4><a class="self-link"
+        <h4 id="x3-2-1-did-parameters"><bdi class="secno">3.2.1 </bdi>DID参数</h4><a class="self-link"
           href="#did-parameters" aria-label="Permalink for Section 3.2.1"></a>
       </div>
 
 
       <p>
-        The <a href="#dfn-did-urls" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-urls-16">DID URL</a>
-        syntax supports a simple format for parameters based on the
-        <code>query</code> component described in <a href="#query" class="sec-ref">Query</a>. Adding a DID
-        parameter to a <a href="#dfn-did-urls" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-urls-17">DID
-          URL</a> means that the parameter becomes part of the
-        identifier for a <a href="#dfn-resources" class="internalDFN" data-link-type="dfn"
-          id="ref-for-dfn-resources-7">resource</a>.
+        <a href="#dfn-did-urls" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-urls-16">DID URL</a>
+        语法支持一种基于<a href="#query" class="sec-ref">查询</a>中描述的<code>query</code>组件的简单参数格式。将DID参数添加到<a href="#dfn-did-urls" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-urls-17">DID URL</a>意味着该参数成为<a href="#dfn-resources" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-resources-7">资源</a>标识符的一部分。
       </p>
 
       <div class="example" id="example-a-did-url-with-a-versiontime-did-parameter">
         <div class="marker">
-          <a class="self-link" href="#example-a-did-url-with-a-versiontime-did-parameter">Example<bdi>
+          <a class="self-link" href="#example-a-did-url-with-a-versiontime-did-parameter">示例<bdi>
               7</bdi></a><span class="example-title">: A DID URL with a 'versionTime' DID parameter</span>
         </div>
         <pre class="nohighlight">did:example:123?versionTime=2021-05-10T17:00:00Z</pre>
@@ -2606,7 +2594,7 @@ pct-encoded        = "%" HEXDIG HEXDIG</pre>
 
       <div class="example" id="example-a-did-url-with-a-service-and-a-relativeref-did-parameter">
         <div class="marker">
-          <a class="self-link" href="#example-a-did-url-with-a-service-and-a-relativeref-did-parameter">Example<bdi>
+          <a class="self-link" href="#example-a-did-url-with-a-service-and-a-relativeref-did-parameter">示例<bdi>
               8</bdi></a><span class="example-title">: A DID URL with a 'service' and a 'relativeRef' DID
             parameter</span>
         </div>
@@ -2614,39 +2602,34 @@ pct-encoded        = "%" HEXDIG HEXDIG</pre>
       </div>
 
       <p>
-        Some DID parameters are completely independent of of any specific <a href="#dfn-did-methods" class="internalDFN"
+        一些DID参数完全独立于任何特定的<a href="#dfn-did-methods" class="internalDFN"
           data-link-type="dfn" id="ref-for-dfn-did-methods-20">DID
-          method</a> and function the same way for all <a href="#dfn-decentralized-identifiers" class="internalDFN"
-          data-link-type="dfn" id="ref-for-dfn-decentralized-identifiers-58">DIDs</a>. Other DID parameters
-        are not supported by all <a href="#dfn-did-methods" class="internalDFN" data-link-type="dfn"
-          id="ref-for-dfn-did-methods-21">DID methods</a>. Where optional parameters are
-        supported, they are expected to operate uniformly across the <a href="#dfn-did-methods" class="internalDFN"
-          data-link-type="dfn" id="ref-for-dfn-did-methods-22">DID methods</a>
-        that do support them. The following table provides common DID parameters that
-        function the same way across all <a href="#dfn-did-methods" class="internalDFN" data-link-type="dfn"
-          id="ref-for-dfn-did-methods-23">DID methods</a>. Support for all
-        <a href="#did-parameters">DID Parameters</a> is <em class="rfc2119">OPTIONAL</em>.
+          方法</a>，并且对所有<a href="#dfn-decentralized-identifiers" class="internalDFN"
+          data-link-type="dfn" id="ref-for-dfn-decentralized-identifiers-58">DIDs</a>都以相同的方式运作。其他DID参数
+        并不被所有的<a href="#dfn-did-methods" class="internalDFN" data-link-type="dfn"
+          id="ref-for-dfn-did-methods-21">DID方法</a>支持。在支持的地方，可选参数
+        预计在支持它们的<a href="#dfn-did-methods" class="internalDFN"
+          data-link-type="dfn" id="ref-for-dfn-did-methods-22">DID方法</a>之间统一运作。以下表格提供了在所有<a href="#dfn-did-methods" class="internalDFN" data-link-type="dfn"
+          id="ref-for-dfn-did-methods-23">DID方法</a>中以相同方式运作的常见DID参数。支持所有
+        <a href="#did-parameters">DID参数</a>是<em class="rfc2119">可选的</em>。
       </p>
 
       <div class="note" role="note" id="issue-container-generatedID-1">
-        <div role="heading" class="note-title marker" id="h-note-1" aria-level="5"><span>Note</span></div>
+        <div role="heading" class="note-title marker" id="h-note-1" aria-level="5"><span>注解</span></div>
         <p class="">
-          It is generally expected that DID URL dereferencer implementations will
-          reference [<cite><a class="bibref" data-link-type="biblio" href="#bib-did-resolution"
-              title="Decentralized Identifier Resolution">DID-RESOLUTION</a></cite>] for additional implementation
-          details. The scope
-          of this specification only defines the contract of the most common
-          query parameters.
+          通常预期DID URL解引用实现将参考[<cite><a class="bibref" data-link-type="biblio" href="#bib-did-resolution"
+              title="去中心化标识符解析">DID-RESOLUTION</a></cite>]以获取额外的实现细节。此规范的范围仅定义了最常见
+          查询参数的合约。
         </p>
       </div>
       <table class="simple">
         <thead>
           <tr>
             <th>
-              Parameter&nbsp;Name
+             参数名
             </th>
             <th>
-              Description
+              描述
             </th>
           </tr>
         </thead>
@@ -2657,10 +2640,10 @@ pct-encoded        = "%" HEXDIG HEXDIG</pre>
               <code><a href="#dfn-service" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-service-7">service</a></code>
             </td>
             <td>
-              Identifies a service from the <a href="#dfn-did-documents" class="internalDFN" data-link-type="dfn"
-                id="ref-for-dfn-did-documents-45">DID document</a> by service ID.
-              If present, the associated value <em class="rfc2119">MUST</em> be an <a data-lt="ascii string"
-                data-type="dfn" href="https://infra.spec.whatwg.org/#ascii-string">ASCII string</a>.
+              通过服务ID从<a href="#dfn-did-documents" class="internalDFN" data-link-type="dfn"
+                id="ref-for-dfn-did-documents-45">DID文档</a>中识别一个服务。
+              如果存在，关联的值<em class="rfc2119">必须</em>是一个<a data-lt="ascii string"
+                data-type="dfn" href="https://infra.spec.whatwg.org/#ascii-string">ASCII字符串</a>。
             </td>
           </tr>
           <tr>
@@ -2668,20 +2651,14 @@ pct-encoded        = "%" HEXDIG HEXDIG</pre>
               <code>relativeRef</code>
             </td>
             <td>
-              A relative <a href="#dfn-uri" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-uri-10">URI</a>
-              reference according to <a href="https://www.rfc-editor.org/rfc/rfc3986#section-4.2">RFC3986 Section
-                4.2</a> that identifies a
-              <a href="#dfn-resources" class="internalDFN" data-link-type="dfn"
-                id="ref-for-dfn-resources-8">resource</a> at a <a href="#dfn-service-endpoints" class="internalDFN"
-                data-link-type="dfn" id="ref-for-dfn-service-endpoints-2">service endpoint</a>, which is selected from
-              a <a href="#dfn-did-documents" class="internalDFN" data-link-type="dfn"
-                id="ref-for-dfn-did-documents-46">DID
-                document</a> by using the <code>service</code> parameter.
-              If present, the associated value <em class="rfc2119">MUST</em> be an <a data-lt="ascii string"
-                data-type="dfn" href="https://infra.spec.whatwg.org/#ascii-string">ASCII string</a> and <em
-                class="rfc2119">MUST</em> use percent-encoding for
-              certain characters as specified in <a href="https://www.rfc-editor.org/rfc/rfc3986#section-2.1">RFC3986
-                Section 2.1</a>.
+              根据<a href="https://www.rfc-editor.org/rfc/rfc3986#section-4.2">RFC3986第4.2节</a>的相对<a href="#dfn-uri" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-uri-10">URI</a>引用，
+              通过使用<code>service</code>参数从<a href="#dfn-did-documents" class="internalDFN" data-link-type="dfn"
+                id="ref-for-dfn-did-documents-46">DID文档</a>中选择一个<a href="#dfn-service-endpoints" class="internalDFN"
+                data-link-type="dfn" id="ref-for-dfn-service-endpoints-2">服务端点</a>处的<a href="#dfn-resources" class="internalDFN" data-link-type="dfn"
+                id="ref-for-dfn-resources-8">资源</a>。
+              如果存在，关联的值<em class="rfc2119">必须</em>是一个<a data-lt="ascii string"
+                data-type="dfn" href="https://infra.spec.whatwg.org/#ascii-string">ASCII字符串</a>，并且<em
+                class="rfc2119">必须</em>根据<a href="https://www.rfc-editor.org/rfc/rfc3986#section-2.1">RFC3986第2.1节</a>的规定对某些字符进行百分比编码。
             </td>
           </tr>
           <tr>
@@ -2689,12 +2666,11 @@ pct-encoded        = "%" HEXDIG HEXDIG</pre>
               <code>versionId</code>
             </td>
             <td>
-              Identifies a specific version of a <a href="#dfn-did-documents" class="internalDFN" data-link-type="dfn"
-                id="ref-for-dfn-did-documents-47">DID document</a> to be resolved (the
-              version ID could be sequential, or a <a href="#dfn-uuid" class="internalDFN" data-link-type="dfn"
-                id="ref-for-dfn-uuid-1">UUID</a>, or method-specific).
-              If present, the associated value <em class="rfc2119">MUST</em> be an <a data-lt="ascii string"
-                data-type="dfn" href="https://infra.spec.whatwg.org/#ascii-string">ASCII string</a>.
+              用于标识要解析的<a href="#dfn-did-documents" class="internalDFN" data-link-type="dfn"
+                id="ref-for-dfn-did-documents-47">DID文档</a>的特定版本（版本ID可以是顺序的，或者是<a href="#dfn-uuid" class="internalDFN" data-link-type="dfn"
+                id="ref-for-dfn-uuid-1">UUID</a>，或者是方法特定的）。
+              如果存在，关联的值<em class="rfc2119">必须</em>是一个<a data-lt="ascii string"
+                data-type="dfn" href="https://infra.spec.whatwg.org/#ascii-string">ASCII字符串</a>。
             </td>
           </tr>
           <tr>
@@ -2702,152 +2678,127 @@ pct-encoded        = "%" HEXDIG HEXDIG</pre>
               <code>versionTime</code>
             </td>
             <td>
-              Identifies a certain version timestamp of a <a href="#dfn-did-documents" class="internalDFN"
-                data-link-type="dfn" id="ref-for-dfn-did-documents-48">DID document</a> to be resolved.
-              That is, the <a href="#dfn-did-documents" class="internalDFN" data-link-type="dfn"
-                id="ref-for-dfn-did-documents-49">DID document</a> that was valid for a <a
-                href="#dfn-decentralized-identifiers" class="internalDFN" data-link-type="dfn"
-                id="ref-for-dfn-decentralized-identifiers-59">DID</a> at a certain
-              time. If present, the associated value
-              <em class="rfc2119">MUST</em> be an <a data-lt="ascii string" data-type="dfn"
-                href="https://infra.spec.whatwg.org/#ascii-string">ASCII string</a> which is a valid XML
-              datetime value, as defined in section 3.3.7 of <a href="https://www.w3.org/TR/xmlschema11-2/"><abbr
-                  title="World Wide Web Consortium">W3C</abbr> XML Schema Definition Language
-                (XSD) 1.1 Part 2: Datatypes</a> [<cite><a class="bibref" data-link-type="biblio"
-                  href="#bib-xmlschema11-2"
-                  title="W3C XML Schema Definition Language (XSD) 1.1 Part 2: Datatypes">XMLSCHEMA11-2</a></cite>].
-              This datetime value <em class="rfc2119">MUST</em> be
-              normalized to UTC 00:00:00 and without sub-second decimal precision.
-              For example: <code>2020-12-20T19:17:47Z</code>.
-            </td>
+              标识要解析的<a href="#dfn-did-documents" class="internalDFN"
+                  data-link-type="dfn" id="ref-for-dfn-did-documents-48">DID文档</a>的特定版本时间戳。
+              换句话说，是在特定时间有效的<a href="#dfn-did-documents" class="internalDFN" data-link-type="dfn"
+                  id="ref-for-dfn-did-documents-49">DID文档</a>，用于特定的<a
+                  href="#dfn-decentralized-identifiers" class="internalDFN" data-link-type="dfn"
+                  id="ref-for-dfn-decentralized-identifiers-59">DID</a>。如果存在，关联值
+              <em class="rfc2119">必须</em>是一个<a data-lt="ascii string" data-type="dfn"
+                  href="https://infra.spec.whatwg.org/#ascii-string">ASCII字符串</a>，它是有效的XML
+              datetime值，如在<a href="https://www.w3.org/TR/xmlschema11-2/"><abbr
+                      title="World Wide Web Consortium">W3C</abbr> XML Schema Definition Language
+                  (XSD) 1.1 Part 2: Datatypes</a> [<cite><a class="bibref" data-link-type="biblio"
+                      href="#bib-xmlschema11-2"
+                      title="W3C XML Schema Definition Language (XSD) 1.1 Part 2: Datatypes">XMLSCHEMA11-2</a></cite>]的第3.3.7节中定义。
+              此datetime值<em class="rfc2119">必须</em>规范化为UTC 00:00:00，并且没有亚秒小数精度。
+              例如：<code>2020-12-20T19:17:47Z</code>。
+          </td>
+          
           </tr>
           <tr>
             <td>
               <code>hl</code>
             </td>
             <td>
-              A resource hash of the <a href="#dfn-did-documents" class="internalDFN" data-link-type="dfn"
-                id="ref-for-dfn-did-documents-50">DID document</a> to add integrity protection, as
-              specified in [<cite><a class="bibref" data-link-type="biblio" href="#bib-hashlink"
-                  title="Cryptographic Hyperlinks">HASHLINK</a></cite>]. This parameter is non-normative.
-              If present, the associated value <em class="rfc2119">MUST</em> be an
-              <a data-lt="ascii string" data-type="dfn" href="https://infra.spec.whatwg.org/#ascii-string">ASCII
-                string</a>.
-            </td>
+              一个<a href="#dfn-did-documents" class="internalDFN" data-link-type="dfn"
+                  id="ref-for-dfn-did-documents-50">DID文档</a>的资源哈希，用于添加完整性保护，如 [<cite><a class="bibref"
+                      data-link-type="biblio" href="#bib-hashlink"
+                      title="Cryptographic Hyperlinks">HASHLINK</a></cite>] 中规定的。此参数非规范性。
+              如果存在，关联值<em class="rfc2119">必须</em>是一个
+              <a data-lt="ascii string" data-type="dfn" href="https://infra.spec.whatwg.org/#ascii-string">ASCII字符串</a>。
+          </td>
+          
           </tr>
 
         </tbody>
       </table>
 
       <p>
-        Implementers as well as <a href="#dfn-did-methods" class="internalDFN" data-link-type="dfn"
-          id="ref-for-dfn-did-methods-24">DID method</a> specification authors might use
-        additional DID parameters that are not listed here. For maximum
-        interoperability, it is <em class="rfc2119">RECOMMENDED</em> that DID parameters use the DID
-        Specification Registries mechanism [<cite><a class="bibref" data-link-type="biblio"
-            href="#bib-did-spec-registries" title="DID Specification Registries">DID-SPEC-REGISTRIES</a></cite>], to
-        avoid collision
-        with other uses of the same DID parameter with different semantics.
+        实施者以及<a href="#dfn-did-methods" class="internalDFN" data-link-type="dfn"
+            id="ref-for-dfn-did-methods-24">DID方法</a>规范的作者可能使用未在此处列出的附加DID参数。为了最大的互操作性，
+        <em class="rfc2119">建议</em>使用DID规范注册机制[<cite><a class="bibref" data-link-type="biblio"
+                href="#bib-did-spec-registries" title="DID Specification Registries">DID-SPEC-REGISTRIES</a></cite>]，以避免与其他使用相同DID参数但具有不同语义的用法发生冲突。
+    </p>
+    
+    <p>
+        如果存在明确的用例需要将参数作为<a data-type="dfn" href="https://url.spec.whatwg.org/#concept-url">URL</a>的一部分使用，
+        该URL引用比仅使用<a href="#dfn-decentralized-identifiers" class="internalDFN" data-link-type="dfn"
+            id="ref-for-dfn-decentralized-identifiers-60">DID</a>更精确的<a href="#dfn-resources" class="internalDFN"
+            data-link-type="dfn" id="ref-for-dfn-resources-9">资源</a>，则可以使用DID参数。预计如果可以通过向<a
+            href="#dfn-did-resolvers" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-resolvers-4">DID解析器</a>
+        传递输入元数据来表达相同的功能，则<em>不</em>使用DID参数。有关处理这些参数的附加考虑事项，请参见[<cite><a class="bibref"
+                data-link-type="biblio" href="#bib-did-resolution"
+                title="Decentralized Identifier Resolution">DID-RESOLUTION</a></cite>]。
+    </p>
+    
+    <div class="note" role="note" id="issue-container-generatedID-2">
+      <div role="heading" class="note-title marker" id="h-note-2" aria-level="5"><span>注意</span><span
+              class="issue-label">：DID参数和DID解析</span></div>
+      <p class="">
+          <a href="#dfn-did-resolution" class="internalDFN" data-link-type="dfn"
+              id="ref-for-dfn-did-resolution-5">DID解析</a>和<a href="#dfn-did-url-dereferencing"
+              class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-url-dereferencing-4">DID URL解引用</a>函数
+          可以通过向<a href="#dfn-did-resolvers" class="internalDFN"
+              data-link-type="dfn" id="ref-for-dfn-did-resolvers-5">DID解析器</a>传递输入元数据来受到影响，
+          这些元数据不是<a href="#dfn-did-urls" class="internalDFN" data-link-type="dfn"
+              id="ref-for-dfn-did-urls-18">DID URL</a>的一部分（见<a href="#did-resolution-options"
+              class="sec-ref"><bdi class="secno">7.1.1 </bdi>DID解析选项</a>）。
+          这类似于HTTP，其中某些参数可以包含在HTTP URL中，或者在解引用过程中作为HTTP头传递。
+          重要的区别在于，作为<a href="#dfn-did-urls" class="internalDFN" data-link-type="dfn"
+              id="ref-for-dfn-did-urls-19">DID URL</a>的一部分的DID参数应用于指定<em>被识别的<a href="#dfn-resources"
+                  class="internalDFN" data-link-type="dfn" id="ref-for-dfn-resources-10">资源</a>是什么</em>，
+          而不是作为<a href="#dfn-did-urls" class="internalDFN" data-link-type="dfn"
+              id="ref-for-dfn-did-urls-20">DID URL</a>的一部分的输入元数据应用于控制<em>如何解析或解引用
+              <a href="#dfn-resources" class="internalDFN" data-link-type="dfn"
+                  id="ref-for-dfn-resources-11">资源</a></em>。
       </p>
-
-      <p>
-        DID parameters might be used if there is a clear use case where the parameter
-        needs to be part of a <a data-type="dfn" href="https://url.spec.whatwg.org/#concept-url">URL</a> that
-        references a <a href="#dfn-resources" class="internalDFN" data-link-type="dfn"
-          id="ref-for-dfn-resources-9">resource</a> with more
-        precision than using the <a href="#dfn-decentralized-identifiers" class="internalDFN" data-link-type="dfn"
-          id="ref-for-dfn-decentralized-identifiers-60">DID</a> alone. It is expected that DID parameters
-        are <em>not</em> used if the same functionality can be expressed by passing
-        input metadata to a <a href="#dfn-did-resolvers" class="internalDFN" data-link-type="dfn"
-          id="ref-for-dfn-did-resolvers-4">DID resolver</a>. Additional considerations for
-        processing these parameters are discussed in [<cite><a class="bibref" data-link-type="biblio"
-            href="#bib-did-resolution" title="Decentralized Identifier Resolution">DID-RESOLUTION</a></cite>].
-      </p>
-
-      <div class="note" role="note" id="issue-container-generatedID-2">
-        <div role="heading" class="note-title marker" id="h-note-2" aria-level="5"><span>Note</span><span
-            class="issue-label">: DID parameters and DID resolution</span></div>
-        <p class="">
-          The <a href="#dfn-did-resolution" class="internalDFN" data-link-type="dfn"
-            id="ref-for-dfn-did-resolution-5">DID resolution</a> and the <a href="#dfn-did-url-dereferencing"
-            class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-url-dereferencing-4">DID URL
-            dereferencing</a> functions can
-          be influenced by passing input metadata to a <a href="#dfn-did-resolvers" class="internalDFN"
-            data-link-type="dfn" id="ref-for-dfn-did-resolvers-5">DID resolver</a> that are
-          not part of the <a href="#dfn-did-urls" class="internalDFN" data-link-type="dfn"
-            id="ref-for-dfn-did-urls-18">DID URL</a> (see <a href="#did-resolution-options" class="sec-ref"><bdi
-              class="secno">7.1.1 </bdi>DID Resolution Options</a>). This is comparable to
-          HTTP, where certain parameters could either be included in an HTTP URL, or
-          alternatively passed as HTTP headers during the dereferencing process. The
-          important distinction is that DID parameters that are part of the <a href="#dfn-did-urls" class="internalDFN"
-            data-link-type="dfn" id="ref-for-dfn-did-urls-19">DID
-            URL</a> should be used to specify <em>what <a href="#dfn-resources" class="internalDFN" data-link-type="dfn"
-              id="ref-for-dfn-resources-10">resource</a> is being
-            identified</em>, whereas input metadata that is not part of the <a href="#dfn-did-urls" class="internalDFN"
-            data-link-type="dfn" id="ref-for-dfn-did-urls-20">DID URL</a>
-          should be use to control <em>how that <a href="#dfn-resources" class="internalDFN" data-link-type="dfn"
-              id="ref-for-dfn-resources-11">resource</a> is resolved or
-            dereferenced</em>.
-        </p>
-      </div>
+  </div>
+  
 
     </section>
 
     <section id="relative-did-urls">
       <div class="header-wrapper">
-        <h4 id="x3-2-2-relative-did-urls"><bdi class="secno">3.2.2 </bdi>Relative DID URLs</h4><a class="self-link"
+        <h4 id="x3-2-2-relative-did-urls"><bdi class="secno">3.2.2 </bdi>相对的DID URLs</h4><a class="self-link"
           href="#relative-did-urls" aria-label="Permalink for Section 3.2.2"></a>
       </div>
 
 
       <p>
-        A relative <a href="#dfn-did-urls" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-urls-21">DID
-          URL</a> is any URL value in a <a href="#dfn-did-documents" class="internalDFN" data-link-type="dfn"
-          id="ref-for-dfn-did-documents-51">DID document</a> that does
-        not start with <code>did:&lt;method-name&gt;:&lt;method-specific-id&gt;</code>. More
-        specifically, it is any URL value that does not start with the ABNF defined in
-        <a href="#did-syntax" class="sec-ref"><bdi class="secno">3.1 </bdi>DID Syntax</a>. The URL is expected to
-        reference
-        a <a href="#dfn-resources" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-resources-12">resource</a>
-        in the same <a href="#dfn-did-documents" class="internalDFN" data-link-type="dfn"
-          id="ref-for-dfn-did-documents-52">DID document</a>. Relative <a href="#dfn-did-urls" class="internalDFN"
-          data-link-type="dfn" id="ref-for-dfn-did-urls-22">DID URLs</a> <em class="rfc2119">MAY</em>
-        contain relative path components, query parameters, and fragment identifiers.
+        一个相对的<a href="#dfn-did-urls" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-urls-21">DID
+          URL</a>是指在<a href="#dfn-did-documents" class="internalDFN" data-link-type="dfn"
+          id="ref-for-dfn-did-documents-51">DID 文档</a>中的任何URL值，该值不以<code>did:&lt;方法名称&gt;:&lt;方法特定id&gt;</code>开头。更具体地说，它是指不以<a href="#did-syntax" class="sec-ref"><bdi class="secno">3.1 </bdi>DID 语法</a>中定义的ABNF开头的任何URL值。该URL预计会引用同一<a href="#dfn-did-documents" class="internalDFN" data-link-type="dfn"
+          id="ref-for-dfn-did-documents-52">DID 文档</a>中的<a href="#dfn-resources" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-resources-12">资源</a>。相对的<a href="#dfn-did-urls" class="internalDFN"
+          data-link-type="dfn" id="ref-for-dfn-did-urls-22">DID URLs</a> <em class="rfc2119">可以</em>
+        包含相对路径组件、查询参数和片段标识符。
       </p>
 
       <p>
-        When resolving a relative <a href="#dfn-did-urls" class="internalDFN" data-link-type="dfn"
-          id="ref-for-dfn-did-urls-23">DID URL</a> reference, the algorithm specified in
-        <a href="https://www.rfc-editor.org/rfc/rfc3986#section-5">RFC3986 Section 5: Reference Resolution</a>
-        <em class="rfc2119">MUST</em> be used. The <strong>base URI</strong> value is the <a
+        在解析相对的<a href="#dfn-did-urls" class="internalDFN" data-link-type="dfn"
+          id="ref-for-dfn-did-urls-23">DID URL</a>引用时，必须使用<a href="https://www.rfc-editor.org/rfc/rfc3986#section-5">RFC3986 第5节：引用解析</a>中指定的算法。 <strong>基本URI</strong>值是与<a href="#dfn-did-subjects" class="internalDFN" data-link-type="dfn"
+          id="ref-for-dfn-did-subjects-17">DID 主体</a>关联的<a
           href="#dfn-decentralized-identifiers" class="internalDFN" data-link-type="dfn"
-          id="ref-for-dfn-decentralized-identifiers-61">DID</a> that is
-        associated with the <a href="#dfn-did-subjects" class="internalDFN" data-link-type="dfn"
-          id="ref-for-dfn-did-subjects-17">DID subject</a>, see <a href="#did-subject" class="sec-ref"><bdi
-            class="secno">5.1.1 </bdi>DID Subject</a>. The
-        <strong>scheme</strong> is <code>did</code>. The <strong>authority</strong> is a
-        combination of <code>&lt;method-name&gt;:&lt;method-specific-id&gt;</code>, and the
-        <strong>path</strong>, <strong>query</strong>, and <strong>fragment</strong>
-        values are those defined in <a href="#path" class="sec-ref">Path</a>, <a href="#query"
-          class="sec-ref">Query</a>, and <a href="#fragment" class="sec-ref">Fragment</a>, respectively.
+          id="ref-for-dfn-decentralized-identifiers-61">DID</a>，请参阅<a href="#did-subject" class="sec-ref"><bdi
+            class="secno">5.1.1 </bdi>DID 主体</a>。 <strong>方案</strong>是<code>did</code>。 <strong>权限</strong>是<code>&lt;方法名称&gt;:&lt;方法特定id&gt;</code>的组合， <strong>路径</strong>、<strong>查询</strong>和<strong>片段</strong>
+        值分别在<a href="#path" class="sec-ref">路径</a>、<a href="#query"
+          class="sec-ref">查询</a>和<a href="#fragment" class="sec-ref">片段</a>中定义。
       </p>
 
       <p>
-        Relative <a href="#dfn-did-urls" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-urls-24">DID
-          URLs</a> are often used to reference <a href="#dfn-verification-method" class="internalDFN"
-          data-link-type="dfn" id="ref-for-dfn-verification-method-8">verification methods</a>
-        and <a href="#dfn-service" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-service-8">services</a> in
-        a <a href="#dfn-did-documents" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-documents-53">DID
-          Document</a> without having to use absolute
-        URLs. <a href="#dfn-did-methods" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-methods-25">DID
-          methods</a> where storage size is a consideration might use
-        relative URLs to reduce the storage size of <a href="#dfn-did-documents" class="internalDFN"
-          data-link-type="dfn" id="ref-for-dfn-did-documents-54">DID documents</a>.
+        相对的<a href="#dfn-did-urls" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-urls-24">DID
+          URLs</a>通常用于在<a href="#dfn-did-documents" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-documents-53">DID
+          文档</a>中引用<a href="#dfn-verification-method" class="internalDFN"
+          data-link-type="dfn" id="ref-for-dfn-verification-method-8">验证方法</a>
+        和<a href="#dfn-service" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-service-8">服务</a>，而无需使用绝对
+        URLs。在存储大小是一个考虑因素的<a href="#dfn-did-methods" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-methods-25">DID
+          方法</a>中，可能会使用相对URL来减小<a href="#dfn-did-documents" class="internalDFN"
+          data-link-type="dfn" id="ref-for-dfn-did-documents-54">DID 文档</a>的存储大小。
       </p>
 
       <div class="example" id="example-an-example-of-a-relative-did-url">
         <div class="marker">
-          <a class="self-link" href="#example-an-example-of-a-relative-did-url">Example<bdi> 9</bdi></a><span
+          <a class="self-link" href="#example-an-example-of-a-relative-did-url">示例<bdi> 9</bdi></a><span
             class="example-title">: An example of a relative DID URL</span>
         </div>
         <pre class="nohighlight">{
@@ -2870,11 +2821,11 @@ pct-encoded        = "%" HEXDIG HEXDIG</pre>
       </div>
 
       <p>
-        In the example above, the relative <a href="#dfn-did-urls" class="internalDFN" data-link-type="dfn"
-          id="ref-for-dfn-did-urls-25">DID URL</a> value will be transformed to
-        an absolute <a href="#dfn-did-urls" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-urls-26">DID
-          URL</a> value of
-        <code>did:example:123456789abcdefghi#key-1</code>.
+        在上面的示例中，相对的 <a href="#dfn-did-urls" class="internalDFN" data-link-type="dfn"
+          id="ref-for-dfn-did-urls-25">DID URL</a> 值将被转换为
+        绝对的 <a href="#dfn-did-urls" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-urls-26">DID
+          URL</a> 值，
+        <code>did:example:123456789abcdefghi#key-1</code>。
       </p>
     </section>
 
@@ -2884,32 +2835,15 @@ pct-encoded        = "%" HEXDIG HEXDIG</pre>
 
   <section id="data-model">
     <div class="header-wrapper">
-      <h2 id="x4-data-model"><bdi class="secno">4. </bdi>Data Model</h2><a class="self-link" href="#data-model"
+      <h2 id="x4-data-model"><bdi class="secno">4. </bdi>数据模型</h2><a class="self-link" href="#data-model"
         aria-label="Permalink for Section 4."></a>
     </div>
 
     <p>
-      This specification defines a data model that can be used to express <a href="#dfn-did-documents"
-        class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-documents-55">DID
-        documents</a> and DID document data structures, which can then be serialized
-      into multiple concrete <a href="#dfn-representations" class="internalDFN" data-link-type="dfn"
-        id="ref-for-dfn-representations-6">representations</a>. This section provides a
-      high-level description of the data model, descriptions of the ways different
-      types of properties are expressed in the data model, and instructions for
-      extending the data model.
+      本规范定义了一个可用于表达<a href="#dfn-did-documents" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-documents-55">DID 文档</a>和 DID 文档数据结构的数据模型，然后可以将其序列化为多个具体的<a href="#dfn-representations" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-representations-6">表示形式</a>。本节提供了数据模型的高级描述、数据模型中不同类型属性的表达方式的描述以及扩展数据模型的说明。
     </p>
     <p>
-      A <a href="#dfn-did-documents" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-documents-56">DID
-        document</a> consists of a <a href="https://infra.spec.whatwg.org/#maps">map</a> of <a
-        href="https://infra.spec.whatwg.org/#map-entry">entries</a>, where each entry consists of a
-      key/value pair. The <a href="#dfn-did-documents" class="internalDFN" data-link-type="dfn"
-        id="ref-for-dfn-did-documents-57">DID document</a> data model contains at least two
-      different classes of entries. The first class of entries is called properties,
-      and is specified in section <a href="#core-properties" class="sec-ref"><bdi class="secno">5. </bdi>Core
-        Properties</a>. The second class
-      is made up of <a href="#dfn-representation-specific-entry" class="internalDFN" data-link-type="dfn"
-        id="ref-for-dfn-representation-specific-entry-1">representation-specific entries</a>, and is specified in
-      section <a href="#representations" class="sec-ref"><bdi class="secno">6. </bdi>Representations</a>.
+      一个<a href="#dfn-did-documents" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-documents-56">DID 文档</a>由一个<a href="https://infra.spec.whatwg.org/#maps">映射</a>的<a href="https://infra.spec.whatwg.org/#map-entry">条目</a>组成，其中每个条目由一个键/值对组成。在<a href="#dfn-did-documents" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-did-documents-57">DID 文档</a>数据模型中至少包含两个不同类别的条目。第一类条目称为属性，详见第<a href="#core-properties" class="sec-ref"><bdi class="secno">5. </bdi>核心属性</a>节。第二类由<a href="#dfn-representation-specific-entry" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-representation-specific-entry-1">表示特定条目</a>组成，详见第<a href="#representations" class="sec-ref"><bdi class="secno">6. </bdi>表示形式</a>节。
     </p>
 
     <figure id="did-document-entries">
@@ -2917,7 +2851,7 @@ pct-encoded        = "%" HEXDIG HEXDIG</pre>
 Diagram illustrating the entries in the DID document, including properties
 and representation-specific entries; some entries are defined by this
 specification; others are defined by registered or unregistered extensions." height="502" width="1320">
-      <figcaption>Figure <bdi class="figno">3</bdi> <span class="fig-title">
+      <figcaption>图 <bdi class="figno">3</bdi> <span class="fig-title">
           The entries in a DID document.
           See also: <a class="longdesc-link" href="#did-document-entries-longdesc">narrative description</a>.
         </span></figcaption>
@@ -2947,22 +2881,21 @@ specification; others are defined by registered or unregistered extensions." hei
     </div>
 
     <p>
-      All entry keys in the <a href="#dfn-did-documents" class="internalDFN" data-link-type="dfn"
-        id="ref-for-dfn-did-documents-58">DID document</a> data model are <a
-        href="https://infra.spec.whatwg.org/#strings">strings</a>. All entry values are expressed using one
-      of the abstract data types in the table below, and each <a href="#dfn-representations" class="internalDFN"
-        data-link-type="dfn" id="ref-for-dfn-representations-7">representation</a>
-      specifies the concrete serialization format of each data type.
+      在<a href="#dfn-did-documents" class="internalDFN" data-link-type="dfn"
+        id="ref-for-dfn-did-documents-58">DID 文档</a>数据模型中的所有条目键都是<a
+        href="https://infra.spec.whatwg.org/#strings">字符串</a>。所有条目值都使用下表中的一种抽象数据类型表示，每个<a href="#dfn-representations" class="internalDFN"
+        data-link-type="dfn" id="ref-for-dfn-representations-7">表示</a>
+      指定每个数据类型的具体序列化格式。
     </p>
 
     <table class="simple" id="data-types">
       <thead>
         <tr>
           <th>
-            Data&nbsp;Type
+            数据类型
           </th>
           <th>
-            Considerations
+            注意事项
           </th>
         </tr>
       </thead>
@@ -2973,11 +2906,10 @@ specification; others are defined by registered or unregistered extensions." hei
             <a href="https://infra.spec.whatwg.org/#maps">map</a>
           </td>
           <td>
-            A finite ordered sequence of key/value pairs, with no key appearing twice as
-            specified in [<cite><a class="bibref" data-link-type="biblio" href="#bib-infra"
-                title="Infra Standard">INFRA</a></cite>]. A map is sometimes referred to as an
-            <a href="https://infra.spec.whatwg.org/#maps">ordered map</a> in [<cite><a class="bibref"
-                data-link-type="biblio" href="#bib-infra" title="Infra Standard">INFRA</a></cite>].
+            一个有限的，按顺序排列的键/值对序列，没有任何键出现两次，如[<cite><a class="bibref" data-link-type="biblio" href="#bib-infra"
+                title="Infra Standard">INFRA</a></cite>]所述。有时候，一个映射被称为
+            <a href="https://infra.spec.whatwg.org/#maps">有序映射</a> 在 [<cite><a class="bibref"
+                data-link-type="biblio" href="#bib-infra" title="Infra Standard">INFRA</a></cite>]中。
           </td>
         </tr>
         <tr>
@@ -2985,21 +2917,22 @@ specification; others are defined by registered or unregistered extensions." hei
             <a href="https://infra.spec.whatwg.org/#list">list</a>
           </td>
           <td>
-            A finite ordered sequence of items as specified in [<cite><a class="bibref" data-link-type="biblio"
-                href="#bib-infra" title="Infra Standard">INFRA</a></cite>].
-          </td>
+            按照[<cite><a class="bibref" data-link-type="biblio"
+                    href="#bib-infra" title="Infra Standard">INFRA</a></cite>]规定的有限有序项目序列。
+        </td>
+        
         </tr>
         <tr>
           <td>
             <a href="https://infra.spec.whatwg.org/#ordered-set">set</a>
           </td>
           <td>
-            A finite ordered sequence of items that does not contain the same item twice
-            as specified in [<cite><a class="bibref" data-link-type="biblio" href="#bib-infra"
-                title="Infra Standard">INFRA</a></cite>]. A set is sometimes referred to as an
-            <a href="https://infra.spec.whatwg.org/#ordered-set">ordered set</a> in [<cite><a class="bibref"
-                data-link-type="biblio" href="#bib-infra" title="Infra Standard">INFRA</a></cite>].
-          </td>
+            按照[<cite><a class="bibref" data-link-type="biblio" href="#bib-infra"
+                    title="Infra Standard">INFRA</a></cite>]规定的不包含相同项目两次的有限有序项目序列。有时在[<cite><a class="bibref"
+                    data-link-type="biblio" href="#bib-infra" title="Infra Standard">INFRA</a></cite>]中称为<a
+                href="https://infra.spec.whatwg.org/#ordered-set">有序集</a>。
+        </td>
+        
         </tr>
         <tr>
           <td>
@@ -3007,20 +2940,19 @@ specification; others are defined by registered or unregistered extensions." hei
               data-dfn-type="dfn">datetime</dfn>
           </td>
           <td>
-            A date and time value that is capable of losslessly expressing all values
-            expressible by a <code>dateTime</code> as specified in
-            [<a href="https://www.w3.org/TR/xmlschema11-2/#dateTime">XMLSCHEMA11-2</a>].
-          </td>
+            日期和时间值，能够无损地表达由 [<a href="https://www.w3.org/TR/xmlschema11-2/#dateTime">XMLSCHEMA11-2</a>] 规定的所有可表达的<code>dateTime</code> 值。
+        </td>
+        
         </tr>
         <tr>
           <td>
             <a href="https://infra.spec.whatwg.org/#string">string</a>
           </td>
           <td>
-            A sequence of code units often used to represent human readable language
-            as specified in [<cite><a class="bibref" data-link-type="biblio" href="#bib-infra"
-                title="Infra Standard">INFRA</a></cite>].
-          </td>
+            一系列代码单元，通常用于表示人类可读语言，如 [<cite><a class="bibref" data-link-type="biblio" href="#bib-infra"
+                    title="Infra Standard">INFRA</a></cite>] 规定。
+        </td>
+        
         </tr>
         <tr>
           <td>
@@ -3470,7 +3402,7 @@ specification; others are defined by registered or unregistered extensions." hei
 
         <div class="example" id="example-10">
           <div class="marker">
-            <a class="self-link" href="#example-10">Example<bdi> 10</bdi></a>
+            <a class="self-link" href="#example-10">示例<bdi> 10</bdi></a>
           </div>
           <pre class="nohighlight">{
   "id": "did:example:123456789abcdefghijk"
@@ -3567,7 +3499,7 @@ specification; others are defined by registered or unregistered extensions." hei
 
         <div class="example" id="example-did-document-with-a-controller-property">
           <div class="marker">
-            <a class="self-link" href="#example-did-document-with-a-controller-property">Example<bdi> 11</bdi></a><span
+            <a class="self-link" href="#example-did-document-with-a-controller-property">示例<bdi> 11</bdi></a><span
               class="example-title">: DID document with a controller property</span>
           </div>
           <pre class="nohighlight">{
@@ -3754,7 +3686,7 @@ specification; others are defined by registered or unregistered extensions." hei
 
       <div class="example" id="example-example-verification-method-structure">
         <div class="marker">
-          <a class="self-link" href="#example-example-verification-method-structure">Example<bdi> 12</bdi></a><span
+          <a class="self-link" href="#example-example-verification-method-structure">示例<bdi> 12</bdi></a><span
             class="example-title">: Example verification method structure</span>
         </div>
         <pre aria-busy="false"><code class="hljs javascript">{
@@ -3873,7 +3805,7 @@ specification; others are defined by registered or unregistered extensions." hei
               <code>kid</code> values are set to the public key fingerprint [<cite><a class="bibref"
                   data-link-type="biblio" href="#bib-rfc7638" title="JSON Web Key (JWK) Thumbprint">RFC7638</a></cite>].
               See
-              the first key in <a href="#example-various-verification-method-types" class="box-ref">Example<bdi>
+              the first key in <a href="#example-various-verification-method-types" class="box-ref">示例<bdi>
                   13</bdi></a> for
               an example of a public key with a compound key identifier.
             </p>
@@ -3920,7 +3852,7 @@ specification; others are defined by registered or unregistered extensions." hei
 
         <div class="example" id="example-various-verification-method-types">
           <div class="marker">
-            <a class="self-link" href="#example-various-verification-method-types">Example<bdi> 13</bdi></a><span
+            <a class="self-link" href="#example-various-verification-method-types">示例<bdi> 13</bdi></a><span
               class="example-title">: Verification methods using publicKeyJwk and publicKeyMultibase</span>
           </div>
           <pre class="nohighlight">{
@@ -3996,7 +3928,7 @@ specification; others are defined by registered or unregistered extensions." hei
 
         <div class="example" id="example-embedding-and-referencing-verification-methods">
           <div class="marker">
-            <a class="self-link" href="#example-embedding-and-referencing-verification-methods">Example<bdi>
+            <a class="self-link" href="#example-embedding-and-referencing-verification-methods">示例<bdi>
                 14</bdi></a><span class="example-title">: Embedding and referencing verification methods</span>
           </div>
           <pre class="nohighlight">{
@@ -4132,7 +4064,7 @@ specification; others are defined by registered or unregistered extensions." hei
         <div class="example" id="example-authentication-property-containing-three-verification-methods">
           <div class="marker">
             <a class="self-link"
-              href="#example-authentication-property-containing-three-verification-methods">Example<bdi>
+              href="#example-authentication-property-containing-three-verification-methods">示例<bdi>
                 15</bdi></a><span class="example-title">: Authentication property
               containing three verification methods</span>
           </div>
@@ -4272,7 +4204,7 @@ specification; others are defined by registered or unregistered extensions." hei
         <div class="example" id="example-assertion-method-property-containing-two-verification-methods">
           <div class="marker">
             <a class="self-link"
-              href="#example-assertion-method-property-containing-two-verification-methods">Example<bdi>
+              href="#example-assertion-method-property-containing-two-verification-methods">示例<bdi>
                 16</bdi></a><span class="example-title">: Assertion method property
               containing two verification methods</span>
           </div>
@@ -4342,7 +4274,7 @@ specification; others are defined by registered or unregistered extensions." hei
 
         <div class="example" id="example-key-agreement-property-containing-two-verification-methods">
           <div class="marker">
-            <a class="self-link" href="#example-key-agreement-property-containing-two-verification-methods">Example<bdi>
+            <a class="self-link" href="#example-key-agreement-property-containing-two-verification-methods">示例<bdi>
                 17</bdi></a><span class="example-title">: Key agreement property
               containing two verification methods</span>
           </div>
@@ -4429,7 +4361,7 @@ specification; others are defined by registered or unregistered extensions." hei
         <div class="example" id="example-capability-invocation-property-containing-two-verification-methods">
           <div class="marker">
             <a class="self-link"
-              href="#example-capability-invocation-property-containing-two-verification-methods">Example<bdi>
+              href="#example-capability-invocation-property-containing-two-verification-methods">示例<bdi>
                 18</bdi></a><span class="example-title">: Capability invocation property
               containing two verification methods</span>
           </div>
@@ -4509,7 +4441,7 @@ specification; others are defined by registered or unregistered extensions." hei
         <div class="example" id="example-capability-delegation-property-containing-two-verification-methods">
           <div class="marker">
             <a class="self-link"
-              href="#example-capability-delegation-property-containing-two-verification-methods">Example<bdi>
+              href="#example-capability-delegation-property-containing-two-verification-methods">示例<bdi>
                 19</bdi></a><span class="example-title">: Capability Delegation property
               containing two verification methods</span>
           </div>
@@ -4660,7 +4592,7 @@ specification; others are defined by registered or unregistered extensions." hei
 
       <div class="example" id="example-usage-of-the-service-property">
         <div class="marker">
-          <a class="self-link" href="#example-usage-of-the-service-property">Example<bdi> 20</bdi></a><span
+          <a class="self-link" href="#example-usage-of-the-service-property">示例<bdi> 20</bdi></a><span
             class="example-title">: Usage of the service property</span>
         </div>
         <pre class="nohighlight">{
@@ -4924,7 +4856,7 @@ specification; others are defined by registered or unregistered extensions." hei
         <img style="margin: auto; display: block;" src="diagrams/diagram-production-consumption.svg" alt="
 Diagram illustrating how representations of the data model are produced
 and consumed, including in JSON and JSON-LD." height="605" width="989">
-        <figcaption>Figure <bdi class="figno">4</bdi> <span class="fig-title">
+        <figcaption>图 <bdi class="figno">4</bdi> <span class="fig-title">
             Production and consumption of representations.
             See also: <a class="longdesc-link" href="#production-consumption-longdesc">narrative description</a>.
           </span></figcaption>
@@ -5179,7 +5111,7 @@ and consumed, including in JSON and JSON-LD." height="605" width="989">
 
         <div class="example" id="example-example-did-document-in-json-representation">
           <div class="marker">
-            <a class="self-link" href="#example-example-did-document-in-json-representation">Example<bdi>
+            <a class="self-link" href="#example-example-did-document-in-json-representation">示例<bdi>
                 21</bdi></a><span class="example-title">: Example DID document in JSON representation</span>
           </div>
           <pre class="nohighlight">{
@@ -5440,7 +5372,7 @@ and consumed, including in JSON and JSON-LD." height="605" width="989">
 
         <div class="example" id="example-a-valid-serialization-of-a-simple-context-entry">
           <div class="marker">
-            <a class="self-link" href="#example-a-valid-serialization-of-a-simple-context-entry">Example<bdi>
+            <a class="self-link" href="#example-a-valid-serialization-of-a-simple-context-entry">示例<bdi>
                 22</bdi></a><span class="example-title">: A valid serialization of a simple @context entry</span>
           </div>
           <pre aria-busy="false"><code class="hljs javascript">{
@@ -5450,7 +5382,7 @@ and consumed, including in JSON and JSON-LD." height="605" width="989">
         </div>
         <div class="example" id="example-a-valid-serialization-of-a-layered-context-entry">
           <div class="marker">
-            <a class="self-link" href="#example-a-valid-serialization-of-a-layered-context-entry">Example<bdi>
+            <a class="self-link" href="#example-a-valid-serialization-of-a-layered-context-entry">示例<bdi>
                 23</bdi></a><span class="example-title">: A valid serialization of a layered @context entry</span>
           </div>
           <pre aria-busy="false"><code class="hljs javascript">{
@@ -5619,7 +5551,7 @@ Diagram illustrating how resolve() returns the DID document data model in
 its abstract form and resolveRepresenation() returns it in one of the
 conformant representations; conversion is possible using production and
 consumption rules." height="595" width="1056">
-        <figcaption>Figure <bdi class="figno">5</bdi> <span class="fig-title">
+        <figcaption>图 <bdi class="figno">5</bdi> <span class="fig-title">
             Functions resolve() and resolveRepresentation().
             See also: <a class="longdesc-link" href="#resolve-resolverepresentation-longdesc">narrative description</a>.
           </span></figcaption>
@@ -6259,7 +6191,7 @@ string" data-type="dfn" href="https://infra.spec.whatwg.org/#ascii-string">ASCII
 DIDs resolve to DID documents; DID URLs contains a DID; DID URLs dereferenced to DID document fragments or
 external resources.
         " height="504" width="1070">
-        <figcaption>Figure <bdi class="figno">6</bdi> <span class="fig-title">
+        <figcaption>图 <bdi class="figno">6</bdi> <span class="fig-title">
             Overview of DID URL dereference
             See also: <a class="longdesc-link" href="#did-url-dereference-overview-longdesc">narrative description</a>.
           </span></figcaption>
@@ -6590,7 +6522,7 @@ external resources.
 
       <div class="example" id="example-json-encoded-did-resolution-input-metadata-example">
         <div class="marker">
-          <a class="self-link" href="#example-json-encoded-did-resolution-input-metadata-example">Example<bdi>
+          <a class="self-link" href="#example-json-encoded-did-resolution-input-metadata-example">示例<bdi>
               24</bdi></a><span class="example-title">: JSON-encoded DID resolution input metadata example</span>
         </div>
         <pre aria-busy="false"><code class="hljs json">{
@@ -6604,7 +6536,7 @@ external resources.
 
       <div class="example" id="example-did-resolution-input-metadata-example">
         <div class="marker">
-          <a class="self-link" href="#example-did-resolution-input-metadata-example">Example<bdi> 25</bdi></a><span
+          <a class="self-link" href="#example-did-resolution-input-metadata-example">示例<bdi> 25</bdi></a><span
             class="example-title">: DID resolution input metadata example</span>
         </div>
         <pre aria-busy="false"><code class="hljs abnf">«[
@@ -6621,7 +6553,7 @@ external resources.
 
       <div class="example" id="example-json-encoded-did-resolution-metadata-example">
         <div class="marker">
-          <a class="self-link" href="#example-json-encoded-did-resolution-metadata-example">Example<bdi>
+          <a class="self-link" href="#example-json-encoded-did-resolution-metadata-example">示例<bdi>
               26</bdi></a><span class="example-title">: JSON-encoded DID resolution metadata example</span>
         </div>
         <pre aria-busy="false"><code class="hljs json">{
@@ -6635,7 +6567,7 @@ external resources.
 
       <div class="example" id="example-did-resolution-metadata-example">
         <div class="marker">
-          <a class="self-link" href="#example-did-resolution-metadata-example">Example<bdi> 27</bdi></a><span
+          <a class="self-link" href="#example-did-resolution-metadata-example">示例<bdi> 27</bdi></a><span
             class="example-title">: DID resolution metadata example</span>
         </div>
         <pre aria-busy="false"><code class="hljs abnf">«[
@@ -6652,7 +6584,7 @@ external resources.
 
       <div class="example" id="example-json-encoded-did-document-metadata-example">
         <div class="marker">
-          <a class="self-link" href="#example-json-encoded-did-document-metadata-example">Example<bdi> 28</bdi></a><span
+          <a class="self-link" href="#example-json-encoded-did-document-metadata-example">示例<bdi> 28</bdi></a><span
             class="example-title">: JSON-encoded DID document metadata example</span>
         </div>
         <pre aria-busy="false"><code class="hljs json">{
@@ -6667,7 +6599,7 @@ external resources.
 
       <div class="example" id="example-did-document-metadata-example">
         <div class="marker">
-          <a class="self-link" href="#example-did-document-metadata-example">Example<bdi> 29</bdi></a><span
+          <a class="self-link" href="#example-did-document-metadata-example">示例<bdi> 29</bdi></a><span
             class="example-title">: DID document metadata example</span>
         </div>
         <pre aria-busy="false"><code class="hljs javascript">«[
@@ -8703,7 +8635,7 @@ external resources.
 
       <div class="example" id="example-did-document-with-1-verification-method-type">
         <div class="marker">
-          <a class="self-link" href="#example-did-document-with-1-verification-method-type">Example<bdi>
+          <a class="self-link" href="#example-did-document-with-1-verification-method-type">示例<bdi>
               30</bdi></a><span class="example-title">: DID Document with 1 verification method type</span>
         </div>
         <pre aria-busy="false"><code class="hljs json">  {
@@ -8749,7 +8681,7 @@ external resources.
 
       <div class="example" id="example-did-document-with-many-different-key-types">
         <div class="marker">
-          <a class="self-link" href="#example-did-document-with-many-different-key-types">Example<bdi> 31</bdi></a><span
+          <a class="self-link" href="#example-did-document-with-many-different-key-types">示例<bdi> 31</bdi></a><span
             class="example-title">: DID Document with many different key types</span>
         </div>
         <pre aria-busy="false"><code class="hljs json">{
@@ -8848,7 +8780,7 @@ external resources.
       </div>
       <div class="example" id="example-did-document-with-different-verification-method-types">
         <div class="marker">
-          <a class="self-link" href="#example-did-document-with-different-verification-method-types">Example<bdi>
+          <a class="self-link" href="#example-did-document-with-different-verification-method-types">示例<bdi>
               32</bdi></a><span class="example-title">: DID Document with different verification method types</span>
         </div>
         <pre aria-busy="false"><code class="hljs json">{
@@ -8917,7 +8849,7 @@ external resources.
         id="example-verifiable-credential-linked-to-a-verification-method-of-type-ed25519verificationkey2020">
         <div class="marker">
           <a class="self-link"
-            href="#example-verifiable-credential-linked-to-a-verification-method-of-type-ed25519verificationkey2020">Example<bdi>
+            href="#example-verifiable-credential-linked-to-a-verification-method-of-type-ed25519verificationkey2020">示例<bdi>
               33</bdi></a><span class="example-title">: Verifiable Credential linked to a verification method of type
             Ed25519VerificationKey2020</span>
         </div>
@@ -8965,7 +8897,7 @@ external resources.
       <div class="example" id="example-verifiable-credential-linked-to-a-verification-method-of-type-jsonwebkey2020">
         <div class="marker">
           <a class="self-link"
-            href="#example-verifiable-credential-linked-to-a-verification-method-of-type-jsonwebkey2020">Example<bdi>
+            href="#example-verifiable-credential-linked-to-a-verification-method-of-type-jsonwebkey2020">示例<bdi>
               34</bdi></a><span class="example-title">: Verifiable Credential linked to a verification method of type
             JsonWebKey2020</span>
         </div>
@@ -8998,7 +8930,7 @@ external resources.
       <div class="example" id="example-verifiable-credential-linked-to-a-bls12381-verification-method">
         <div class="marker">
           <a class="self-link"
-            href="#example-verifiable-credential-linked-to-a-bls12381-verification-method">Example<bdi>
+            href="#example-verifiable-credential-linked-to-a-bls12381-verification-method">示例<bdi>
               35</bdi></a><span class="example-title">: Verifiable Credential linked to a bls12381 verification
             method</span>
         </div>
@@ -9036,7 +8968,7 @@ external resources.
         id="example-verifiable-credential-selective-disclosure-zero-knowledge-proof-linked-to-a-bls12381-verification-method">
         <div class="marker">
           <a class="self-link"
-            href="#example-verifiable-credential-selective-disclosure-zero-knowledge-proof-linked-to-a-bls12381-verification-method">Example<bdi>
+            href="#example-verifiable-credential-selective-disclosure-zero-knowledge-proof-linked-to-a-bls12381-verification-method">示例<bdi>
               36</bdi></a><span class="example-title">: Verifiable Credential selective disclosure zero knowledge proof
             linked to a bls12381 verification method</span>
         </div>
@@ -9072,7 +9004,7 @@ external resources.
 
       <div class="example" id="example-verifiable-credential-as-decoded-jwt">
         <div class="marker">
-          <a class="self-link" href="#example-verifiable-credential-as-decoded-jwt">Example<bdi> 37</bdi></a><span
+          <a class="self-link" href="#example-verifiable-credential-as-decoded-jwt">示例<bdi> 37</bdi></a><span
             class="example-title">: Verifiable Credential as Decoded JWT</span>
         </div>
         <pre aria-busy="false"><code class="hljs json">{ <span class="hljs-comment">// external (all terms in this example)</span>
@@ -9131,7 +9063,7 @@ external resources.
 
       <div class="example" id="example-jwe-linked-to-a-verification-method-via-kid">
         <div class="marker">
-          <a class="self-link" href="#example-jwe-linked-to-a-verification-method-via-kid">Example<bdi>
+          <a class="self-link" href="#example-jwe-linked-to-a-verification-method-via-kid">示例<bdi>
               38</bdi></a><span class="example-title">: JWE linked to a verification method via kid</span>
         </div>
         <pre aria-busy="false"><code class="hljs json">{ <span class="hljs-comment">// external (all terms in this example)</span>
@@ -9192,7 +9124,7 @@ external resources.
   Verfiable Data Registry; DID resolver and DID URL dereferencer instruct a DID
   method.
         " height="778" width="1121">
-        <figcaption>Figure <bdi class="figno">7</bdi> <span class="fig-title">
+        <figcaption>图 <bdi class="figno">7</bdi> <span class="fig-title">
             Detailed overview of DID architecture and the relationship of the basic components.
           </span></figcaption>
       </figure>
@@ -9344,7 +9276,7 @@ external resources.
 Diagram showing a graph model for how DID controllers assign DIDs to refer to
 DID subjects and resolve to DID documents that describe the DID subjects.
 " height="495" width="667">
-        <figcaption>Figure <bdi class="figno">8</bdi> <span class="fig-title">
+        <figcaption>图 <bdi class="figno">8</bdi> <span class="fig-title">
             A <a href="#dfn-decentralized-identifiers" class="internalDFN" data-link-type="dfn"
               id="ref-for-dfn-decentralized-identifiers-192">DID</a> is an identifier assigned by a <a
               href="#dfn-did-controllers" class="internalDFN" data-link-type="dfn"
@@ -9422,7 +9354,7 @@ DID subjects and resolve to DID documents that describe the DID subjects.
         so that is the only statement guaranteed to be in a <a href="#dfn-did-documents" class="internalDFN"
           data-link-type="dfn" id="ref-for-dfn-did-documents-235">DID document</a>.
         That statement is illustrated in <a href="#did-and-did-document-graph" class="fig-ref"
-          title="A DID is an identifier assigned by a DID controller to refer to a DID subject and resolve to a DID document that describes the DID subject. The DID document is an artifact of DID resolution and not a separate resource distinct from the DID subject. See also: narrative description.">Figure
+          title="A DID is an identifier assigned by a DID controller to refer to a DID subject and resolve to a DID document that describes the DID subject. The DID document is an artifact of DID resolution and not a separate resource distinct from the DID subject. See also: narrative description.">图
           <bdi class="figno">8</bdi></a>
         with a direct link between the <a href="#dfn-decentralized-identifiers" class="internalDFN" data-link-type="dfn"
           id="ref-for-dfn-decentralized-identifiers-193">DID</a> and the <a href="#dfn-did-subjects" class="internalDFN"
@@ -9473,7 +9405,7 @@ DID subjects and resolve to DID documents that describe the DID subjects.
           different resource that dereferences to another description of the
           DID subject.
         " height="586" width="722">
-        <figcaption>Figure <bdi class="figno">9</bdi> <span class="fig-title">
+        <figcaption>图 <bdi class="figno">9</bdi> <span class="fig-title">
             A <a href="#dfn-did-documents" class="internalDFN" data-link-type="dfn"
               id="ref-for-dfn-did-documents-238">DID document</a> can use the alsoKnownAs property to assert that
             another
@@ -9613,7 +9545,7 @@ DID subjects and resolve to DID documents that describe the DID subjects.
 
         <p>
           The first case, shown in <a href="#controller-subject-equivalence" class="fig-ref"
-            title="The DID subject is the same entity as the DID controller. See also: narrative description.">Figure
+            title="The DID subject is the same entity as the DID controller. See also: narrative description.">图
             <bdi class="figno">10</bdi></a>, is
           the common scenario where the <a href="#dfn-did-subjects" class="internalDFN" data-link-type="dfn"
             id="ref-for-dfn-did-subjects-90">DID subject</a> is also the <a href="#dfn-did-controllers"
@@ -9628,7 +9560,7 @@ DID subjects and resolve to DID documents that describe the DID subjects.
 Diagram showing a graph model with an equivalence arc from the DID
 subject to the DID controller.
           " height="516" width="667">
-          <figcaption>Figure <bdi class="figno">10</bdi> <span class="fig-title">
+          <figcaption>图 <bdi class="figno">10</bdi> <span class="fig-title">
               The <a href="#dfn-did-subjects" class="internalDFN" data-link-type="dfn"
                 id="ref-for-dfn-did-subjects-91">DID subject</a> is the same entity as the <a
                 href="#dfn-did-controllers" class="internalDFN" data-link-type="dfn"
@@ -9660,7 +9592,7 @@ subject to the DID controller.
             id="ref-for-dfn-did-controllers-43">DID controller</a> and <a href="#dfn-did-subjects" class="internalDFN"
             data-link-type="dfn" id="ref-for-dfn-did-subjects-92">DID subject</a> in
           <a href="#controller-subject-equivalence" class="fig-ref"
-            title="The DID subject is the same entity as the DID controller. See also: narrative description.">Figure
+            title="The DID subject is the same entity as the DID controller. See also: narrative description.">图
             <bdi class="figno">10</bdi></a> are distinct, there is a
           logical arc connecting them to express a semantic equivalence relationship.
         </p>
@@ -9740,7 +9672,7 @@ subject to the DID controller.
             Diagram showing three DID controllers each with an independent
             control relationship with the DID document
           " height="504" width="824">
-          <figcaption>Figure <bdi class="figno">11</bdi> <span class="fig-title">
+          <figcaption>图 <bdi class="figno">11</bdi> <span class="fig-title">
               Multiple independent <a href="#dfn-did-controllers" class="internalDFN" data-link-type="dfn"
                 id="ref-for-dfn-did-controllers-50">DID controllers</a> that can each act independently. See
               also: <a href="#independent-did-controllers-longdesc" class="longdesc-link">Text
@@ -9782,7 +9714,7 @@ subject to the DID controller.
           representing the <a href="#dfn-did-controllers" class="internalDFN" data-link-type="dfn"
             id="ref-for-dfn-did-controllers-55">DID controller</a> group as shown in
           <a href="#group-did-controllers" class="fig-ref"
-            title="Multiple DID controllers who are expected to act together as a DID controller group. See also: narrative description.">Figure
+            title="Multiple DID controllers who are expected to act together as a DID controller group. See also: narrative description.">图
             <bdi class="figno">12</bdi></a>.
         </p>
         <figure id="group-did-controllers">
@@ -9791,7 +9723,7 @@ subject to the DID controller.
 Diagram showing three DID controllers together as a single
 DID controller group to control a DID document
           " height="297" width="888">
-          <figcaption>Figure <bdi class="figno">12</bdi> <span class="fig-title">
+          <figcaption>图 <bdi class="figno">12</bdi> <span class="fig-title">
               Multiple <a href="#dfn-did-controllers" class="internalDFN" data-link-type="dfn"
                 id="ref-for-dfn-did-controllers-56">DID controllers</a> who are expected to act together as a <a
                 href="#dfn-did-controllers" class="internalDFN" data-link-type="dfn"
