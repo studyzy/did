@@ -68,7 +68,12 @@
     // Uncomment these to use the respec extension that generates a list of
     //   normative statements:
     preProcess: [/*prepare_reqlist*/],
-    postProcess: [/*add_reqlist_button*/, restrictRefs],
+    postProcess: [function() {
+        var subtitleElement = document.getElementById('subtitle');
+        if (subtitleElement) {
+            subtitleElement.innerHTML += ' <a href="./REC/2022-07-19" style="color: red;">中文版</a>';
+        }
+    }, restrictRefs],
 
     // list of specification editors
     editors: [
@@ -189,7 +194,6 @@
   </style>
 </head>
 <body data-cite="infra rfc3986">
-  <a href="/REC/2022-07-19" style="font-size: 2em; color: red;">中文版</a>
   <section id='abstract'>
 
     <p>
