@@ -2,7 +2,7 @@
 
 # 去中心化标识符规范v1.0
 
-这是W3C关于去中心化标识符规范v1.0的存储库，由[DID工作组](https://www.w3.org/2019/did-wg/)开发。规范的编辑草稿也可以[直接阅读](https://w3c.github.io/did-core/)。
+这是W3C关于去中心化标识符规范v1.0的存储库，由[DID工作组](https://www.w3.org/2019/did-wg/)开发。规范的编辑草稿也可以[直接阅读](https://w3c.github.io/did/)。
 
 # 汉化简体中文版
 本文档由[深蓝居](https://www.cnblogs.com/studyzy)曾毅（studyzy@163.com）翻译，主要翻译最新20220719版标准，老的草案不再翻译。如有翻译不当的地方，请至[本仓库](https://github.com/studyzy/did-core-cn)提交Issue或PR。
