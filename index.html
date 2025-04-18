@@ -108,7 +108,13 @@
         "CID": {
             title: "Controlled Identifiers v1.0",
             href: "https://studyzy.github.io/cid/"
-        }
+        },
+        "VC":{
+            title:    "The Verifiable Credentials Working Group",
+            href:"https://studyzy.github.io/vc-data-model/",
+            status:   "WD",
+            publisher:  "W3C Verifiable Credentials Working Group"
+        },
     },
     xref: ["web-platform", "cid"],
     lint: {
@@ -277,13 +283,13 @@ table.simple tbody tr:last-of-type {
  <section id='abstract'>
 
      <p>
- [=去中心化标识符=]（DIDs）是一种新型标识符，可实现可验证的、去中心化的数字身份。[=DID=] 指代由 [=DID=] 控制者决定的任何主体（例如个人、组织、事物、数据模型、抽象实体等）。与典型的、联邦化的标识符相比，[=DID=] 的设计使其可以与中心化的注册表、身份提供者和证书颁发机构解耦。具体而言，尽管可能需要其他方协助发现与 [=DID=] 相关的信息，但该设计使 [=DID=] 的控制者无需任何其他方的许可即可证明对其的控制。[=DID=] 是 [=URI=]，将 [=DID 主体=] 与 [=DID 文档=] 关联起来，从而实现与该主体相关的可信交互。
+ [=去中心化标识符=]（DIDs）是一种新型标识符，可实现可验证的、去中心化的数字身份。[=DID=] 指代由 [=DID=] 控制者决定的任何主体（例如个人、组织、事物、数据模型、抽象实体等）。与典型的、联邦化的标识符相比，[=DID=] 的设计使其可以与中心化的注册表、身份提供者和证书颁发机构解耦。具体而言，尽管可能需要其他方协助发现与 [=DID=] 相关的信息，但该设计使 [=DID=] 的控制者无需任何其他方的许可即可证明对其的控制。[=DID=] 是 [=URI=]，将 [=DID主体=] 与 [=DID文档=] 关联起来，从而实现与该主体相关的可信交互。
      </p>
      <p>
- 每个 [=DID 文档=] 可以表达加密材料、<a data-cite="CID#dfn-verification-method">验证方法</a> 或 [=服务=]，这些提供了一组机制，使 [=DID 控制者=] 能够证明对 [=DID=] 的控制。[=服务=] 支持与 [=DID 主体=] 相关的可信交互。如果 [=DID 主体=] 是信息资源（例如数据模型），[=DID=] 可能提供返回 [=DID 主体=] 本身的方式。
+ 每个 [=DID文档=] 可以表达加密材料、<a data-cite="CID#dfn-verification-method">验证方法</a> 或 [=服务=]，这些提供了一组机制，使 [=DID控制者=] 能够证明对 [=DID=] 的控制。[=服务=] 支持与 [=DID主体=] 相关的可信交互。如果 [=DID主体=] 是信息资源（例如数据模型），[=DID=] 可能提供返回 [=DID主体=] 本身的方式。
      </p>
      <p>
- 本文档规范了 DID 语法、通用数据模型、核心属性、序列化表示、DID 操作以及将 DIDs 解析为其所代表资源的过程。
+ 本文档规范了 DID语法、通用数据模型、核心属性、序列化表示、DID 操作以及将 DIDs 解析为其所代表资源的过程。
      </p>
    </section>
 
@@ -346,7 +352,7 @@ table.simple tbody tr:last-of-type {
         </figcaption>
       </figure>
       <p>
-    上面的[=DID=]示例解析为一个[=DID文档=]。一个[=DID文档=]包含与[=DID=]相关的信息，例如加密[=认证|认证=]一个[=DID控制者=]的方法。
+    上面的[=DID=]示例解析为一个[=DID文档=]。一个[=DID文档=]包含与[=DID=]相关的信息，例如加密<a data-cite="CID#dfn-authentication">认证</a>一个[=DID控制者=]的方法。
       </p>
       <pre class="example nohighlight" title="一个简单的DID文档">
     {
@@ -397,7 +403,7 @@ table.simple tbody tr:last-of-type {
 控制权
         </td>
         <td>
-赋予实体（包括人���和非人类）直接控制其数字标识符的��力，而无需依赖外部机构。
+赋予实体（包括人类和非人类）直接控制其数字标识符的能力，而无需依赖外部机构。
         </td>
       </tr>
 
@@ -415,7 +421,7 @@ table.simple tbody tr:last-of-type {
 安全性
         </td>
         <td>
-为请求方提供足够的安全性，以依赖 [=DID 文档=] 达到其所需的保证级别。
+为请求方提供足够的安全性，以依赖 [=DID文档=] 达到其所需的保证级别。
         </td>
       </tr>
 
@@ -424,7 +430,7 @@ table.simple tbody tr:last-of-type {
 基于证明
         </td>
         <td>
-使 [=DID 控制者=] 能够在与其他实体交互时提供加密证明。
+使 [=DID控制者=] 能够在与其他实体交互时提供加密证明。
         </td>
       </tr>
 
@@ -451,7 +457,7 @@ table.simple tbody tr:last-of-type {
 可移植性
         </td>
         <td>
-独立于系统和网络，使实体能够在支持 [=DID=] 和 [=DID 方法=] 的任何系统中使用其数字标识符。
+独立于系统和网络，使实体能够在支持 [=DID=] 和 [=DID方法=] 的任何系统中使用其数字标识符。
         </td>
       </tr>
 
@@ -485,7 +491,7 @@ table.simple tbody tr:last-of-type {
   <figure id="brief-architecture-overview">
     <img style="margin: auto; display: block; width: 75%;"
       src="diagrams/did_brief_architecture_overview.svg" alt="
-DID 和 DID 文档记录在可验证数据注册表中；DID 解析为 DID 文档；DID 指向 DID 主体；DID 控制者控制 DID 文档；DID URL 包含一个 DID；DID URL 被解析为 DID 文档片段或外部资源。
+DID 和 DID文档记录在可验证数据注册表中；DID解析为 DID文档；DID 指向 DID主体；DID控制者控制 DID文档；DID URL 包含一个 DID；DID URL 被解析为 DID文档片段或外部资源。
     ">
     <figcaption>
 DID 架构及其基本组件关系的概述。
@@ -495,10 +501,10 @@ DID 架构及其基本组件关系的概述。
 
   <div class="longdesc" id="brief-architecture-overview-longdesc">
     <p>
-图中显示了六个内部标记的形状，并在它们之间标注了箭头，具体如下���在图的中心是一个标记为 DID URL 的矩形，包含小型打印文本 "did:example:123/path/to/rsrc"。在图的顶部中心是一个标记为 "DID" 的矩形，包含小型打印文本 "did:example:123"。在图的左上方是一个标记为 "DID 主体" 的椭圆。在图的底部中心是一个标记为 "DID 文档" 的矩形。在图的左下方是一个标记为 "DID 控制者" 的椭圆。在图的右中部是��个二维渲染的圆柱体，标记为 "可验证数据注册表"。
+图中显示了六个内部标记的形状，并在它们之间标注了箭头，具体如下���在图的中心是一个标记为 DID URL 的矩形，包含小型打印文本 "did:example:123/path/to/rsrc"。在图的顶部中心是一个标记为 "DID" 的矩形，包含小型打印文本 "did:example:123"。在图的左上方是一个标记为 "DID主体" 的椭圆。在图的底部中心是一个标记为 "DID文档" 的矩形。在图的左下方是一个标记为 "DID控制者" 的椭圆。在图的右中部是��个二维渲染的圆柱体，标记为 "可验证数据注册表"。
     </p>
     <p>
-从 "DID URL" 矩形的顶部，一条标注为 "包含" 的箭头向上延伸，指向 "DID" 矩形。从 "DID URL" 矩形的底部，一条标注为 "指向，并<strong><em>解析</em></strong>为" 的箭头向下延伸，指向 "DID 文档" 矩形。从 "DID" 矩形，一条标注为 "<strong><em>解析</em></strong>为" 的箭头指向 "DID 文档" 矩形。从 "DID" 矩形，一条标注为 "指向" 的箭头指向左侧的 "DID 主体" 椭圆。从 "DID 控制者" 椭圆，一条标注为 "控制" 的箭头指向右侧的 "DID 文档" 矩形。从 "DID" 矩形，一条标注为 "记录在" 的箭���向右下方指向 "可验证数据注册表" 圆柱体。从 "DID 文档" ��形，一条标注为 "记录在" 的���头向右上方指向 "可验证数据注册表" 圆柱体。
+从 "DID URL" 矩形的顶部，一条标注为 "包含" 的箭头向上延伸，指向 "DID" 矩形。从 "DID URL" 矩形的底部，一条标注为 "指向，并<strong><em>解析</em></strong>为" 的箭头向下延伸，指向 "DID文档" 矩形。从 "DID" 矩形，一条标注为 "<strong><em>解析</em></strong>为" 的箭头指向 "DID文档" 矩形。从 "DID" 矩形，一条标注为 "指向" 的箭头指向左侧的 "DID主体" 椭圆。从 "DID控制者" 椭圆，一条标注为 "控制" 的箭头指向右侧的 "DID文档" 矩形。从 "DID" 矩形，一条标注为 "记录在" 的箭���向右下方指向 "可验证数据注册表" 圆柱体。从 "DID文档" ��形，一条标注为 "记录在" 的���头向右上方指向 "可验证数据注册表" 圆柱体。
     </p>
   </div>
 
@@ -507,49 +513,49 @@ DID 架构及其基本组件关系的概述。
 DID 和 DID URL
     </dt>
     <dd>
-去中心化标识符（[=DID=]）是由三部分组成的 [=URI=]：方案 `did:`、方法标识符以及由 [=DID 方法=] 指定的唯一方法特定标识符。[=DID=] 可解析为 [=DID 文档=]。[=DID URL=] 扩展了基本 [=DID=] 的语法，包含其他标准 [=URI=] 组件，例如路径、查询和片段，以定位特定的 [=资源=]——例如 [=DID 文档=] 中的加密公钥，或 [=DID 文档=] 外部的 [=资源=]。这些概念在 [[[#did-syntax]]] 和 [[[#did-url-syntax]]] 中详细说明。
+去中心化标识符（[=DID=]）是由三部分组成的 [=URI=]：方案 `did:`、方法标识符以及由 [=DID方法=] 指定的唯一方法特定标识符。[=DID=] 可解析为 [=DID文档=]。[=DID URL=] 扩展了基本 [=DID=] 的语法，包含其他标准 [=URI=] 组件，例如路径、查询和片段，以定位特定的 [=资源=]——例如 [=DID文档=] 中的加密公钥，或 [=DID文档=] 外部的 [=资源=]。这些概念在 [[[#did-syntax]]] 和 [[[#did-url-syntax]]] 中详细说明。
     </dd>
 
     <dt>
-DID 主体
+DID主体
     </dt>
     <dd>
-[=DID=] 的主体是由 [=DID=] 标识的实体。[=DID 主体=] 也可能是 [=DID 控制者=]。任何事物都可以是 [=DID=] 的主体：个人、群体、组织、事物或概念。这在 [[[#did-subject]]] 中进一步定义。
+[=DID=] 的主体是由 [=DID=] 标识的实体。[=DID主体=] 也可能是 [=DID控制者=]。任何事物都可以是 [=DID=] 的主体：个人、群体、组织、事物或概念。这在 [[[#did-subject]]] 中进一步定义。
     </dd>
 
     <dt>
-DID 控制者
+DID控制者
     </dt>
     <dd>
-[=DID=] 的 [=控制者=] 是具有能力（由 [=DID 方法=] 定义）对 [=DID 文档=] 进行更改的实体（个人、组织或自主软件）。这种能力通常通过控制一组由代表控制者的软件使用的加密密钥来断言，但也可能通过其他机制断言。请注意，[=DID=] 可能有多个控制者，[=DID 主体=] 可以是 [=DID 控制者=] 或其中之一。此概念记录在 [[[#did-controller]]] 中。
+[=DID=] 的 <a data-cite="CID#dfn-controller">控制者</a> 是具有能力（由 [=DID方法=] 定义）对 [=DID文档=] 进行更改的实体（个人、组织或自主软件）。这种能力通常通过控制一组由代表控制者的软件使用的加密密钥来断言，但也可能通过其他机制断言。请注意，[=DID=] 可能有多个控制者，[=DID主体=] 可以是 [=DID控制者=] 或其中之一。此概念记录在 [[[#did-controller]]] 中。
     </dd>
 
     <dt>
 可验证数据注册表
     </dt>
     <dd>
-为了能够解析为 [=DID 文档=]，[=DID=] 通常记录在某种底层系统或网络中。无论使用何种特定技术，任何支持记录 [=DID=] 并返回生成 [=DID 文档=] 所需数据的系统都称为 [=可验证数据注册表=]。示例包括 [=分布式账本=]、去中心化文件系统、任何类型的数据库、点对点网络以及其他形式的可信数据存储。这在 [[[#methods]]] 中进一步阐述。
+为了能够解析为 [=DID文档=]，[=DID=] 通常记录在某种底层系统或网络中。无论使用何种特定技术，任何支持记录 [=DID=] 并返回生成 [=DID文档=] 所需数据的系统都称为 [=可验证数据注册表=]。示例包括 [=分布式账本=]、去中心化文件系统、任何类型的数据库、点对点网络以及其他形式的可信数据存储。这在 [[[#methods]]] 中进一步阐述。
     </dd>
 
     <dt>
-DID 文档
+DID文档
     </dt>
     <dd>
-[=DID 文档=] 包含与 [=DID=] 相关的信息。它们通常表达 <a data-cite="CID#dfn-verification-method">验证方法</a>，例如加密公钥，以及与 [=DID 主体=] 交互相关的 [=服务=]。[=DID 文档=] 支持的通用属性在 [[[#core-properties]]] 中指定。[=DID 文档=] 可以序列化为字节流（参见 [[[#representations]]]）。[=DID 文档=] 中的属性可以根据 [[[#methods]]] 中概述的适用操作进行更新。
+[=DID文档=] 包含与 [=DID=] 相关的信息。它们通常表达 <a data-cite="CID#dfn-verification-method">验证方法</a>，例如加密公钥，以及与 [=DID主体=] 交互相关的 [=服务=]。[=DID文档=] 支持的通用属性在 [[[#core-properties]]] 中指定。[=DID文档=] 可以序列化为字节流（参见 [[[#representations]]]）。[=DID文档=] 中的属性可以根据 [[[#methods]]] 中概述的适用操作进行更新。
     </dd>
 
     <dt>
-DID 方法
+DID方法
     </dt>
     <dd>
-[=DID 方法=] 是创建、解析、更新和停用特定类型 [=DID=] 及其相关 [=DID 文档=] 的机制。[=DID 方法=] 使用单独的 DID 方法规范定义，如 [[[#methods]]] 中所述。
+[=DID方法=] 是创建、解析、更新和停用特定类型 [=DID=] 及其相关 [=DID文档=] 的机制。[=DID方法=] 使用单独的 DID方法规范定义，如 [[[#methods]]] 中所述。
     </dd>
 
     <dt>
-DID 解析器和 DID 解析
+DID解析器和 DID解析
     </dt>
     <dd>
-[=DID 解析器=] 是一个系统组件，它以 [=DID=] 作为输入并生成符合规范的 [=DID 文档=] 作为输出。此过程称为 [=DID 解析=]。解析特定类型 [=DID=] 的步骤由相关 [=DID 方法=] 规范定义。[=DID 解析=] 的过程在 [[?DID-RESOLUTION]] 中详细说明。
+[=DID解析器=] 是一个系统组件，它以 [=DID=] 作为输入并生成符合规范的 [=DID文档=] 作为输出。此过程称为 [=DID解析=]。解析特定类型 [=DID=] 的步骤由相关 [=DID方法=] 规范定义。[=DID解析=] 的过程在 [[?DID-RESOLUTION]] 中详细说明。
     </dd>
 
     <dt>
@@ -568,11 +574,11 @@ DID URL 解引用器和 DID URL 解引用
          </p>
 
          <p>
-   一些示例包含的术语（包括属性名称和值）未在本规范中定义。这些术语通过注释（`// external (property name|value)`）标明。当这些术语用于 [=DID 文档=] 时，期望它们在 DID 扩展的存储库 [[?DID-EXTENSIONS]] 中注册，并链接到正式定义和 JSON-LD 上下文。
+   一些示例包含的术语（包括属性名称和值）未在本规范中定义。这些术语通过注释（`// external (property name|value)`）标明。当这些术语用于 [=DID文档=] 时，期望它们在 DID 扩展的存储库 [[?DID-EXTENSIONS]] 中注册，并链接到正式定义和 JSON-LD 上下文。
          </p>
 
          <p>
-   [=DIDs=] 和 [=DID 文档=] 的实现互操作性通过评估实现是否能够创建和解析符合本规范的 [=DIDs=] 和 [=DID 文档=] 来测试。生产者和消费者的互操作性通过确保 [=DIDs=] 和 [=DID 文档=] 符合规范来提供。[=DID 方法=] 规范的互操作性由每个 [=DID 方法=] 规范中的详细信息提供。需要理解的是，与网络浏览器不需要实现所有已知的 [=URI=] 方案一样，符合规范的软件在处理 [=DIDs=] 时也不需要实现所有已知的 [=DID 方法=]。然而，所有实现特定 [=DID 方法=] 的软件都应在该方法上具有互操作性。
+   [=DIDs=] 和 [=DID文档=] 的实现互操作性通过评估实现是否能够创建和解析符合本规范的 [=DIDs=] 和 [=DID文档=] 来测试。生产者和消费者的互操作性通过确保 [=DIDs=] 和 [=DID文档=] 符合规范来提供。[=DID方法=] 规范的互操作性由每个 [=DID方法=] 规范中的详细信息提供。需要理解的是，与网络浏览器不需要实现所有已知的 [=URI=] 方案一样，符合规范的软件在处理 [=DIDs=] 时也不需要实现所有已知的 [=DID方法=]。然而，所有实现特定 [=DID方法=] 的软件都应在该方法上具有互操作性。
          </p>
 
         <p>
@@ -580,19 +586,19 @@ DID URL 解引用器和 DID URL 解引用
         </p>
 
          <p>
-   一个 <dfn class="export">符合规范的 DID 文档</dfn> 是本规范中描述的数据模型的任何具体表达，并符合 [[[#data-model]]] 和 [[[#core-properties]]] 中的相关规范性声明。符合规范的文档的序列化格式是确定性的、双向的且无损的，如 [[[#representations]]] 中所述。
+   一个 <dfn class="export">符合规范的 DID文档</dfn> 是本规范中描述的数据模型的任何具体表达，并符合 [[[#data-model]]] 和 [[[#core-properties]]] 中的相关规范性声明。符合规范的文档的序列化格式是确定性的、双向的且无损的，如 [[[#representations]]] 中所述。
          </p>
 
          <p>
-   一个 <dfn>符合规范的生产者</dfn> 是任何以软件和/或硬件实现的算法，能够生成 [=符合规范的 DIDs=] 或 [=符合规范的 DID 文档=]，并遵守 [[[#representations]]] 中的相关规范性声明。
+   一个 <dfn>符合规范的生产者</dfn> 是任何以软件和/或硬件实现的算法，能够生成 [=符合规范的 DIDs=] 或 [=符合规范的 DID文档=]，并遵守 [[[#representations]]] 中的相关规范性声明。
          </p>
 
          <p>
-   一个 <dfn>符合规范的消费者</dfn> 是任何以软件和/或硬件实现的算法，能够消费 [=符合规范的 DIDs=] 或 [=符合规范的 DID 文档=]，并遵守 [[[#representations]]] 中的相关规范性声明。
+   一个 <dfn>符合规范的消费者</dfn> 是任何以软件和/或硬件实现的算法，能够消费 [=符合规范的 DIDs=] 或 [=符合规范的 DID文档=]，并遵守 [[[#representations]]] 中的相关规范性声明。
          </p>
 
          <p>
-   一个 <dfn class="export">符合规范的 DID 方法</dfn> 是任何符合 [[[#methods]]] 中相关规范性声明的规范。
+   一个 <dfn class="export">符合规范的 DID方法</dfn> 是任何符合 [[[#methods]]] 中相关规范性声明的规范。
          </p>
 
        </section>
@@ -602,7 +608,7 @@ DID URL 解引用器和 DID URL 解引用
            目标读者
          </h2>
          <p>
-           本规范的主要目标读者包括：符合规范的 DID 方法的实现者，以及希望与 DIDs 交互和集成的系统和服务的实现者。目标读者包括但不限于软件架构师、数据建模师、应用程序开发人员、服务开发人员、测试人员、操作员和用户体验（UX）专家。其他参与去中心化身份、可验证凭证和安全存储相关标准工作的人员也可能对阅读本规范感兴趣。
+           本规范的主要目标读者包括：符合规范的 DID方法的实现者，以及希望与 DIDs 交互和集成的系统和服务的实现者。目标读者包括但不限于软件架构师、数据建模师、应用程序开发人员、服务开发人员、测试人员、操作员和用户体验（UX）专家。其他参与去中心化身份、可验证凭证和安全存储相关标准工作的人员也可能对阅读本规范感兴趣。
          </p>
 
        </section>
@@ -624,84 +630,84 @@ DID URL 解引用器和 DID URL 解引用
 
         <dt><dfn class="export" data-lt="decentralized identifiers|DID|DIDs">去中心化标识符</dfn> (DID)</dt>
         <dd>
-      一种全局唯一的持久标识符，不需要中心化的注册机构，通常通过加密方式生成和/或注册。DID 的通用格式定义在<a href="#did-syntax"></a>中。特定的[=DID 方案=]在<a>DID 方法</a>规范中定义。许多（但不是全部）DID 方法使用[=分布式账本技术=]（DLT）或其他形式的去中心化网络。
+      一种全局唯一的持久标识符，不需要中心化的注册机构，通常通过加密方式生成和/或注册。DID的通用格式定义在<a href="#did-syntax"></a>中。特定的[=DID方案=]在<a>DID方法</a>规范中定义。许多（但不是全部）DID方法使用[=分布式账本技术=]（DLT）或其他形式的去中心化网络。
         </dd>
 
-        <dt><dfn class="export" data-lt="did controllers|did controller(s)">DID 控制者</dfn></dt>
+        <dt><dfn class="export" data-lt="did controllers|did controller(s)">DID控制者</dfn></dt>
         <dd>
-      具有更改[=DID 文档=]能力的实体。[=DID=]可能有多个 DID 控制者。DID 控制者可以通过[=DID 文档=]顶层的可选 `controller` 属性表示。请注意，DID 控制者可能是<a>DID 主体</a>。
+      具有更改[=DID文档=]能力的实体。[=DID=]可能有多个 DID控制者。DID控制者可以通过[=DID文档=]顶层的可选 `controller` 属性表示。请注意，DID控制者可能是<a>DID主体</a>。
         </dd>
 
-        <dt><dfn>DID 代理</dfn></dt>
+        <dt><dfn>DID代理</dfn></dt>
         <dd>
-      一个实体，由[=DID 控制者=]授予权限，使用与[=DID=]相关的<a data-cite="CID#dfn-verification-method">验证方法</a>，通过<a>DID 文档</a>进行。例如，父母控制孩子的[=DID 文档=]，可能允许孩子使用其个人设备进行[=认证|身份验证=]。在这种情况下，孩子是[=DID 代理=]。孩子的个人设备将包含使其能够使用[=DID=]进行[=认证|身份验证=]的私有加密材料。然而，孩子可能无法在未经父母许可的情况下添加其他个人设备。
+      一个实体，由[=DID控制者=]授予权限，使用与[=DID=]相关的<a data-cite="CID#dfn-verification-method">验证方法</a>，通过<a>DID文档</a>进行。例如，父母控制孩子的[=DID文档=]，可能允许孩子使用其个人设备进行<a data-cite="CID#dfn-authentication">身份验证</a>。在这种情况下，孩子是[=DID代理=]。孩子的个人设备将包含使其能够使用[=DID=]进行<a data-cite="CID#dfn-authentication">身份验证</a>的私有加密材料。然而，孩子可能无法在未经父母许可的情况下添加其他个人设备。
         </dd>
 
-        <dt><dfn class="export" data-lt="DID documents">DID 文档</dfn></dt>
+        <dt><dfn class="export" data-lt="DID documents">DID文档</dfn></dt>
         <dd>
-      描述[=DID 主体=]的一组数据，包括[=DID 主体=]或[=DID 代理=]可以用来[=认证|身份验证=]自身并证明其与[=DID=]关联的机制，例如加密公钥。DID 文档可能有一个或多个不同的[=表示=]，如<a href="#representations"></a>或 W3C [[[DID-EXTENSIONS]]] 中定义。
+      描述[=DID主体=]的一组数据，包括[=DID主体=]或[=DID代理=]可以用来<a data-cite="CID#dfn-authentication">身份验证</a>自身并证明其与[=DID=]关联的机制，例如加密公钥。DID文档可能有一个或多个不同的[=表示=]，如<a href="#representations"></a>或 W3C [[[DID-EXTENSIONS]]] 中定义。
         </dd>
 
-        <dt><dfn data-lt="DID fragments">DID 片段</dfn></dt>
+        <dt><dfn data-lt="DID fragments">DID片段</dfn></dt>
         <dd>
-      [=DID URL=]中第一个井号字符（<code>#</code>）之后的部分。DID 片段语法与 URI 片段语法相同。
+      [=DID URL=]中第一个井号字符（<code>#</code>）之后的部分。DID片段语法与 URI 片段语法相同。
         </dd>
 
-        <dt><dfn class="export" data-lt="DID methods">DID 方法</dfn></dt>
+        <dt><dfn class="export" data-lt="DID methods">DID方法</dfn></dt>
         <dd>
-      定义如何实现特定[=DID 方法方案=]的规范。DID 方法由 DID 方法规范定义，该规范指定了创建、解析、更新和停用[=DIDs=]和[=DID 文档=]的精确操作。详见<a href="#methods"></a>。
+      定义如何实现特定[=DID方法方案=]的规范。DID方法由 DID方法规范定义，该规范指定了创建、解析、更新和停用[=DIDs=]和[=DID文档=]的精确操作。详见<a href="#methods"></a>。
         </dd>
 
-        <dt><dfn data-lt="DID paths">DID 路径</dfn></dt>
+        <dt><dfn data-lt="DID paths">DID路径</dfn></dt>
         <dd>
-      [=DID URL=]中从第一个正斜杠字符（<code>/</code>）开始并包括该字符，到问号（<code>?</code>）、片段井号（<code>#</code>）或[=DID URL=]结尾的部分。DID 路径语法与 URI 路径语法相同。详见<a href="#path"></a>。
+      [=DID URL=]中从第一个正斜杠字符（<code>/</code>）开始并包括该字符，到问号（<code>?</code>）、片段井号（<code>#</code>）或[=DID URL=]结尾的部分。DID路径语法与 URI 路径语法相同。详见<a href="#path"></a>。
         </dd>
 
-        <dt><dfn data-lt="DID queries">DID 查询</dfn></dt>
+        <dt><dfn data-lt="DID queries">DID查询</dfn></dt>
         <dd>
-      [=DID URL=]中从第一个问号字符（<code>?</code>）开始并包括该字符之后的部分。DID 查询语法与 URI 查询语法相同。详见<a href="#query"></a>。
+      [=DID URL=]中从第一个问号字符（<code>?</code>）开始并包括该字符之后的部分。DID查询语法与 URI 查询语法相同。详见<a href="#query"></a>。
         </dd>
 
-        <dt><dfn class="export">DID 解析</dfn></dt>
+        <dt><dfn class="export">DID解析</dfn></dt>
         <dd>
-      以[=DID=]和一组解析选项为输入，返回符合规范的[=DID 文档=]及附加元数据的过程。此过程依赖于适用[=DID 方法=]的“读取”操作。此过程的输入和输出在[[?DID-RESOLUTION]]中定义。
+      以[=DID=]和一组解析选项为输入，返回符合规范的[=DID文档=]及附加元数据的过程。此过程依赖于适用[=DID方法=]的“读取”操作。此过程的输入和输出在[[?DID-RESOLUTION]]中定义。
         </dd>
 
-        <dt><dfn class="export" data-lt="DID resolvers">DID 解析器</dfn></dt>
+        <dt><dfn class="export" data-lt="DID resolvers">DID解析器</dfn></dt>
         <dd>
-      一种软件和/或硬件组件，执行[=DID 解析=]功能，输入[=DID=]并输出符合规范的[=DID 文档=]。
+      一种软件和/或硬件组件，执行[=DID解析=]功能，输入[=DID=]并输出符合规范的[=DID文档=]。
         </dd>
 
-        <dt><dfn data-lt="DID schemes|DID method scheme">DID 方案</dfn></dt>
+        <dt><dfn data-lt="DID schemes|DID method scheme|DID方法方案">DID方案</dfn></dt>
         <dd>
-      [=去中心化标识符=]的正式语法。通用 DID 方案以前缀<code>did:</code>开头，如<a href="#did-syntax"></a>中定义。每个[=DID 方法=]规范定义了一个与该[=DID 方法=]配合使用的特定 DID 方法方案。在特定 DID 方法方案中，DID 方法名称紧随第一个冒号并以第二个冒号结束，例如<code>did:example:</code>。
+      [=去中心化标识符=]的正式语法。通用 DID方案以前缀<code>did:</code>开头，如<a href="#did-syntax"></a>中定义。每个[=DID方法=]规范定义了一个与该[=DID方法=]配合使用的特定 DID方法方案。在特定 DID方法方案中，DID方法名称紧随第一个冒号并以第二个冒号结束，例如<code>did:example:</code>。
         </dd>
 
-        <dt><dfn data-lt="DID subjects">DID 主体</dfn></dt>
+        <dt><dfn data-lt="DID subjects">DID主体</dfn></dt>
         <dd>
-      由[=DID=]标识并由[=DID 文档=]描述的实体。任何事物都可以是 DID 主体：个人、群体、组织、物理事物、数字事物、逻辑事物等。
+      由[=DID=]标识并由[=DID文档=]描述的实体。任何事物都可以是 DID主体：个人、群体、组织、物理事物、数字事物、逻辑事物等。
         </dd>
       </dl>
 
       <dt><dfn data-lt="DID URLs">DID URL</dfn></dt>
 
       <dd>
-      [=DID=] 加上符合 <a href="#did-url-syntax"></a> 中定义的任何附加语法组件。这包括可选的 <a>DID 路径</a>（带有前导 <code>/</code> 字符）、可选的 [=DID 查询=]（带有前导 <code>?</code> 字符）以及可选的 [=DID 片段=]（带有前导 <code>#</code> 字符）。
+      [=DID=] 加上符合 <a href="#did-url-syntax"></a> 中定义的任何附加语法组件。这包括可选的 <a>DID路径</a>（带有前导 <code>/</code> 字符）、可选的 [=DID查询=]（带有前导 <code>?</code> 字符）以及可选的 [=DID片段=]（带有前导 <code>#</code> 字符）。
       </dd>
 
       <dt><dfn>DID URL 解引用</dfn></dt>
 
       <dd>
-      一个过程，以 [=DID URL=] 和一组输入元数据为输入，并返回一个 [=资源=]。该资源可能是一个 <a>DID 文档</a> 加上附加元数据、[=DID 文档=] 中包含的次级资源，或完全外部于 [=DID 文档=] 的资源。该过程使用 [=DID 解析=] 来获取 [=DID URL=] 中包含的 [=DID=] 所指示的 [=DID 文档=]。解引用过程随后可以对 [=DID 文档=] 进行额外处理��以返回 [=DID URL=] 所指示的解引用资源。此过程的输入和输出在 [[?DID-RESOLUTION]] 中定义。
+      一个过程，以 [=DID URL=] 和一组输入元数据为输入，并返回一个 [=资源=]。该资源可能是一个 <a>DID文档</a> 加上附加元数据、[=DID文档=] 中包含的次级资源，或完全外部于 [=DID文档=] 的资源。该过程使用 [=DID解析=] 来获取 [=DID URL=] 中包含的 [=DID=] 所指示的 [=DID文档=]。解引用过程随后可以对 [=DID文档=] 进行额外处理��以返回 [=DID URL=] 所指示的解引用资源。此过程的输入和输出在 [[?DID-RESOLUTION]] 中定义。
       </dd>
 
       <dt><dfn data-lt="DID URL dereferencers">DID URL 解引用器</dfn></dt>
 
       <dd>
-      一种软件和/或硬件系统，用于执行 [=DID URL 解引用=] 功能，处理给定的 [=DID URL=] 或 [=DID 文档=]。
+      一种软件和/或硬件系统，用于执行 [=DID URL 解引用=] 功能，处理给定的 [=DID URL=] 或 [=DID文档=]。
       </dd>
 
-      <dt><dfn data-lt="distributed ledger technology|DLT">分布式账本</dfn> (DLT)</dt>
+      <dt><dfn data-lt="distributed ledger technology|DLT|分布式账本技术">分布式账本</dfn> (DLT)</dt>
 
       <dd>
       一种非中心化的事件记录系统。这些系统为参与者提供足够的信任，使其能够依赖其他人记录的数据进行操作决策。它们通常使用分布式数据库，不同节点通过共识协议确认加密签名交易的顺序。随着时间的推移，数字签名交易的链接通常使账本的历史记录实际上不可更改。
@@ -710,31 +716,31 @@ DID URL 解引用器和 DID URL 解引用
       <dt><dfn data-lt="resources">资源</dfn></dt>
 
       <dd>
-      由 [=URI=] 标识的事物，如 [[RFC3986]] 中定义。同样，任何资源都可以作为由 [=DID=] 标识的 [=DID 主体=]。
+      由 [=URI=] 标识的事物，如 [[RFC3986]] 中定义。同样，任何资源都可以作为由 [=DID=] 标识的 [=DID主体=]。
       </dd>
 
-      <dt><dfn data-lt="representations">表示</dfn></dt>
+      <dt><dfn data-lt="representations|表示形式">表示</dfn></dt>
 
       <dd>
-      [=资源=] 的具体表达形式，如 [[RFC7231]] 中定义：“旨在反映给定资源的过去、当前或期望状态的信息，以协议可轻松传输的格式表示，并由一组表示元数据和可能无限的表示数据流组成。” [=DID 文档=] 是描述 [=DID 主体=] 信息的表示形式。详见 <a href="#representations"></a>。
+      [=资源=] 的具体表达形式，如 [[RFC7231]] 中定义：“旨在反映给定资源的过去、当前或期望状态的信息，以协议可轻松传输的格式表示，并由一组表示元数据和可能无限的表示数据流组成。” [=DID文档=] 是描述 [=DID主体=] 信息的表示形式。详见 <a href="#representations"></a>。
       </dd>
 
-      <dt><dfn data-lt="representation-specific entry|non-representation-specific entry">特定表示条目</dfn></dt>
+      <dt><dfn data-lt="representation-specific entry|non-representation-specific entry|非特定表示条目">特定表示条目</dfn></dt>
 
       <dd>
-      [=DID 文档=] 中特定于某种 [=表示=] 的条目。在 <a href="#data-model"></a> 和 <a href="#representations"></a> 中定义。例如，<a><code>@context</code></a> 在 <a href="#json-ld">JSON-LD 表示</a> 中是一个<em>特定表示条目</em>。
+      [=DID文档=] 中特定于某种 [=表示=] 的条目。在 <a href="#data-model"></a> 和 <a href="#representations"></a> 中定义。例如，<a><code>@context</code></a> 在 <a href="#json-ld">JSON-LD 表示</a> 中是一个<em>特定表示条目</em>。
       </dd>
 
       <dt><dfn>服务</dfn></dt>
 
       <dd>
-      通过一个或多个 [=服务端点=] 与 [=DID 主体=] 或相关实体通信或交互的方式。示例包括发现服务、代理服务、社交网络服务、文件存储服务和可验证凭证存储库服务。
+      通过一个或多个 [=服务端点=] 与 [=DID主体=] 或相关实体通信或交互的方式。示例包括发现服务、代理服务、社交网络服务、文件存储服务和可验证凭证存储库服务。
       </dd>
 
       <dt><dfn data-lt="service endpoints">服务端点</dfn></dt>
 
       <dd>
-      一个网络地址，例如 HTTP URL，用于代表 [=DID 主体=] 操作的 [=服务=]。
+      一个网络地址，例如 HTTP URL，用于代表 [=DID主体=] 操作的 [=服务=]。
       </dd>
 
       <dt><dfn data-lt="URI|URIs">统一资源标识符</dfn> (URI)</dt>
@@ -748,7 +754,7 @@ DID URL 解引用器和 DID URL 解引用
       </dt>
 
       <dd>
-      一种系统，用于创建、验证、更新和/或停用 [=去中心化标识符=] 和 [=DID 文档=]。可验证数据注册表也可能用于其他加密可验证的数据结构，例如 [=可验证凭证=]。更多信息请参见 W3C 可验证凭证规范 [[VC-DATA-MODEL]]。
+      一种系统，用于创建、验证、更新和/或停用 [=去中心化标识符=] 和 [=DID文档=]。可验证数据注册表也可能用于其他加密可验证的数据结构，例如 <a data-cite="VC#dfn-vc">可验证凭证</a>。更多信息请参见 W3C 可验证凭证规范 [[VC-DATA-MODEL]]。
       </dd>
 
       <dt><dfn>可验证时间戳</dfn></dt>
@@ -766,23 +772,23 @@ DID URL 解引用器和 DID URL 解引用
   </section>
 
   <section>
-   <h2>标识符</h2>
+   <h2 id="identifier">标识符</h2>
    <p>
-   本节描述了[=DID=]和[=DID URL=]的正式语法。术语“通用”用于区分此处定义的语法与各自规范中由<em>特定</em>[=DID 方法=]定义的语法。[=DID=]和[=DID URL=]的创建过程及其时间点在[[[#method-operations]]]和[[[#creation-of-a-did]]]中描述。
+   本节描述了[=DID=]和[=DID URL=]的正式语法。术语“通用”用于区分此处定义的语法与各自规范中由<em>特定</em>[=DID方法=]定义的语法。[=DID=]和[=DID URL=]的创建过程及其时间点在[[[#method-operations]]]和[[[#creation-of-a-did]]]中描述。
    </p>
 
    <section class="normative">
-     <h3>DID 语法</h3>
+     <h3 id="did-syntax">DID语法</h3>
 
      <p>
-   通用[=DID 方案=]是一种符合[[!RFC3986]]的[=URI=]方案。其ABNF定义如下，使用[[!RFC5234]]中的语法，并对应定义了`ALPHA`和`DIGIT`。ABNF中未定义的所有其他规则名称在[[RFC3986]]中定义。所有[=DID=]必须符合DID语法ABNF规则。
+   通用[=DID方案=]是一种符合[[!RFC3986]]的[=URI=]方案。其ABNF定义如下，使用[[!RFC5234]]中的语法，并对应定义了`ALPHA`和`DIGIT`。ABNF中未定义的所有其他规则名称在[[RFC3986]]中定义。所有[=DID=]必须符合DID语法ABNF规则。
      </p>
 
      <table class="simple">
        <thead>
          <tr>
            <th>
-   DID 语法 ABNF 规则
+   DID语法 ABNF 规则
            </th>
          </tr>
        </thead>
@@ -803,19 +809,19 @@ DID URL 解引用器和 DID URL 解引用
      </table>
 
      <p>
-   关于与[=DID=]语法相关的[=DID 方法=]要求，请参见[[[#method-syntax]]]部分。
+   关于与[=DID=]语法相关的[=DID方法=]要求，请参见[[[#method-syntax]]]部分。
      </p>
 
    </section>
 <section class="normative">
-  <h3>DID URL 语法</h3>
+  <h3 id="did-url-syntax">DID URL 语法</h3>
 
   <p>
-[=DID URL=] 是用于特定 [=资源=] 的网络位置标识符。它可以用于检索 [=DID 主体=]、<a data-cite="CID#dfn-verification-method">验证方法</a>、[=服务=]、[=DID 文档=] 的特定部分或其他资源的表示形式。
+[=DID URL=] 是用于特定 [=资源=] 的网络位置标识符。它可以用于检索 [=DID主体=]、<a data-cite="CID#dfn-verification-method">验证方法</a>、[=服务=]、[=DID文档=] 的特定部分或其他资源的表示形式。
   </p>
 
   <p>
-以下是使用 [[!RFC5234]] 中的语法定义的 ABNF 规则。它基于 [[[#did-syntax]]] 中定义的 `did` 方案。<a data-cite="!rfc3986#section-3.3">`path-abempty`</a>、<a data-cite="!rfc3986#section-3.4">`query`</a> 和 <a data-cite="!rfc3986#section-3.5">`fragment`</a> 组件在 [[!RFC3986]] 中定义。所有 [=DID URL=] 必须符合 DID URL 语法 ABNF 规则。[=DID 方法=] 可以进一步限制这些规则，如 [[[#method-syntax]]] ��所述。
+以下是使用 [[!RFC5234]] 中的语法定义的 ABNF 规则。它基于 [[[#did-syntax]]] 中定义的 `did` 方案。<a data-cite="!rfc3986#section-3.3">`path-abempty`</a>、<a data-cite="!rfc3986#section-3.4">`query`</a> 和 <a data-cite="!rfc3986#section-3.5">`fragment`</a> 组件在 [[!RFC3986]] 中定义。所有 [=DID URL=] 必须符合 DID URL 语法 ABNF 规则。[=DID方法=] 可以进一步限制这些规则，如 [[[#method-syntax]]] 所述。
   </p>
 
   <table class="simple">
@@ -842,10 +848,10 @@ did-url = did path-abempty [ "?" query ] [ "#" fragment ]
   </p>
 
   <section class="notoc">
-    <h2>路径</h2>
+    <h2 id="path">路径</h2>
 
     <p>
-[=DID 路径=] 与通用 [=URI=] 路径相同，并符合 <a data-cite="RFC3986#section-3.3">RFC&nbsp;3986 第 3.3 节</a> 中的 `path-abempty` ABNF 规则。与 [=URI=] 一样，路径语义可以由 [=DID 方法=] 指定，而 [=DID 控制者=] 可能进一步专门化这些语义。
+[=DID路径=] 与通用 [=URI=] 路径相同，并符合 <a data-cite="RFC3986#section-3.3">RFC&nbsp;3986 第 3.3 节</a> 中的 `path-abempty` ABNF 规则。与 [=URI=] 一样，路径语义可以由 [=DID方法=] 指定，而 [=DID控制者=] 可能进一步专门化这些语义。
     </p>
 
     <pre class="example nohighlight">
@@ -855,10 +861,10 @@ did:example:123456/path
   </section>
 
   <section class="notoc">
-    <h2>查询</h2>
+    <h2 id="query">查询</h2>
 
     <p>
-[=DID 查询=] 与通用 [=URI=] 查询相同，并符合 <a data-cite="RFC3986#section-3.4">RFC&nbsp;3986 第 3.4 节</a> 中的 `query` ABNF 规则。
+[=DID查询=] 与通用 [=URI=] 查询相同，并符合 <a data-cite="RFC3986#section-3.4">RFC&nbsp;3986 第 3.4 节</a> 中的 `query` ABNF 规则。
     </p>
 
     <pre class="example nohighlight">
@@ -867,34 +873,34 @@ did:example:123456?versionId=1
   </section>
 
   <section class="notoc">
-    <h2>片段</h2>
+    <h2 id="fragment">片段</h2>
 
     <p>
-[=DID 片段=] 的语法和语义与通用 [=URI=] 片段相同，并符合 <a data-cite="RFC3986#section-3.5">RFC&nbsp;3986 第 3.5 节</a> 中的 `fragment` ABNF 规则。
+[=DID片段=] 的语法和语义与通用 [=URI=] 片段相同，并符合 <a data-cite="RFC3986#section-3.5">RFC&nbsp;3986 第 3.5 节</a> 中的 `fragment` ABNF 规则。
     </p>
 
     <p>
-[=DID 片段=] 用作 [=DID 文档=] 或外部 [=资源=] 的方法无关引用。以下是一些 DID 片段标识符的示例。
+[=DID片段=] 用作 [=DID文档=] 或外部 [=资源=] 的方法无关引用。以下是一些 DID片段标识符的示例。
     </p>
 
-    <pre class="example nohighlight" title="DID 文档中的唯一验证方法">
+    <pre class="example nohighlight" title="DID文档中的唯一验证方法">
 did:example:123#public-key-0
     </pre>
 
-    <pre class="example nohighlight" title="DID 文档中的唯一服务">
+    <pre class="example nohighlight" title="DID文档中的唯一服务">
 did:example:123#agent
     </pre>
 
-    <pre class="example nohighlight" title="DID 文档外部的资源">
+    <pre class="example nohighlight" title="DID文档外部的资源">
 did:example:123?service=agent&amp;relativeRef=/credentials%23degree
     </pre>
 
     <p class="note" title="跨表示形式的片段语义">
-为了最大化互操作性，建议实现者确保 [=DID 片段=] 在不同 [=表示形式=]（参见 [[[#representations]]]) 中以相同方式解释。例如，尽管 JSON Pointer [[?RFC6901]] 可以在 [=DID 片段=] 中使用，但它在非 JSON [=表示形式=] 中不会以相同方式解释。
+为了最大化互操作性，建议实现者确保 [=DID片段=] 在不同 [=表示形式=]（参见 [[[#representations]]]) 中以相同方式解释。例如，尽管 JSON Pointer [[?RFC6901]] 可以在 [=DID片段=] 中使用，但它在非 JSON [=表示形式=] 中不会以相同方式解释。
     </p>
 
     <p>
-与本节兼容并基于其语义的片段标识符的附加语义在 [[[#application-did]]] 中为 JSON-LD 表示形式描述。有关如何解引用 [=DID 片段=] 的信息，请参见 [[?DID-RESOLUTION]]。
+与本节兼容并基于其语义的片段标识符的附加语义在 [[[#application-did]]] 中为 JSON-LD 表示形式描述。有关如何解引用 [=DID片段=] 的信息，请参见 [[?DID-RESOLUTION]]。
     </p>
 
   </section>
@@ -903,15 +909,15 @@ did:example:123?service=agent&amp;relativeRef=/credentials%23degree
     <h2>相对 DID URL</h2>
 
     <p>
-相对 [=DID URL=] 是 [=DID 文档=] 中的任何 URL 值，不以 `did:&lt;method-name>:&lt;method-specific-id>` 开头。更具体地说，它是任何未以 [[[#did-syntax]]] 中定义的 ABNF 开头的 URL 值。该 URL 预计引用同一 [=DID 文档=] 中的 [=资源=]。相对 [=DID URL=] 可以包含相对路径组件、查询参数和片段标识符。
+相对 [=DID URL=] 是 [=DID文档=] 中的任何 URL 值，不以 `did:&lt;method-name>:&lt;method-specific-id>` 开头。更具体地说，它是任何未以 [[[#did-syntax]]] 中定义的 ABNF 开头的 URL 值。该 URL 预计引用同一 [=DID文档=] 中的 [=资源=]。相对 [=DID URL=] 可以包含相对路径组件、查询参数和片段标识符。
     </p>
 
     <p>
-在解析相对 [=DID URL=] 引用时，必须使用 <a data-cite="RFC3986#section-5">RFC3986 第 5 节：引用解析</a> 中指定的算法。<strong>基本 URI</strong> 值是与 [=DID 主体=] 关联的 [=DID=]，参见 [[[#did-subject]]]。<strong>��案</strong> 是 `did`。<strong>权限</strong> 是 `&lt;method-name>:&lt;method-specific-id>` 的组合，<strong>路径</strong>、<strong>查询</strong> 和 <strong>片段</strong> 值分别定义在 [[[#path]]]、[[[#query]]] 和 [[[#fragment]]] 中。
+在解析相对 [=DID URL=] 引用时，必须使用 <a data-cite="RFC3986#section-5">RFC3986 第 5 节：引用解析</a> 中指定的算法。<strong>基本 URI</strong> 值是与 [=DID主体=] 关联的 [=DID=]，参见 [[[#did-subject]]]。<strong>��案</strong> 是 `did`。<strong>权限</strong> 是 `&lt;method-name>:&lt;method-specific-id>` 的组合，<strong>路径</strong>、<strong>查询</strong> 和 <strong>片段</strong> 值分别定义在 [[[#path]]]、[[[#query]]] 和 [[[#fragment]]] 中。
     </p>
 
     <p>
-相对 [=DID URL=] 通常用于引用 [=DID 文档=] 中的 <a data-cite="CID#dfn-verification-method">验证方法</a> 和 [=服务=]，而无需使用绝对 URL。在存储大小是一个考虑因素的 [=DID 方法=] 中，相对 URL 可能用于减少 [=DID 文档=] 的存储大小。
+相对 [=DID URL=] 通常用于引用 [=DID文档=] 中的 <a data-cite="CID#dfn-verification-method">验证方法</a> 和 [=服务=]，而无需使用绝对 URL。在存储大小是一个考虑因素的 [=DID方法=] 中，相对 URL 可能用于减少 [=DID文档=] 的存储大小。
     </p>
 
     <pre class="example nohighlight" title="相对 DID URL 示例">
@@ -940,31 +946,31 @@ did:example:123?service=agent&amp;relativeRef=/credentials%23degree
   </section>
 
  <section>
-      <h1>数据模型</h1>
+      <h1 id="data-model">数据模型</h1>
       <p>
-  本规范定义了一个数据模型，可用于表达 [=DID 文档=] 和 DID 文档数据结构，这些数据结构可以序列化为多种具体的 [=表示形式=]。本节提供了数据模型的高级描述，描述了数据模型中不同类型属性的表达方式，并提供了扩展数据模型的说明。
+  本规范定义了一个数据模型，可用于表达 [=DID文档=] 和 DID文档数据结构，这些数据结构可以序列化为多种具体的 [=表示形式=]。本节提供了数据模型的高级描述，描述了数据模型中不同类型属性的表达方式，并提供了扩展数据模型的说明。
       </p>
       <p>
-  一个 [=DID 文档=] 由一个 <a data-cite="INFRA#maps">映射</a> 组成，其中包含 <a data-cite="INFRA#map-entry">条目</a>，每个条目由一个键/值对组成。[=DID 文档=] 数据模型至少包含两类不同的条目。第一类条目称为属性，在 [[[#core-properties]]] 部分中指定。第二类条目由 [=表示形式特定的条目=] 组成，在 [[[#representations]]] 部分中指定。
+  一个 [=DID文档=] 由一个 <a data-cite="INFRA#maps">映射</a> 组成，其中包含 <a data-cite="INFRA#map-entry">条目</a>，每个条目由一个键/值对组成。[=DID文档=] 数据模型至少包含两类不同的条目。第一类条目称为属性，在 [[[#core-properties]]] 部分中指定。第二类条目由 [=特定表示条目=] 组成，在 [[[#representations]]] 部分中指定。
       </p>
 
       <figure id="did-document-entries">
         <img style="margin: auto; display: block;"
           src="diagrams/diagram-did-document-entries.svg" alt="
-  图示说明了 DID 文档中的条目，包括属性和表示形式特定的条目；一些条目由本规范定义，其他条目由注册或未注册的扩展定义。">
+  图示说明了 DID文档中的条目，包括属性和特定表示条目；一些条目由本规范定义，其他条目由注册或未注册的扩展定义。">
         <figcaption>
-  DID 文档中的条目。
+  DID文档中的条目。
   另见：<a class="longdesc-link"
   href="#did-document-entries-longdesc">叙述性描述</a>。
         </figcaption>
       </figure>
 
       <div class="longdesc" id="did-document-entries-longdesc">
-  该图标题为“DID 文档映射中的条目”。一条灰色虚线水���穿过图的中心。虚线以上的空间标记为“属性”，虚线以下的空间标记为“表示形式特定的条目”。图中有六个标记的矩形，其中三个位于虚线以上，三个位于虚线以下。一个大的绿色矩形标记为“DID 扩展”，包含左侧四个矩形（左上、左中、左下和中下）。左侧两个矩形（左上和左下）用蓝色边框标记，并用蓝色标注如下。左上矩形标记为“核心属性”，包含文本“id, alsoKnownAs, controller, authentication, verificationMethod, service, serviceEndpoint, ...”。左下矩形标记为“核心表示形式特定的条目”，包含文本“@context”。右侧四个矩形（中上、右上、中下和右下）用灰色边框标记，并用黑色标注如下。中上矩形标记为“属性扩展”，包含文本“ethereumAddress”。中下矩形标记为“表示形式特定的条目扩展”，未包含其他文本。右上矩形标记为“未注册的属性扩展”，包含文本“foo”。右下矩形标记为“未注册的表示形式特定的条目扩展”，包含文本“%YAML, xmlns”。
+  该图标题为“DID文档映射中的条目”。一条灰色虚线水���穿过图的中心。虚线以上的空间标记为“属性”，虚线以下的空间标记为“特定表示条目”。图中有六个标记的矩形，其中三个位于虚线以上，三个位于虚线以下。一个大的绿色矩形标记为“DID 扩展”，包含左侧四个矩形（左上、左中、左下和中下）。左侧两个矩形（左上和左下）用蓝色边框标记，并用蓝色标注如下。左上矩形标记为“核心属性”，包含文本“id, alsoKnownAs, controller, authentication, verificationMethod, service, serviceEndpoint, ...”。左下矩形标记为“核心特定表示条目”，包含文本“@context”。右侧四个矩形（中上、右上、中下和右下）用灰色边框标记，并用黑色标注如下。中上矩形标记为“属性扩展”，包含文本“ethereumAddress”。中下矩形标记为“特定表示条目扩展”，未包含其他文本。右上矩形标记为“未注册的属性扩展”，包含文本“foo”。右下矩形标记为“未注册的特定表示条目扩展”，包含文本“%YAML, xmlns”。
       </div>
 
       <p>
-  [=DID 文档=] 数据模型中的所有条目键都是 <a data-cite="INFRA#strings">字符串</a>。所有条目值使用下表中的抽象数据类型之一表示，每种 [=表示形式=] 都指定了每种数据类型的具体序列化格式。
+  [=DID文档=] 数据模型中的所有条目键都是 <a data-cite="INFRA#strings">字符串</a>。所有条目值使用下表中的抽象数据类型之一表示，每种 [=表示形式=] 都指定了每种数据类型的具体序列化格式。
       </p>
 
       <table class="simple" id="data-types">
@@ -1060,7 +1066,7 @@ did:example:123?service=agent&amp;relativeRef=/credentials%23degree
       </p>
 
       <section>
-        <h2>可扩展性</h2>
+        <h2 id="extensibility">可扩展性</h2>
         <p>
   数据模型支持两种类型的可扩展性。
         </p>
@@ -1079,19 +1085,19 @@ did:example:123?service=agent&amp;relativeRef=/credentials%23degree
     </section>
 
   <section>
-   <h1>核心属性</h1>
+   <h1 id="core-properties">核心属性</h1>
 
     <p>
-    一个 [=DID=] 关联到一个 [=DID 文档=]，它是 [[[CID]]] 中定义的 [=受控标识符文档=] 的扩展。[=DID 文档=] 使用
+    一个 [=DID=] 关联到一个 [=DID文档=]，它是 [[[CID]]] 中定义的 <a data-cite="CID#dfn-controlled-identifier-document">受控标识符文档</a> 的扩展。[=DID文档=] 使用
     <a href="#data-model">数据模型</a> 表达，并可以序列化为
     <a href="#representations">表示形式</a>。
-    以下部分定义了 [=DID 文档=] 中的属性，包括这些属性是必需的还是可选的。这些属性描述了 [=DID 主体=] 与属性值之间的关系。
+    以下部分定义了 [=DID文档=] 中的属性，包括这些属性是必需的还是可选的。这些属性描述了 [=DID主体=] 与属性值之间的关系。
     </p>
     <p>
     以下表格包含了本规范定义的核心属性的参考信息，包括预期值以及是否为必需。表格中的属性名称链接到规范性定义和每个属性的更详细描述。
     </p>
     <p class="note" title="在不同类型的映射中使用的属性名称">
-    属性名称 `id`、`type` 和 `controller` 可以出现在不同类型的 [=映射=] 中，并可能具有不同的约束���例如，[=DID 文档=] 顶层的 `id` 必须是一个 DID，而 `service` [=映射=] 中的 `id` 可以是一个 URL。
+    属性名称 `id`、`type` 和 `controller` 可以出现在不同类型的 [=Map=] 中，并可能具有不同的约束条件例如，[=DID文档=] 顶层的 `id` 必须是一个 DID，而 `service` [=Map=] 中的 `id` 可以是一个 URL。
     </p>
 
     <table class="simple">
@@ -1354,16 +1360,16 @@ of the [[[CID]]] specification.
        </section>
 
        <section>
-         <h2>标识符</h2>
+         <h2 id="identifiers">标识符</h2>
 
          <p>
-   本节描述了 [=DID 文档=] 中用于包含 [=DID 主体=] 和 [=DID 控制者=] 标识符的机制。
+   本节描述了 [=DID文档=] 中用于包含 [=DID主体=] 和 [=DID控制者=] 标识符的机制。
          </p>
 
          <section>
-           <h3>DID 主体</h3>
+           <h3 id="did-subject">DID主体</h3>
            <p>
-   特定 [=DID 主体=] 的 [=DID=] 使用 [=DID 文档=] 中的 `id` 属性表示。此属性在
+   特定 [=DID主体=] 的 [=DID=] 使用 [=DID文档=] 中的 `id` 属性表示。此属性在
    <a data-cite="CID#subjects">[[[CID]]] 规范的第 2.1.1 节：主体</a>中定义，并由本规范扩展以包括 [[[#did-syntax]]] 部分中定义的 [=去中心化标识符=]。
            </p>
 
@@ -1374,20 +1380,20 @@ of the [[[CID]]] specification.
            </pre>
 
            <p class="note" title="中间表示">
-   [=DID 方法=] 规范可以创建不包含 `id` 属性的 [=DID 文档=] 中间表示，例如当 [=DID 解析器=] 执行 [=DID 解析=] 时。然而，完全解析的 [=DID 文档=] 始终包含一个有效的 `id` 属性。
+   [=DID方法=] 规范可以创建不包含 `id` 属性的 [=DID文档=] 中间表示，例如当 [=DID解析器=] 执行 [=DID解析=] 时。然而，完全解析的 [=DID文档=] 始终包含一个有效的 `id` 属性。
            </p>
 
          </section>
 
          <section>
-           <h3>DID 控制者</h3>
+           <h3 id="did-controller">DID控制者</h3>
 
            <p>
-   [=DID 控制者=] 是被授权对 [=DID 文档=] 进行更改的实体。此属性在
-   <a data-cite="CID#controllers">[[[CID]]] 规范的第 2.1.2 节：控制者</a>中定义，并由本规范扩展以包括 [[[#did-syntax]]] 部分中定义的 DIDs。[=DID 控制者=] 的授权过程由 [=DID 方法=] 定义。
+   [=DID控制者=] 是被授权对 [=DID文档=] 进行更改的实体。此属性在
+   <a data-cite="CID#controllers">[[[CID]]] 规范的第 2.1.2 节：控制者</a>中定义，并由本规范扩展以包括 [[[#did-syntax]]] 部分中定义的 DIDs。[=DID控制者=] 的授权过程由 [=DID方法=] 定义。
            </p>
 
-           <pre class="example nohighlight" title="包含控制者属性的 DID 文档">
+           <pre class="example nohighlight" title="包含控制者属性的 DID文档">
    {
      "@context": "https://www.w3.org/ns/did/v1.1",
      "id": "did:example:123456789abcdefghi",
@@ -1400,15 +1406,15 @@ of the [[[CID]]] specification.
          <section>
            <h3>标识符限制</h3>
            <p>
-   用于标识 [=DID 主体=] 或 [=DID 控制者=] 的 [=DID 文档=] 中的标识符不能使用查询参数或片段标识符。实现者应特别注意 [[[#did-syntax]]] 部分中允许的字符列表，该部分明确规定语法不包括 `?` 字符或 `#` 字符。这与用于标识 <a data-cite="CID#dfn-verification-method">验证方法</a> 或 [=服务=] 的 [=DID 文档=] 中的标识符形成对比，后者遵循 [[[#did-url-syntax]]] 部分中的语法规则，允许使用查询参数和片段标识符。即便如此，在为 [=DID=] 生态系统创建的长期规范标识符中使用查询参数是不鼓励的，因为这可能会增加 [=DID 解析=] 软件的复杂性，并可能导致更大的安全攻击面。片段标识符也应在特定 [=DID 文档=] 中唯一，且不应被重复用于指代不同的 [=资源=]，例如同一 [=DID 文档=] 中的两个不同 <a data-cite="CID#dfn-verification-method">验证方法</a>。
+   用于标识 [=DID主体=] 或 [=DID控制者=] 的 [=DID文档=] 中的标识符不能使用查询参数或片段标识符。实现者应特别注意 [[[#did-syntax]]] 部分中允许的字符列表，该部分明确规定语法不包括 `?` 字符或 `#` 字符。这与用于标识 <a data-cite="CID#dfn-verification-method">验证方法</a> 或 [=服务=] 的 [=DID文档=] 中的标识符形成对比，后者遵循 [[[#did-url-syntax]]] 部分中的语法规则，允许使用查询参数和片段标识符。即便如此，在为 [=DID=] 生态系统创建的长期规范标识符中使用查询参数是不鼓励的，因为这可能会增加 [=DID解析=] 软件的复杂性，并可能导致更大的安全攻击面。片段标识符也应在特定 [=DID文档=] 中唯一，且不应被重复用于指代不同的 [=资源=]，例如同一 [=DID文档=] 中的两个不同 <a data-cite="CID#dfn-verification-method">验证方法</a>。
            </p>
          </section>
 
        </section>
   <section>
-    <h2>验证方法</h2>
+    <h2 id="verification-methods">验证方法</h2>
     <p>
-      [=DID 文档=] 可以表达 <a data-cite="CID#dfn-verification-method">验证方法</a>，如 [[[CID]]] 规范的
+      [=DID文档=] 可以表达 <a data-cite="CID#dfn-verification-method">验证方法</a>，如 [[[CID]]] 规范的
       <a data-cite="CID#verification-methods">第 2.2 节：验证方法</a> 中定义，
       并增加以下限制：`id` 值必须符合 [[[#did-url-syntax]]]，`controller` 值必须符合 [[[#did-syntax]]]。
       有关 <a data-cite="CID#dfn-verification-method">验证方法</a> 的描述，请参见 [[[CID]]] 规范的
@@ -1419,17 +1425,17 @@ of the [[[CID]]] specification.
   <section>
     <h2>验证关系</h2>
     <p>
-      [=DID 文档=] 可以表达 [=验证关系=]，如 [[[CID]]] 规范的
+      [=DID文档=] 可以表达 <a data-cite="CID#dfn-verification-relationship">验证关系</a>，如 [[[CID]]] 规范的
       <a data-cite="CID#verification-relationships">第 2.3 节：验证关系</a> 中定义。
-      有关 [=验证关系=] 的描述，请参见 [[[CID]]] 规范的
+      有关 <a data-cite="CID#dfn-verification-relationship">验证关系</a> 的描述，请参见 [[[CID]]] 规范的
       <a data-cite="CID#verification-relationships">第 2.3 节：验证关系</a>。
     </p>
   </section>
 
   <section>
-    <h2>服务</h2>
+    <h2 id="services">服务</h2>
     <p>
-      [=DID 文档=] 可以表达 [=服务=]，如 [[[CID]]] 规范的
+      [=DID文档=] 可以表达 [=服务=]，如 [[[CID]]] 规范的
       <a data-cite="CID#services">第 2.1.4 节：服务</a> 中定义。
       [=服务=] 中使用的标识符可以根据 [[[#did-syntax]]] 或 [[[#did-url-syntax]]] 部分的规则表示。
       有关 [=服务=] 的描述，请参见 [[[CID]]] 规范的
@@ -1439,10 +1445,10 @@ of the [[[CID]]] specification.
   </section>
 
   <section class="normative">
-   <h1>表示形式</h1>
+   <h1 id="representations">表示形式</h1>
 
     <p>
-    本规范中，[=DID 文档=] 的具体序列化被称为 [=表示形式=]。通过一个称为 <dfn>生产</dfn> 的过程，将 <a href="#data-model">数据模型</a> 序列化后生成 [=表示形式=]。通过一个称为 <dfn>消费</dfn> 的过程，[=表示形式=] 被转换回 <a href="#data-model">数据模型</a>。[=生产=] 和 [=消费=] 过程使得信息可以从一种 [=表示形式=] 转换为另一种。[=表示形式=] 的定义包括 JSON 和 JSON-LD，开发者也可以使用其他能够表达 <a href="#data-model">数据模型</a> 的 [=表示形式=]，例如 XML 或 YAML。以下章节定义了 [=生产=] 和 [=消费=] 的通用规则，以及 JSON 和 JSON-LD 的 [=表示形式=]。
+    本规范中，[=DID文档=] 的具体序列化被称为 [=表示形式=]。通过一个称为 <dfn>生产</dfn> 的过程，将 <a href="#data-model">数据模型</a> 序列化后生成 [=表示形式=]。通过一个称为 <dfn>消费</dfn> 的过程，[=表示形式=] 被转换回 <a href="#data-model">数据模型</a>。[=生产=] 和 [=消费=] 过程使得信息可以从一种 [=表示形式=] 转换为另一种。[=表示形式=] 的定义包括 JSON 和 JSON-LD，开发者也可以使用其他能够表达 <a href="#data-model">数据模型</a> 的 [=表示形式=]，例如 XML 或 YAML。以下章节定义了 [=生产=] 和 [=消费=] 的通用规则，以及 JSON 和 JSON-LD 的 [=表示形式=]。
     </p>
 
    <section>
@@ -1468,7 +1474,7 @@ of the [[[CID]]] specification.
    [=表示形式=] 应使用 <a href="#data-model">数据模型</a> 数据类型的词法表示形式。例如，JSON 和 JSON-LD 使用 XML Schema 的 `dateTime` 词法序列化来表示 [=日期时间=]。[=表示形式=] 可以选择使用不同的词法序列化来序列化 <a href="#data-model">数据模型</a> 数据类型，只要回到 <a href="#data-model">数据模型</a> 的 [=消费=] 过程是无损的。例如，一些基于 CBOR 的 [=表示形式=] 使用整数表示自 Unix 纪元以来的秒数来表达 [=日期时间=] 值。
        </li>
        <li>
-   [=表示形式=] 可以定义 [=表示形式特定条目=]，这些条目存储在 [=表示形式特定条目=] 的 <a data-cite="INFRA#maps">映射</a> 中，用于 [=生产=] 和 [=消费=] 过程中以确保无损转换。
+   [=表示形式=] 可以定义 [=特定表示条目=]，这些条目存储在 [=特定表示条目=] 的 <a data-cite="INFRA#maps">映射</a> 中，用于 [=生产=] 和 [=消费=] 过程中以确保无损转换。
        </li>
        <li>
    为了最大化互操作性，[=表示形式=] 规范作者应在 DID 扩展存储库 [[?DID-EXTENSIONS]] 中注册其 [=表示形式=]。
@@ -1481,16 +1487,16 @@ of the [[[CID]]] specification.
 
      <ol>
        <li>
-   [=符合规范的生产者=] 必须将 [=DID 文档=] 的 <a href="#data-model">数据模型</a> 和 [=表示形式特定条目=] 的 <a data-cite="INFRA#maps">映射</a> 作为输入传递��� [=生产=] 过程中。[=符合规范的生产者=] 可以接受其他选项作为 [=生产=] 过程的输入。
+   [=符合规范的生产者=] 必须将 [=DID文档=] 的 <a href="#data-model">数据模型</a> 和 [=特定表示条目=] 的 <a data-cite="INFRA#maps">映射</a> 作为输入传递��� [=生产=] 过程中。[=符合规范的生产者=] 可以接受其他选项作为 [=生产=] 过程的输入。
        </li>
        <li>
-   [=符合规范的生产者=] 必须序列化 [=DID 文档=] 的 <a href="#data-model">数据模型</a> 和 [=表示形式特定条目=] 的 <a data-cite="INFRA#maps">映射</a> 中的所有条目，这些条目没有为正在生产的 [=表示形式=] 明确的处理规则，仅使用 [=表示形式=] 的数据类型处理规则，并在 [=生产=] 过程完成后返回序列化结果。
+   [=符合规范的生产者=] 必须序列化 [=DID文档=] 的 <a href="#data-model">数据模型</a> 和 [=特定表示条目=] 的 <a data-cite="INFRA#maps">映射</a> 中的所有条目，这些条目没有为正在生产的 [=表示形式=] 明确的处理规则，仅使用 [=表示形式=] 的数据类型处理规则，并在 [=生产=] 过程完成后返回序列化结果。
        </li>
        <li>
    [=符合规范的生产者=] 必须在 [=生产=] 过程完成后返回与 [=表示形式=] 相关联的媒体类型 <a data-cite="INFRA#string">字符串</a>。
        </li>
        <li>
-   符合规范的生产者不得生产不符合规范的 [=DID=] 或 [=DID 文档=]。
+   符合规范的生产者不得生产不符合规范的 [=DID=] 或 [=DID文档=]。
        </li>
      </ol>
 
@@ -1503,16 +1509,16 @@ of the [[[CID]]] specification.
    [=符合规范的消费者=] 必须将 [=表示形式=] 和媒体类型 <a data-cite="INFRA#string">字符串</a> 作为输入传递到 [=消费=] 过程中。[=符合规范的消费者=] 可以接受其他选项作为 [=消费=] 过程的输入。
        </li>
        <li>
-   [=符合规范的消费者=] 必须使用输入的媒体类型 <a data-cite="INFRA#string">字符串</a> 确定 [=DID 文档=] 的 [=表示形式=]。
+   [=符合规范的消费者=] 必须使用输入的媒体类型 <a data-cite="INFRA#string">字符串</a> 确定 [=DID文档=] 的 [=表示形式=]。
        </li>
        <li>
-   [=符合规范的消费者=] 必须检测所有已知 [=表示形式=] 中的 [=表示形式特定条目=]，并将条目放入 [=表示形式特定条目=] 的 <a data-cite="INFRA#maps">映射</a> 中，该映射在 [=消费=] 过程完成后返回。所有已知 [=表示形式特定条目=] 的列表可在 DID 扩展存储库 [[?DID-EXTENSIONS]] 中找到。
+   [=符合规范的消费者=] 必须检测所有已知 [=表示形式=] 中的 [=特定表示条目=]，并将条目放入 [=特定表示条目=] 的 <a data-cite="INFRA#maps">映射</a> 中，该映射在 [=消费=] 过程完成后返回。所有已知 [=特定表示条目=] 的列表可在 DID 扩展存储库 [[?DID-EXTENSIONS]] 中找到。
        </li>
        <li>
-   [=符合规范的消费者=] 必须将所有没有为正在消费的 [=表示形式=] 明确处理规则的 [=非表示形式特定条目=] 添加到 [=DID 文档=] 的 <a href="#data-model">数据模型</a> 中，仅使用 [=表示形式=] 的数据类型处理规则，并在 [=消费=] 过程完成后返回 [=DID 文档=] 的数据模型。
+   [=符合规范的消费者=] 必须将所有没有为正在消费的 [=表示形式=] 明确处理规则的 [=非特定表示条目=] 添加到 [=DID文档=] 的 <a href="#data-model">数据模型</a> 中，仅使用 [=表示形式=] 的数据类型处理规则，并在 [=消费=] 过程完成后返回 [=DID文档=] 的数据模型。
        </li>
        <li>
-   符合规范的消费者在消费不符合规范的 [=DID=] 或 [=DID 文档=] 时必须产生错误。
+   符合规范的消费者在消费不符合规范的 [=DID=] 或 [=DID文档=] 时必须产生错误。
        </li>
      </ol>
 
@@ -1546,7 +1552,7 @@ of the [[[CID]]] specification.
      »
    ]»
        </pre>
-   下方较小的矩形标记为蓝色 "核心表示形式特定条目（JSON-LD）"，并包含以下等宽字体的 <a
+   下方较小的矩形标记为蓝色 "核心特定表示条目（JSON-LD）"，并包含以下等宽字体的 <a
    data-cite="INFRA#maps">INFRA</a> 表示法：
        <pre>
    «[ "@context" → "https://www.w3.org/ns/did/v1.1" ]»
@@ -1606,7 +1612,7 @@ of the [[[CID]]] specification.
      <h3>生产</h3>
 
      <p>
-   [=DID 文档=]、DID 文档数据结构以及 [=表示形式特定条目=] 的 <a data-cite="INFRA#maps">映射</a> 必须根据以下 [=生产=] 规则序列化为 JSON [=表示形式=]：
+   [=DID文档=]、DID文档数据结构以及 [=特定表示条目=] 的 <a data-cite="INFRA#maps">映射</a> 必须根据以下 [=生产=] 规则序列化为 JSON [=表示形式=]：
      </p>
 
      <table class="simple" id="json-representation-production">
@@ -1702,10 +1708,10 @@ of the [[[CID]]] specification.
      </p>
 
      <p>
-   [=DID 文档=] 的所有条目必须包含在根 <a data-cite="RFC8259#section-4">JSON 对象</a> 中。条目可以包含附加的数据子结构，但需符合上述列表中的值表示规则。在序列化 [=DID 文档=] 时，[=符合规范的生产者=] 必须向下游应用程序指定媒体类型为 `application/did+json`。
+   [=DID文档=] 的所有条目必须包含在根 <a data-cite="RFC8259#section-4">JSON 对象</a> 中。条目可以包含附加的数据子结构，但需符合上述列表中的值表示规则。在序列化 [=DID文档=] 时，[=符合规范的生产者=] 必须向下游应用程序指定媒体类型为 `application/did+json`。
      </p>
 
-   <pre class="example nohighlight" title="JSON 表示形式的 DID 文档示例">
+   <pre class="example nohighlight" title="JSON 表示形式的 DID文档示例">
    {
      "id": "did:example:123456789abcdefghi",
      "authentication": [{
@@ -1722,7 +1728,7 @@ of the [[[CID]]] specification.
         <h3>消费</h3>
 
         <p>
-      [=DID 文档=] 和 DID 文档数据结构的 JSON [=表示形式=] 必须根据以下 [=消费=] 规则反序列化为 <a href="#data-model">数据模型</a>：
+      [=DID文档=] 和 DID文档数据结构的 JSON [=表示形式=] 必须根据以下 [=消费=] 规则反序列化为 <a href="#data-model">数据模型</a>：
         </p>
 
         <table class="simple column-width-50" id="json-representation-consumption">
@@ -1772,7 +1778,7 @@ of the [[[CID]]] specification.
             </tr>
             <tr>
               <td>
-      <a data-cite="RFC8259#section-7">JSON 字符串</a>，其中 <a href="#data-model">数据模型</a>条目值类型为 [=字符串=] 或未知
+      <a data-cite="RFC8259#section-7">JSON 字符串</a>，其中 <a href="#data-model">数据模型</a>条目值类型为 [=String=] 或未知
               </td>
               <td>
       <a data-cite="INFRA#string">字符串</a>。
@@ -1818,7 +1824,7 @@ of the [[[CID]]] specification.
         </p>
 
         <p>
-      如果 [=符合规范的消费者=] 可用的媒体类型信息的值为 `application/did+json`，则被消费的数据结构是 [=DID 文档=]，且根元素必须是 <a data-cite="RFC8259#section-4">JSON 对象</a>，其中对象的所有成员都是 [=DID 文档=] 的条目。对于 JSON [=表示形式=] 的 [=符合规范的消费者=]，如果消费的 [=DID 文档=] 的根元素不是 <a data-cite="RFC8259#section-4">JSON 对象</a>，则必须报告错误。
+      如果 [=符合规范的消费者=] 可用的媒体类型信息的值为 `application/did+json`，则被消费的数据结构是 [=DID文档=]，且根元素必须是 <a data-cite="RFC8259#section-4">JSON 对象</a>，其中对象的所有成员都是 [=DID文档=] 的条目。对于 JSON [=表示形式=] 的 [=符合规范的消费者=]，如果消费的 [=DID文档=] 的根元素不是 <a data-cite="RFC8259#section-4">JSON 对象</a>，则必须报告错误。
         </p>
 
       </section>
@@ -1833,7 +1839,7 @@ of the [[[CID]]] specification.
      </p>
 
      <p>
-     JSON-LD [=表示形式=] 定义了以下 [=表示形式特定条目=]：
+     JSON-LD [=表示形式=] 定义了以下 [=特定表示条目=]：
      </p>
 
      <dl>
@@ -1847,7 +1853,7 @@ of the [[[CID]]] specification.
        <h3>生产</h3>
 
        <p>
-       [=DID 文档=]、DID 文档数据结构以及 [=表示形式特定条目=] 的 <a data-cite="INFRA#maps">映射</a>必须根据 [[[#json]]] 中定义的 JSON [=表示形式=] [=生产=] 规则序列化为 JSON-LD [=表示形式=]。
+       [=DID文档=]、DID文档数据结构以及 [=特定表示条目=] 的 <a data-cite="INFRA#maps">映射</a>必须根据 [[[#json]]] 中定义的 JSON [=表示形式=] [=生产=] 规则序列化为 JSON-LD [=表示形式=]。
        </p>
 
        <p>
@@ -1879,7 +1885,7 @@ of the [[[CID]]] specification.
        </p>
 
        <p>
-       生成 JSON-LD [=表示形式=] 的 [=符合规范的生产者=] 不应生成包含未通过 `@context` 定义的术语的 [=DID 文档=]，因为 [=符合规范的消费者=] 预计会移除未知术语。在序列化 [=DID 文档=] 的 JSON-LD [=表示形式=] 时，[=符合规范的生产者=] 必须向下游应用程序指定媒体类型为 `application/did+ld+json`。
+       生成 JSON-LD [=表示形式=] 的 [=符合规范的生产者=] 不应生成包含未通过 `@context` 定义的术语的 [=DID文档=]，因为 [=符合规范的消费者=] 预计会移除未知术语。在序列化 [=DID文档=] 的 JSON-LD [=表示形式=] 时，[=符合规范的生产者=] 必须向下游应用程序指定媒体类型为 `application/did+ld+json`。
        </p>
 
      </section>
@@ -1888,7 +1894,7 @@ of the [[[CID]]] specification.
        <h3>消费</h3>
 
        <p>
-       JSON-LD [=表示形式=] 表达的 [=DID 文档=] 和任何 DID 文档数据结构必须根据 [[[#json]]] 中定义的 JSON [=表示形式=] [=消费=] 规则反序列化为 <a href="#data-model">数据模型</a>。
+       JSON-LD [=表示形式=] 表达的 [=DID文档=] 和任何 DID文档数据结构必须根据 [[[#json]]] 中定义的 JSON [=表示形式=] [=消费=] 规则反序列化为 <a href="#data-model">数据模型</a>。
        </p>
 
        <p class="advisement" title="JSON-LD 序列化规则">
@@ -1896,7 +1902,7 @@ of the [[[CID]]] specification.
        </p>
 
        <p>
-       处理 JSON-LD [=表示形式=] 的 [=符合规范的消费者=] 应移除 [=DID 文档=] 中未通过 `@context` 定义的所有术语。
+       处理 JSON-LD [=表示形式=] 的 [=符合规范的消费者=] 应移除 [=DID文档=] 中未通过 `@context` 定义的所有术语。
        </p>
 
      </section>
@@ -1906,10 +1912,10 @@ of the [[[CID]]] specification.
       <h3>媒体类型</h3>
 
       <p>
-    媒体类型（如 [[RFC6838]] 中定义）用于标识表达 [=DID 文档=] 的语法以及其他有用的处理指南。
+    媒体类型（如 [[RFC6838]] 中定义）用于标识表达 [=DID文档=] 的语法以及其他有用的处理指南。
       </p>
       <p>
-    本规范中用于表达数据模型的语法应通过媒体类型标识，并且在定义或使用与 [=DID 文档=] 相关的媒体类型时，应遵循本节中概述的约定。
+    本规范中用于表达数据模型的语法应通过媒体类型标识，并且在定义或使用与 [=DID文档=] 相关的媒体类型时，应遵循本节中概述的约定。
       </p>
       <p>
     与核心数据模型相关的媒体类型在第 [[[#iana-considerations]]] 节中列出：`application/did`。
@@ -1919,7 +1925,7 @@ of the [[[CID]]] specification.
         <h3>媒体类型的精确性</h3>
 
         <p>
-    有时，开发者或系统可能会使用低精度的媒体类型来传递 [=DID 文档=]。使用低精度媒体类型的原因包括：
+    有时，开发者或系统可能会使用低精度的媒体类型来传递 [=DID文档=]。使用低精度媒体类型的原因包括：
         </p>
 
         <ul>
@@ -1954,102 +1960,102 @@ of the [[[CID]]] specification.
     在可能的情况下，建议实现者为本规范定义的所有有效负载使用最精确（最高精度）的媒体类型。同时，建议实现者认识到，标记为��精度媒体类型的有效负载并不意味着它不符合标记为高精度类型的规则。同样，标记为高精度媒体类型的有效负载也不意味着它将满足与该媒体类型相关的所有要求。有效负载的接收方，无论其关联的媒体类型如何，都应执行适当的检查以确保有效负载符合其在给定系统中的使用要求。
         </p>
         <p>
-    HTTP 客户端和服务器在 `Accept:` 头中以及指示内容类型时使用与 [=DID 文档=] 相关的媒体类型。实现者需注意，HTTP 服务器可能会忽略 `Accept:` 头并返回其他内容类型，或者返回错误代码，例如 <a data-cite="RFC7231#status.415">`415 Unsupported Media Type`</a>。
+    HTTP 客户端和服务器在 `Accept:` 头中以及指示内容类型时使用与 [=DID文档=] 相关的媒体类型。实现者需注意，HTTP 服务器可能会忽略 `Accept:` 头并返回其他内容类型，或者返回错误代码，例如 <a data-cite="RFC7231#status.415">`415 Unsupported Media Type`</a>。
         </p>
       </section>
     </section>
   </section>
 
   <section>
-  <h1>方法</h1>
+  <h1 id="methods">方法</h1>
 
   <p>
-  一个 [=符合规范的 DID 方法=] 定义了实现者如何实现本规范描述的功能。[=DID 方法=] 通常与特定的 [=可验证数据注册表=] 相关联。新的 [=DID 方法=] 在其自身的规范中定义，以实现相同 [=DID 方法=] 的不同实现之间的互操作性。
+  一个 [=符合规范的 DID方法=] 定义了实现者如何实现本规范描述的功能。[=DID方法=] 通常与特定的 [=可验证数据注册表=] 相关联。新的 [=DID方法=] 在其自身的规范中定义，以实现相同 [=DID方法=] 的不同实现之间的互操作性。
   </p>
 
   <p>
-  从概念上讲，本规范与 [=DID 方法=] 规范之间的关系类似于 IETF 通用 [=URI=] 规范 [[?RFC3986]] 与特定 [=URI=] 方案 [[?IANA-URI-SCHEMES]]（例如 `http` 方案 [[?RFC7230]]）之间的关系。除了定义特定的 [=DID 方案=] 之外，[=DID 方法=] 规范还定义了使用特定类型 [=可验证数据注册表=] 创建、解析、更新和停用 [=DID=] 和 [=DID 文档=] 的机制。它还记录了与 [=DID=] 相关的所有实现注意事项以及安全性和隐私注意事项。
+  从概念上讲，本规范与 [=DID方法=] 规范之间的关系类似于 IETF 通用 [=URI=] 规范 [[?RFC3986]] 与特定 [=URI=] 方案 [[?IANA-URI-SCHEMES]]（例如 `http` 方案 [[?RFC7230]]）之间的关系。除了定义特定的 [=DID方案=] 之外，[=DID方法=] 规范还定义了使用特定类型 [=可验证数据注册表=] 创建、解析、更新和停用 [=DID=] 和 [=DID文档=] 的机制。它还记录了与 [=DID=] 相关的所有实现注意事项以及安全性和隐私注意事项。
   </p>
 
   <p>
-  本节规定了编写 [=DID 方法=] 规范的要求。
+  本节规定了编写 [=DID方法=] 规范的要求。
   </p>
 
   <section class="normative">
-    <h2>方法语法</h2>
+    <h2 id="method-syntax">方法语法</h2>
 
     <p>
-  所有 [=DID 方法=] 规范在定义方法特定的 DID 语法时的要求如下：
+  所有 [=DID方法=] 规范在定义方法特定的 DID语法时的要求如下：
     </p>
 
     <ol>
       <li>
-  一个 [=DID 方法=] 规范必须定义一个方法特定的 [=DID 方案=]，并通过 [[[#did-syntax]]] 中的 `method-name` 规则指定唯一的方法名称。
+  一个 [=DID方法=] 规范必须定义一个方法特定的 [=DID方案=]，并通过 [[[#did-syntax]]] 中的 `method-name` 规则指定唯一的方法名称。
       </li>
       <li>
-  [=DID 方法=] 规范必须指定如何生成 [=DID=] 的 `method-specific-id` 组件。
+  [=DID方法=] 规范必须指定如何生成 [=DID=] 的 `method-specific-id` 组件。
       </li>
       <li>
-  [=DID 方法=] 规范必须定义 `method-specific-id` 值的敏感性和规范化。
+  [=DID方法=] 规范必须定义 `method-specific-id` 值的敏感性和规范化。
       </li>
       <li>
-  `method-specific-id` 值在 [=DID 方法=] 内必须是唯一的。`method-specific-id` 值本身可能是全局唯一的。
+  `method-specific-id` 值在 [=DID方法=] 内必须是唯一的。`method-specific-id` 值本身可能是全局唯一的。
       </li>
       <li>
-  任何由 [=DID 方法=] 生成的 [=DID=] 必须是全局唯一的。
+  任何由 [=DID方法=] 生成的 [=DID=] 必须是全局唯一的。
       </li>
       <li>
-  为了减少 `method-name` 冲突的可能性，[=DID 方法=] 规范应在 DID 扩展存储库 [[?DID-EXTENSIONS]] 中注册。
+  为了减少 `method-name` 冲突的可能性，[=DID方法=] 规范应在 DID 扩展存储库 [[?DID-EXTENSIONS]] 中注册。
       </li>
       <li>
-  一个 [=DID 方法=] 可以定义多个 `method-specific-id` 格式。
+  一个 [=DID方法=] 可以定义多个 `method-specific-id` 格式。
       </li>
       <li>
   `method-specific-id` 格式可以包含冒号。冒号的使用必须符合 `method-specific-id` ABNF 规则的语法要求。
       </li>
       <li>
-  [=DID 方法=] 规范可以为 [=DID 路径=] 指定比 [[[#path]]] 中通用规则更严格的 ABNF 规则。
+  [=DID方法=] 规范可以为 [=DID路径=] 指定比 [[[#path]]] 中通用规则更严格的 ABNF 规则。
       </li>
       <li>
-  [=DID 方法=] 规范可以为 [=DID 查询=] 指定比本节通用规则更严格的 ABNF 规则。
+  [=DID方法=] 规范可以为 [=DID查询=] 指定比本节通用规则更严格的 ABNF 规则。
       </li>
       <li>
-  [=DID 方法=] 规范可以为 [=DID 片段=] 指定比本节通用规则更严格的 ABNF 规则。
+  [=DID方法=] 规范可以为 [=DID片段=] 指定比本节通用规则更严格的 ABNF 规则。
       </li>
     </ol>
 
     <p class="note" title="method-specific-id 中的冒号">
-  `method-specific-id` 中冒号的含义完全由方法定义。冒号可能被 [=DID 方法=] 用于建立分层命名空间、标识 [=可验证数据注册表=] 的特定实例或部分，或用于其他目的。实现者应避免假设与冒号相关的任何通用含义或行为适用于所有 [=DID 方法=]。
+  `method-specific-id` 中冒号的含义完全由方法定义。冒号可能被 [=DID方法=] 用于建立分层命名空间、标识 [=可验证数据注册表=] 的特定实例或部分，或用于其他目的。实现者应避免假设与冒号相关的任何通用含义或行为适用于所有 [=DID方法=]。
     </p>
 
   </section>
    <section>
-     <h2>方法操作</h2>
+     <h2 id="method-operations">方法操作</h2>
 
      <p>
-   所有 [=DID 方法=] 规范在定义方法操作时的要求如下：
+   所有 [=DID方法=] 规范在定义方法操作时的要求如下：
      </p>
 
      <ol>
        <li>
-   [=DID 方法=] 规范必须定义如何执行所有操作的授权，包括任何必要的加密过程。
+   [=DID方法=] 规范必须定义如何执行所有操作的授权，包括任何必要的加密过程。
        </li>
        <li>
-   [=DID 方法=] 规范必须指定 [=DID 控制者=] 如何创建 [=DID=] 及其关联的 [=DID 文档=]。
+   [=DID方法=] 规范必须指定 [=DID控制者=] 如何创建 [=DID=] 及其关联的 [=DID文档=]。
        </li>
        <li>
-   [=DID 方法=] 规范必须指定 [=DID 解析器=] 如何使用 [=DID=] 解析为 [=DID 文档=]，包括 [=DID 解析器=] 如何验证响应的真实性。
+   [=DID方法=] 规范必须指定 [=DID解析器=] 如何使用 [=DID=] 解析为 [=DID文档=]，包括 [=DID解析器=] 如何验证响应的真实性。
        </li>
        <li>
-   [=DID 方法=] 规范必须指定哪些内容构成 [=DID 文档=] 的更新，以及 [=DID 控制者=] 如何更新 [=DID 文档=]，<em>或</em>声明更新不可行。
+   [=DID方法=] 规范必须指定哪些内容构成 [=DID文档=] 的更新，以及 [=DID控制者=] 如何更新 [=DID文档=]，<em>或</em>声明更新不可行。
        </li>
        <li>
-   [=DID 方法=] 规范必须指定 [=DID 控制者=] 如何停用 [=DID=]，<em>或</em>声明停用不可行。
+   [=DID方法=] 规范必须指定 [=DID控制者=] 如何停用 [=DID=]，<em>或</em>声明停用不可行。
        </li>
      </ol>
 
      <p>
-   执行授权操作的实体的权限是特定于 [=DID 方法=] 的。例如，一个 [=DID 方法=] 可能：
+   执行授权操作的实体的权限是特定于 [=DID方法=] 的。例如，一个 [=DID方法=] 可能：
      </p>
 
      <ul>
@@ -2060,10 +2066,10 @@ of the [[[CID]]] specification.
    使用列在 `authentication` 下的 <a data-cite="CID#dfn-verification-method">验证方法</a>。
        </li>
        <li>
-   使用 [=DID 文档=] 中的其他结构，例如通过 `capabilityInvocation` [=验证关系=] 指定的 <a data-cite="CID#dfn-verification-method">验证方法</a>。
+   使用 [=DID文档=] 中的其他结构，例如通过 `capabilityInvocation` <a data-cite="CID#dfn-verification-relationship">验证关系</a> 指定的 <a data-cite="CID#dfn-verification-method">验证方法</a>。
        </li>
        <li>
-   完全不使用 [=DID 文档=] 来做出此决定，而依赖于带外机制。
+   完全不使用 [=DID文档=] 来做出此决定，而依赖于带外机制。
        </li>
      </ul>
 
@@ -2073,15 +2079,15 @@ of the [[[CID]]] specification.
      <h2>安全性要求</h2>
 
      <p>
-   所有 [=DID 方法=] 规范在���写<em>安全性注意事项</em>部分时的要求如下：
+   所有 [=DID方法=] 规范在撰写<em>安全性注意事项</em>部分时的要求如下：
      </p>
 
      <ol>
        <li>
-   [=DID 方法=] 规范必须遵循 <a data-cite="RFC3552#section-5">RFC3552：撰写安全性注意事项部分</a>中提供的所有指南和规范性语言，适用于 [=DID=] 操作。
+   [=DID方法=] 规范必须遵循 <a data-cite="RFC3552#section-5">RFC3552：撰写安全性注意事项部分</a>中提供的所有指南和规范性语言，适用于 [=DID=] 操作。
        </li>
        <li>
-   安全性注意事项部分必须记录 [=DID=] 操作可能面临的以下攻击形式：窃听、重放、消息插入、删除、修改、拒绝服务、[=放大=] 和中间人攻击。还应记录其他已知的攻击形式。
+   安全性注意事项部分必须记录 [=DID=] 操作可能面临的以下攻击形式：窃听、重放、消息插入、删除、修改、拒绝服务、[=放大攻击=] 和中间人攻击。还应记录其他已知的攻击形式。
        </li>
        <li>
    安全性注意事项部分必须讨论剩余风险，例如相关协议中的妥协风险、不正确的实现，或在威胁缓解部署后仍存在的密码风险。
@@ -2096,22 +2102,22 @@ of the [[[CID]]] specification.
    安全性注意事项部分必须讨论用于证明 [=DID=] 唯一分配的策略机制。
        </li>
        <li>
-   必须讨论特定于方法的端点身份验证。如果 [=DID 方法=] 使用具有不同网络拓扑的 [=DLT=]，例如为减少计算资源需求而提供的<em>轻节点</em>或<em><a href="https://en.bitcoin.it/wiki/Thin_Client_Security">瘦客户端</a></em>实现，则必须讨论适用于 [=DID 方法=] 实现的拓扑的安全假设。
+   必须讨论特定于方法的端点身份验证。如果 [=DID方法=] 使用具有不同网络拓扑的 [=DLT=]，例如为减少计算资源需求而提供的<em>轻节点</em>或<em><a href="https://en.bitcoin.it/wiki/Thin_Client_Security">瘦客户端</a></em>实现，则必须讨论适用于 [=DID方法=] 实现的拓扑的安全假设。
        </li>
        <li>
-   如果协议包含加密保护机制，[=DID 方法=] 规范必须清楚地指明哪些数据部分受到保护以及通过何种保护，并应指明加密保护可能面临的攻击类型。例如，仅完整性保护、机密性保护和端点身份验证。
+   如果协议包含加密保护机制，[=DID方法=] 规范必须清楚地指明哪些数据部分受到保护以及通过何种保护，并应指明加密保护可能面临的攻击类型。例如，仅完整性保护、机密性保护和端点身份验证。
        </li>
        <li>
    需要保密的数据（密钥材料、随机种子等）应明确标注。
        </li>
        <li>
-   [=DID 方法=] 规范应解释并指定 [=DID 文档=] 签名的实现（如果适用）。
+   [=DID方法=] 规范应解释并指定 [=DID文档=] 签名的实现（如果适用）。
        </li>
        <li>
-   如果 [=DID 方法=] 使用点对点计算资源，例如所有已知的 [=DLT=]，应讨论这些资源在拒绝服务攻击中的预期负担。
+   如果 [=DID方法=] 使用点对点计算资源，例如所有已知的 [=DLT=]，应讨论这些资源在拒绝服务攻击中的预期负担。
        </li>
        <li>
-   引入新身份验证 [=服务=] 类型的 [=DID 方法=]，如 [[[#services]]] 中所述，应考虑所支持身份验证协议的安全性要求。
+   引入新身份验证 [=服务=] 类型的 [=DID方法=]，如 [[[#services]]] 中所述，应考虑所支持身份验证协议的安全性要求。
        </li>
      </ol>
    </section>
@@ -2120,12 +2126,12 @@ of the [[[CID]]] specification.
      <h2>隐私要求</h2>
 
      <p>
-   所有 [=DID 方法=] 规范在撰写<em>隐私注意事项</em>部分时的要求如下：
+   所有 [=DID方法=] 规范在撰写<em>隐私注意事项</em>部分时的要求如下：
      </p>
 
      <ol>
        <li>
-   [=DID 方法=] 规范的隐私注意事项部分必须讨论 [[?RFC6973]] 第 5 节中可能以方法特定方式适用的任何子节。需要考虑的子节包括：监视、存储数据泄露、非请求流量、错误归因、关联、身份识别、二次使用、披露和排除。
+   [=DID方法=] 规范的隐私注意事项部分必须讨论 [[?RFC6973]] 第 5 节中可能以方法特定方式适用的任何子节。需要考虑的子节包括：监视、存储数据泄露、非请求流量、错误归因、关联、身份识别、二次使用、披露和排除。
        </li>
      </ol>
    </section>
@@ -2139,10 +2145,10 @@ of the [[[CID]]] specification.
   </p>
 
   <section>
-    <h2>选择 DID 解析器</h2>
+    <h2>选择 DID解析器</h2>
 
     <p>
-  DID 扩展存储库 [[?DID-EXTENSIONS]] 包含了 [=DID 方法=] 名称及其对应 [=DID 方法=] 规范的参考列表。实现者需要注意，没有中央机构强制规定特定 [=DID 方法=] 名称必须使用哪个 [=DID 方法=] 规范。如果对某个特定 [=DID 解析器=] 是否正确实现了 [=DID 方法=] 存在疑问，可以使用 DID 规范注册表查找已注册的规范，并据此做出关于选择哪个 [=DID 解析器=] 实现的明智决定。
+  DID 扩展存储库 [[?DID-EXTENSIONS]] 包含了 [=DID方法=] 名称及其对应 [=DID方法=] 规范的参考列表。实现者需要注意，没有中央机构强制规定特定 [=DID方法=] 名称必须使用哪个 [=DID方法=] 规范。如果对某个特定 [=DID解析器=] 是否正确实现了 [=DID方法=] 存在疑问，可以使用 DID 规范注册表查找已注册的规范，并据此做出关于选择哪个 [=DID解析器=] 实现的明智决定。
     </p>
   </section>
 
@@ -2150,33 +2156,33 @@ of the [[[CID]]] specification.
     <h2>不可否认性</h2>
 
     <p>
-  如果满足以下条件，则可以支持 [=DIDs=] 和 [=DID 文档=] 更新的不可否认性：
+  如果满足以下条件，则可以支持 [=DIDs=] 和 [=DID文档=] 更新的不可否认性：
     </p>
 
     <ul>
       <li>
-  [=可验证数据注册表=] 支持 [=可验证时间戳=]。有关在 [=DID 解析=] 过程中可用的有用时间戳的更多信息，请参见 [[?DID-RESOLUTION]] 中的 "DID 文档元数据"。
+  [=可验证数据注册表=] 支持 [=可验证时间戳=]。有关在 [=DID解析=] 过程中可用的有用时间戳的更多信息，请参见 [[?DID-RESOLUTION]] 中的 "DID文档元数据"。
       </li>
       <li>
   主体正在监控未经授权的更���，详见 [[[#notification-of-did-document-changes]]]。
       </li>
       <li>
-  主体有足够的机会根据 [=DID 方法=] 的授权���制撤销恶意更新。
+  主体有足够的机会根据 [=DID方法=] 的授权���制撤销恶意更新。
       </li>
     </ul>
   </section>
 
   <section>
-    <h2>DID 文档更改的通知</h2>
+    <h2 id="notification-of-did-document-changes">DID文档更改的通知</h2>
 
     <p>
-  防止未经授权更改 [=DID 文档=] 的一种缓解措施是监控并主动通知 [=DID 主体=] 发生的更改。这类似于通过向文件中的电子邮件地址发送密码重置通知来帮助防止传统用户名/密码账户被接管。
+  防止未经授权更改 [=DID文档=] 的一种缓解措施是监控并主动通知 [=DID主体=] 发生的更改。这类似于通过向文件中的电子邮件地址发送密码重置通知来帮助防止传统用户名/密码账户被接管。
     </p>
     <p>
-  对于 [=DID=]，没有中介注册机构或账户提供商来生成此类通知。然而，如果 [=DID=] 所注册的 [=可验证数据注册表=] 直接支持更改通知，则可以为 [=DID 控制者=] 提供订阅服务。通知可以直接发送到现有 [=DID=] 中列出的相关 [=服务端点=]。
+  对于 [=DID=]，没有中介注册机构或账户提供商来生成此类通知。然而，如果 [=DID=] 所注册的 [=可验证数据注册表=] 直接支持更改通知，则可以为 [=DID控制者=] 提供订阅服务。通知可以直接发送到现有 [=DID=] 中列出的相关 [=服务端点=]。
     </p>
     <p>
-  如果 [=DID 控制者=] 选择依赖于第三方监控服务（而不是 [=可验证数据注册表=] 本身），这将引入另一个攻击向量。
+  如果 [=DID控制者=] 选择依赖于第三方监控服务（而不是 [=可验证数据注册表=] 本身），这将引入另一个攻击向量。
     </p>
   </section>
 
@@ -2184,29 +2190,29 @@ of the [[[CID]]] specification.
     <h3>无信任系统中的撤销</h3>
 
     <p>
-  无信任系统是��所有信任都来源于可加密验证的声明，更具体地说，是指在系统中信任的确定中不考虑加密系统之外的任何元数据。要验证在无信任系统中已撤销的 <a data-cite="CID#dfn-verification-method">验证方法</a> 的签名或证明，[=DID 方法=] 需要支持 `versionId` 或 `versionTime`，以及 `updated` 和 `nextUpdate` 两个 [=DID 文档=] 元数据属性。验证者仅在以下所有条件都满足时，才能验证已撤销密钥的签名或证明：
+  无信任系统是��所有信任都来源于可加密验证的声明，更具体地说，是指在系统中信任的确定中不考虑加密系统之外的任何元数据。要验证在无信任系统中已撤销的 <a data-cite="CID#dfn-verification-method">验证方法</a> 的签名或证明，[=DID方法=] 需要支持 `versionId` 或 `versionTime`，以及 `updated` 和 `nextUpdate` 两个 [=DID文档=] 元数据属性。验证者仅在以下所有条件都满足时，才能验证已撤销密钥的签名或证明：
     </p>
 
     <ul>
       <li>
-  签名或证明包含了签名或证明生成时所使用的 [=DID 文档=] 的 `versionId` 或 `versionTime`。
+  签名或证明包含了签名或证明生成时所使用的 [=DID文档=] 的 `versionId` 或 `versionTime`。
       </li>
       <li>
   验证者可以确定签名或证明生成的时间点；例如，它被锚定在区块链上。
       </li>
       <li>
-  在解析的 [=DID 文档=] 元数据中，`updated` 时间戳早于签名或证明生成的时间点，而 `nextUpdate` 时间戳晚于该时间点。
+  在解析的 [=DID文档=] 元数据中，`updated` 时间戳早于签名或证明生成的时间点，而 `nextUpdate` 时间戳晚于该时间点。
       </li>
     </ul>
     <p>
-  在愿意接受超出加密输入的元数据的系统中，也可以实现类似的信任——但这始终需要仔细判断 [=DID 文档=] 的内容是否在签名事件发生时包含了预期的内容。
+  在愿意接受超出加密输入的元数据的系统中，也可以实现类似的信任——但这始终需要仔细判断 [=DID文档=] 的内容是否在签名事件发生时包含了预期的内容。
     </p>
   </section>
    <section>
      <h2>DID 恢复</h2>
 
      <p>
-   恢复是一种被动的安全措施，当 [=控制者=] 因设备丢失等原因失去执行 DID 操作的能力时，可以重新获得执行 DID 操作的能力。
+   恢复是一种被动的安全措施，当 <a data-cite="CID#dfn-controller">控制者</a> 因设备丢失等原因失去执行 DID 操作的能力时，可以重新获得执行 DID 操作的能力。
      </p>
 
      <p>
@@ -2231,23 +2237,23 @@ of the [[[CID]]] specification.
        </li>
 
        <li>
-   当 [=控制者=] 或任何受信任的服务不再具有独占能力来执行 [[[#method-operations]]] 中描述的 DID 操作时，建议进行恢复。
+   当 <a data-cite="CID#dfn-controller">控制者</a> 或任何受信任的服务不再具有独占能力来执行 [[[#method-operations]]] 中描述的 DID 操作时，建议进行恢复。
        </li>
 
        <li>
-   [=DID 方法=] 规范可以选择支持由一组受信任方组成的法定人数来协助恢复。有关此类功能的一些建议，请参见 [[[#did-controller]]]。
+   [=DID方法=] 规范可以选择支持由一组受信任方组成的法定人数来协助恢复。有关此类功能的一些建议，请参见 [[[#did-controller]]]。
        </li>
 
        <li>
-   并非所有 [=DID 方法=] 规范都承认使用其他 [=DID 方法=] 注册的 [=DID=] 的控制权，它们可能将第三方控制限制为使用相同方法的 [=DID=]。
+   并非所有 [=DID方法=] 规范都承认使用其他 [=DID方法=] 注册的 [=DID=] 的控制权，它们可能将第三方控制限制为使用相同方法的 [=DID=]。
        </li>
 
        <li>
-   [=DID 方法=] 规范中的访问控制和恢复还可以包括时间锁定功能，以通过维护恢复的第二控制轨道来防止密钥泄露。
+   [=DID方法=] 规范中的访问控制和恢复还可以包括时间锁定功能，以通过维护恢复的第二控制轨道来防止密钥泄露。
        </li>
 
        <li>
-   目前没有适用于所有 [=DID 方法=] 的通用恢复机制。
+   目前没有适用于所有 [=DID方法=] 的通用恢复机制。
        </li>
      </ul>
    </section>
@@ -2261,7 +2267,7 @@ of the [[[CID]]] specification.
      </p>
 
      <p>
-   在某些用例中，从人类友好的标识符开始发现 [=DID=] 是可取的。例如，自然语言名称、域名或 [=DID 控制者=] 的常规地址，如手机号码、电子邮件地址、社交媒体用户名或博客 URL。然而，将人类友好标识符映射到 [=DID=] 并以可验证和可信的方式进行映射的问题超出了本规范的范围。
+   在某些用例中，从人类友好的标识符开始发现 [=DID=] 是可取的。例如，自然语言名称、域名或 [=DID控制者=] 的常规地址，如手机号码、电子邮件地址、社交媒体用户名或博客 URL。然而，将人类友好标识符映射到 [=DID=] 并以可验证和可信的方式进行映射的问题超出了本规范的范围。
      </p>
 
      <p>
@@ -2283,20 +2289,20 @@ of the [[[CID]]] specification.
      <h2>DID 作为增强的 URN</h2>
 
      <p>
-   如果 [=DID 控制者=] 希望，[=DID=] 或 [=DID URL=] 可以充当持久的、与位置无关的资源标识符。这类标识符被归类为统一资源名称（URN），并在 [[RFC8141]] 中定义。[=DID=] 是一种增强形式的 URN，提供了加密安全的、与位置无关的数字资源标识符，同时还提供了支持检索的元数据。由于 [=DID 文档=] 和 [=DID=] 本身之间的间接关系，[=DID 控���者=] 可以调整资源的实际位置——甚至直接提供资源——而无需调整 [=DID=]。[=DID=] 的这种类型可以明确验证检索到的资源确实是所标识的资源。
+   如果 [=DID控制者=] 希望，[=DID=] 或 [=DID URL=] 可以充当持久的、与位置无关的资源标识符。这类标识符被归类为统一资源名称（URN），并在 [[RFC8141]] 中定义。[=DID=] 是一种增强形式的 URN，提供了加密安全的、与位置无关的数字资源标识符，同时还提供了支持检索的元数据。由于 [=DID文档=] 和 [=DID=] 本身之间的间接关系，[=DID控制者=] 可以调整资源的实际位置——甚至直接提供资源——而无需调整 [=DID=]。[=DID=] 的这种类型可以明确验证检索到的资源确实是所标识的资源。
      </p>
 
      <p>
-   打算将 [=DID=] 用于此目的的 [=DID 控制者=] 建议遵循 [[RFC8141]] 中的安全性注意事项。特别是：
+   打算将 [=DID=] 用于此目的的 [=DID控制者=] 建议遵循 [[RFC8141]] 中的安全性注意事项。特别是：
      </p>
 
      <ul>
        <li>
-   [=DID 控制者=] 应选择支持其持久性要求的 [=DID 方法=]。去中心化特性评估表 [[?DID-RUBRIC]] 是���助实现者决定最合适 [=DID 方法=] 的工具之一。
+   [=DID控制者=] 应选择支持其持久性要求的 [=DID方法=]。去中心化特性评估表 [[?DID-RUBRIC]] 是���助实现者决定最合适 [=DID方法=] 的工具之一。
        </li>
 
        <li>
-   [=DID 控制者=] 应发布其操作策略，以便请求方可以确定他们在多大程度上可以依赖由该 [=DID 控制者=] 控制��� [=DID=] 的持久性。如果没��此类策略，请求方不应对 [=DID=] 是否是同一 [=DID 主体=] 的持久标识符做出任何假设。
+   [=DID控制者=] 应发布其操作策略，以便请求方可以确定他们在多大程度上可以依赖由该 [=DID控制者=] 控制��� [=DID=] 的持久性。如果没��此类策略，请求方不应对 [=DID=] 是否是同一 [=DID主体=] 的持久标识符做出任何假设。
        </li>
      </ul>
    </section>
@@ -2304,74 +2310,74 @@ of the [[[CID]]] specification.
     <h2>不可变性</h2>
 
     <p>
-  许多网络安全滥用都依赖于现实与理性、善意行为者假设之间的差距。[=DID 文档=] 的不可变性可以提供一些安全性优势。各个 [=DID 方法=] 应考虑约束，以消除它们不需要的行为或语义。一个 [=DID 方法=] 的功能越“锁定”，在提供相同功能集的同时，就越难以被恶意行为者操控。
+  许多网络安全滥用都依赖于现实与理性、善意行为者假设之间的差距。[=DID文档=] 的不可变性可以提供一些安全性优势。各个 [=DID方法=] 应考虑约束，以消除它们不需要的行为或语义。一个 [=DID方法=] 的功能越“锁定”，在提供相同功能集的同时，就越难以被恶意行为者操控。
     </p>
     <p>
-  例如，考虑对 [=DID 文档=] 的单次编辑可以更改文档中的任何内容，除了根 `id` 属性。但是否真的希望 [=服务=] 在定义后更改其 `type`？或者密钥更改其值？还是更好地要求在某些对象的基本属性更改时需要一个新的 `id`？恶意接管网站通常旨在保留网站的主机名标识符，但在底层进行微妙的更改。如果规范要求网站的某些属性（例如与其 IP 地址关联的 <a target="_blank" href="https://en.wikipedia.org/wiki/Autonomous_system_(Internet)">ASN</a>）是不可变的，那么异常检测将更容易，攻击将更难且成本更高。
+  例如，考虑对 [=DID文档=] 的单次编辑可以更改文档中的任何内容，除了根 `id` 属性。但是否真的希望 [=服务=] 在定义后更改其 `type`？或者密钥更改其值？还是更好地要求在某些对象的基本属性更改时需要一个新的 `id`？恶意接管网站通常旨在保留网站的主机名标识符，但在底层进行微妙的更改。如果规范要求网站的某些属性（例如与其 IP 地址关联的 <a target="_blank" href="https://en.wikipedia.org/wiki/Autonomous_system_(Internet)">ASN</a>）是不可变的，那么异常检测将更容易，攻击将更难且成本更高。
     </p>
     <p>
-  对于绑定到全局真相源的 [=DID 方法=]，始终可以直接、实时地查找 [=DID 文档=] 的最新版本。然而，可能会有缓存层最终位于 [=DID 解析器=] 和真相源之间。如果确实如此，假设 [=DID 文档=] 中对象的属性具有给定状态，而实际上它们存在微妙差异，可能会引发漏洞。这种情况尤其适用于某些查找是完整 [=DID 文档=] 的，而其他查找是部分数据的，且假设了更大的上下文。
+  对于绑定到全局真相源的 [=DID方法=]，始终可以直接、实时地查找 [=DID文档=] 的最新版本。然而，可能会有缓存层最终位于 [=DID解析器=] 和真相源之间。如果确实如此，假设 [=DID文档=] 中对象的属性具有给定状态，而实际上它们存在微妙差异，可能会引发漏洞。这种情况尤其适用于某些查找是完整 [=DID文档=] 的，而其他查找是部分数据的，且假设了更大的上下文。
     </p>
   </section>
 
   <section>
-    <h2>DID 文档中的加密数据</h2>
+    <h2>DID文档中的加密数据</h2>
     <p>
-  由于密码学和计算能力的进步，加密算法已知可能会失效。建议实现者假设放置在 [=DID 文档=] 中的任何加密数据最终可能会以明文形式提供给与加密数据可访问的相同受众。如果 [=DID 文档=] 是公开的，这一点尤为重要。
+  由于密码学和计算能力的进步，加密算法已知可能会失效。建议实现者假设放置在 [=DID文档=] 中的任何加密数据最终可能会以明文形式提供给与加密数据可访问的相同受众。如果 [=DID文档=] 是公开的，这一点尤为重要。
     </p>
     <p>
-  对 [=DID 文档=] 的全部或部分进行加密并不是长期保护数据的适当手段。同样，将加密数据放置在 [=DID 文档=] 中也不是保护个人数据的适当手段。
+  对 [=DID文档=] 的全部或部分进行加密并不是长期保护数据的适当手段。同样，将加密数据放置在 [=DID文档=] 中也不是保护个人数据的适当手段。
     </p>
     <p>
-  鉴于上述警告，如果在 [=DID 文档=] 中包含加密数据，建议实现者不要关联任何可关联的信息，这些信息可能被用来推断加密数据与相关方之间的关系。可关联信息的示例包括接收方的公钥、已知由接收方控制的数字资产的标识符，或接收方的人类可读描述。
+  鉴于上述警告，如果在 [=DID文档=] 中包含加密数据，建议实现者不要关联任何可关联的信息，这些信息可能被用来推断加密数据与相关方之间的关系。可关联信息的示例包括接收方的公钥、已知由接收方控制的数字资产的标识符，或接收方的人类可读描述。
     </p>
   </section>
 
   <section>
     <h2>等价属性</h2>
     <p>
-  由于 `equivalentId` 和 `canonicalId` 属性是由 [=DID 方法=] 自行生成的，因此适用于 [=DID 文档=] 中 `id` 字段所呈现的已解析 [=DID=] 的相同安全性和准确性保证也适用于这些属性。而 `alsoKnownAs` 属性并不保证是准确的等价声明，在解析 [=DID 文档=] 之外执行验证步骤之前，不应依赖该属性。
+  由于 `equivalentId` 和 `canonicalId` 属性是由 [=DID方法=] 自行生成的，因此适用于 [=DID文档=] 中 `id` 字段所呈现的已解析 [=DID=] 的相同安全性和准确性保证也适用于这些属性。而 `alsoKnownAs` 属性并不保证是准确的等价声明，在解析 [=DID文档=] 之外执行验证步骤之前，不应依赖该属性。
     </p>
     <p>
-  `equivalentId` 和 `canonicalId` 属性表示对由同一 [=DID 方法=] 生成的单个 [=DID=] 变体的等价断言，其可信程度取决于请求方对 [=DID 方法=] 以及符合规范的生产者和解析器的信任程度。
+  `equivalentId` 和 `canonicalId` 属性表示对由同一 [=DID方法=] 生成的单个 [=DID=] 变体的等价断言，其可信程度取决于请求方对 [=DID方法=] 以及符合规范的生产者和解析器的信任程度。
     </p>
     <p>
-  `alsoKnownAs` 属性允许对不受同一 [=DID 方法=] 管辖的 [=URI=] 进行等价断言，未经执行超出管辖 [=DID 方法=] 的验证步骤，不可信任。有关更多指导，请参见 [[[CID]]] 规范的 <a data-cite="?CID#also-known-as">第 2.1.3 节：Also Known As</a>。
+  `alsoKnownAs` 属性允许对不受同一 [=DID方法=] 管辖的 [=URI=] 进行等价断言，未经执行超出管辖 [=DID方法=] 的验证步骤，不可信任。有关更多指导，请参见 [[[CID]]] 规范的 <a data-cite="?CID#also-known-as">第 2.1.3 节：Also Known As</a>。
     </p>
     <p>
-  与 [=DID 文档=] 中的任何其他与安全相关的属性一样，依赖 [=DID 文档=] 中任何等价声明的各方应防范在适当验证完成后，这些属性的值被攻击者替换。任何在验证完成后对存储在内存或磁盘中的 [=DID 文档=] 进行写访问的行为都是一种攻击向量，可能会绕过验证，除非重新验证 [=DID 文档=]。
+  与 [=DID文档=] 中的任何其他与安全相关的属性一样，依赖 [=DID文档=] 中任何等价声明的各方应防范在适当验证完成后，这些属性的值被攻击者替换。任何在验证完成后对存储在内存或磁盘中的 [=DID文档=] 进行写访问的行为都是一种攻击向量，可能会绕过验证，除非重新验证 [=DID文档=]。
     </p>
   </section>
 
   <section>
-    <h2>持久性</h2>
+    <h2 id="persistence">持久性</h2>
     <p>
-  [=DID=] 的设计目的是持久的，使 [=控制者=] 无需依赖单一的受信第三方或管理员来维护其标识符。在理想情况下，任何管理员都无法从 [=控制者=] 手中夺走控制权，也无法阻止其标识符用于任何特定目的，例如身份验证、授权和证明。任何第三方都不能代表 [=控制者=] 删除或使实体的标识符失效，除非得到 [=控制者=] 的同意。
+  [=DID=] 的设计目的是持久的，使 <a data-cite="CID#dfn-controller">控制者</a> 无需依赖单一的受信第三方或管理员来维护其标识符。在理想情况下，任何管理员都无法从 <a data-cite="CID#dfn-controller">控制者</a> 手中夺走控制权，也无法阻止其标识符用于任何特定目的，例如身份验证、授权和证明。任何第三方都不能代表 <a data-cite="CID#dfn-controller">控制者</a> 删除或使实体的标识符失效，除非得到 <a data-cite="CID#dfn-controller">控制者</a> 的同意。
     </p>
     <p>
-  然而，需要注意的是，在所有支持加密控制证明的 [=DID 方法=] 中，通过转移秘密加密材料，总是可以将控制证明的手段转移给另一方。因此，依赖标识符随时间持久性的系统必须定期检查，以确保标识符实际上仍由预期方控制。
+  然而，需要注意的是，在所有支持加密控制证明的 [=DID方法=] 中，通过转移秘密加密材料，总是可以将控制证明的手段转移给另一方。因此，依赖标识符随时间持久性的系统必须定期检查，以确保标识符实际上仍由预期方控制。
     </p>
     <p>
-  不幸的是，仅通过加密无法确定与给定 <a data-cite="CID#dfn-verification-method">验证方法</a> 关联的���密加密材料是否已被泄露。可能发生的情况是，预期的 [=控制者=] 仍然可以访问秘密加密材料——因此可以作为验证过程的一部分执行控制证明——同时，恶意行为者也可以访问这些密钥或其副本。
+  不幸的是，仅通过加密无法确定与给定 <a data-cite="CID#dfn-verification-method">验证方法</a> 关联的���密加密材料是否已被泄露。可能发生的情况是，预期的 <a data-cite="CID#dfn-controller">控制者</a> 仍然可以访问秘密加密材料——因此可以作为验证过程的一部分执行控制证明——同时，恶意行为者也可以访问这些密钥或其副本。
     </p>
     <p>
   ���此，加密控制证明预计仅作为评估高风险场景所需身份保证级别的一个因素。[=DID=] 基于的身份验证比用户名和密码提供了更高的保证，因为它能够在系统之间不传输秘密的情况下确定对加密秘密的控制。然而，它并非万无一失。涉及敏感、高价值或生命攸关操作的场景预计会根据需要使用额外的因素。
     </p>
     <p>
-  除了不同 [=控制者=] 使用带来的潜在歧义外，通常无法保证给定的 [=DID=] 在任何时间点都用于引用同一主体。从技术上讲，控制者可以将 [=DID=] 重新用于不同的主体，更微妙的是，主体的精确定义可能会随着时间的推移而改变或被误解。
+  除了不同 <a data-cite="CID#dfn-controller">控制者</a> 使用带来的潜在歧义外，通常无法保证给定的 [=DID=] 在任何时间点都用于引用同一主体。从技术上讲，控制者可以将 [=DID=] 重新用于不同的主体，更微妙的是，主体的精确定义可能会随着时间的推移而改变或被误解。
     </p>
     <p>
-  例如，考虑一个用于个体经营的 [=DID=]，接收用于金融交易的各种凭证。对 [=控制者=] 来说，该标识符指的是企业。随着企业的发展，它最终被注册为有限责任公司。[=控制者=] 继续使用相同的 [=DID=]，因为对<strong>他们</strong>来说，[=DID=] 指的是企业。然而，对国家、税务机关和地方政府来说，[=DID=] 不再指代同一实体。微妙的意义变化是否对信用提供者或供应商重要，完全取决于他们的决定。在许多情况下，只要账单得到支付且可以执行收款，意义的变化就无关紧要。
+  例如，考虑一个用于个体经营的 [=DID=]，接收用于金融交易的各种凭证。对 <a data-cite="CID#dfn-controller">控制者</a> 来说，该标识符指的是企业。随着企业的发展，它最终被注册为有限责任公司。<a data-cite="CID#dfn-controller">控制者</a> 继续使用相同的 [=DID=]，因为对<strong>他们</strong>来说，[=DID=] 指的是企业。然而，对国家、税务机关和地方政府来说，[=DID=] 不再指代同一实体。微妙的意义变化是否对信用提供者或供应商重要，完全取决于他们的决定。在许多情况下，只要账单得到支付且可以执行收款，意义的变化就无关紧要。
     </p>
     <p>
-  由于这些潜在的歧义，[=DID=] 应被视为<em>上下文相关</em>的，而非绝对的。其持久性并不意味着它们指代完全相同的主体，也不意味着它们由相同的 [=控制者=] 控制。相反，需要理解 [=DID=] 创建的上下文、其使用方式，并考虑其含义可能发生的变化，制定程序和政策以应对潜在和不可避免的语义漂移。
+  由于这些潜在的歧义，[=DID=] 应被视为<em>上下文相关</em>的，而非绝对的。其持久性并不意味着它们指代完全相同的主体，也不意味着它们由相同的 <a data-cite="CID#dfn-controller">控制者</a> 控制。相反，需要理解 [=DID=] 创建的上下文、其使用方式，并考虑其含义可能发生的变化，制定程序和政策以应对潜在和不可避免的语义漂移。
     </p>
   </section>
    <section class="informative">
      <h2>评估竞争性考量</h2>
 
      <p>
-   本规范不要求或建议使用任何特定类型的[=可验证数据注册表=]。不同的用例可能会导致不同的需求。不同的需求可能会提出不同的考量，并伴随不同的权衡。例如，计算（能源使用）、信任（对权威的依赖）、协调（网络带宽）或内存（物理存储）之间的权衡可能适用于某些用例，但不适用于其他用例。需要根据其用例考虑不同标准的用户可以参考<a href="https://www.w3.org/TR/did-rubric/">DID 方法评估标准</a>，该标准提供了评估标准，帮助决策者确定某个特定的[=DID 方法=]是否适合其用例。
+   本规范不要求或建议使用任何特定类型的[=可验证数据注册表=]。不同的用例可能会导致不同的需求。不同的需求可能会提出不同的考量，并伴随不同的权衡。例如，计算（能源使用）、信任（对权威的依赖）、协调（网络带宽）或内存（物理存储）之间的权衡可能适用于某些用例，但不适用于其他用例。需要根据其用例考虑不同标准的用户可以参考<a href="https://www.w3.org/TR/did-rubric/">DID方法评估标准</a>，该标准提供了评估标准，帮助决策者确定某个特定的[=DID方法=]是否适合其用例。
      </p>
    </section>
   </section>
@@ -2380,7 +2386,7 @@ of the [[[CID]]] specification.
     <h1>隐私注意事项</h1>
 
     <p>
-由于 [=DIDs=] 和 [=DID 文档=] 旨在由 [=DID 控制者=] 直接管理，因此将隐私设计原则 [[PRIVACY-BY-DESIGN]] 应用于 [=去中心化标识符=] 架构的所有方面至关重要。在本规范的开发过程中，已全面应用了这七项原则。本规范的设计并不假设存在注册机构、托管公司或其他中介服务提供商来推荐或应用额外的隐私保护措施。本规范中的隐私是预防性的，而非补救性的，并且是嵌入式的默认设置。在阅读本节之前，建议读者先阅读 [[[CID]]] 规范中的
+由于 [=DIDs=] 和 [=DID文档=] 旨在由 [=DID控制者=] 直接管理，因此将隐私设计原则 [[PRIVACY-BY-DESIGN]] 应用于 [=去中心化标识符=] 架构的所有方面至关重要。在本规范的开发过程中，已全面应用了这七项原则。本规范的设计并不假设存在注册机构、托管公司或其他中介服务提供商来推荐或应用额外的隐私保护措施。本规范中的隐私是预防性的，而非补救性的，并且是嵌入式的默认设置。在阅读本节之前，建议读者先阅读 [[[CID]]] 规范中的
 <a data-cite="?CID#privacy-considerations">隐私注意事项</a>部分，因为其中包含了同样适用于 [=DIDs=] 的更一般的隐私注意事项。本节的其余部分涵盖了特定于 [=去中心化标识符=] 的隐私注意事项，并补充了 [[[CID]]] 规范中提供的指导。
     </p>
 
@@ -2388,17 +2394,17 @@ of the [[[CID]]] specification.
       <h2>群体隐私</h2>
 
       <p>
-当 [=DID 主体=] 在群体中无法与他人区分时，隐私是可用的。当与另一方私下互动的行为本身成为一个可识别的标志时，隐私会大大降低。
+当 [=DID主体=] 在群体中无法与他人区分时，隐私是可用的。当与另一方私下互动的行为本身成为一个可识别的标志时，隐私会大大降低。
       </p>
       <p>
-[=DIDs=] 和 [=DID 方法=] 需要努力改善群体隐私，特别是针对那些最需要隐私保护的人群。选择默认保护匿名性和假名的技术和人机界面。为了减少<a href="https://en.wikipedia.org/wiki/Device_fingerprint">数字指纹</a>，在请求方实现中共享通用设置，尽量减少在线协议中的协商选项，使用加密传输层，并将消息填充到标准长度。
+[=DIDs=] 和 [=DID方法=] 需要努力改善群体隐私，特别是针对那些最需要隐私保护的人群。选择默认保护匿名性和假名的技术和人机界面。为了减少<a href="https://en.wikipedia.org/wiki/Device_fingerprint">数字指纹</a>，在请求方实现中共享通用设置，尽量减少在线协议中的协商选项，使用加密传输层，并将消息填充到标准长度。
       </p>
     </section>
   </section>
   <section class="appendix informative">
     <h1>示例</h1>
     <section class="informative">
-      <h2>DID 文档</h2>
+      <h2>DID文档</h2>
 <p>
       请参阅 <a
       href="https://www.w3.org/TR/did-extensions-properties/#verification-method-types">
@@ -2905,7 +2911,7 @@ of the [[[CID]]] specification.
      <figure id="detailed-architecture-overview">
        <img style="margin: auto; display: block; width: 90%;"
          src="diagrams/did_detailed_architecture_overview.svg" alt="
-     去中心化标识符（DIDs）和 DID 文档记录在可验证数据注册表中；DIDs 解析为 DID 文档；DIDs 指向 DID 主体；DID 控制者控制 DID 文档；DID URLs 包含一个 DID；DID URLs 被解引用为 DID 文档片段或外部资源；DID 解析器实现解析功能；DID URL 解引用器实现解引用功能；DID 方法操作可验证数据注册表；DID 解析器和 DID URL 解引用器指示 DID 方法。
+     去中心化标识符（DIDs）和 DID文档记录在可验证数据注册表中；DIDs 解析为 DID文档；DIDs 指向 DID主体；DID控制者控制 DID文档；DID URLs 包含一个 DID；DID URLs 被解引用为 DID文档片段或外部资源；DID解析器实现解析功能；DID URL 解引用器实现解引用功能；DID方法操作可验证数据注册表；DID解析器和 DID URL 解引用器指示 DID方法。
        ">
        <figcaption>
      DID 架构的详细概述及其基本组件之间的关系。
@@ -2914,14 +2920,14 @@ of the [[[CID]]] specification.
    </section>
 
    <section class="informative">
-     <h2>DID 的创建</h2>
+     <h2 id="creation-of-a-did">DID的创建</h2>
      <p>
-   [=DID=] 的创建是由每个 [=DID 方法=] 定义的过程。一些 [=DID 方法=]，例如 `did:key`，是纯生成的，这意味着通过将一段加密材料转换为符合规范的 [=表示形式=] 来生成 [=DID=] 和 [=DID 文档=]。其他 [=DID 方法=] 可能需要使用 [=可验证数据注册表=]，其中 [=DID=] 和 [=DID 文档=] 只有在完成注册后才被第三方认可为存在。其他过程可能由各自的 [=DID 方法=] 定义。
+   [=DID=] 的创建是由每个 [=DID方法=] 定义的过程。一些 [=DID方法=]，例如 `did:key`，是纯生成的，这意味着通过将一段加密材料转换为符合规范的 [=表示形式=] 来生成 [=DID=] 和 [=DID文档=]。其他 [=DID方法=] 可能需要使用 [=可验证数据注册表=]，其中 [=DID=] 和 [=DID文档=] 只有在完成注册后才被第三方认可为存在。其他过程可能由各自的 [=DID方法=] 定义。
      </p>
    </section>
 
    <section class="informative">
-     <h2>确定 DID 主体</h2>
+     <h2>确定 DID主体</h2>
      <p>
    [=DID=] 是一种特定类型的 URI（统一资源标识符），因此 [=DID=] 可以引用任何资源。根据 [[RFC3986]]：
      </p>
@@ -2929,20 +2935,20 @@ of the [[[CID]]] specification.
    术语“资源”以广义的意义使用，表示任何可能被 URI 标识的内容。[...] 资源不一定可以通过互联网访问。
      </blockquote>
      <p>
-   资源可以是数字的或物理的，抽象的或具体的。任何可以分配 URI 的资源都可以分配 [=DID=]。由 [=DID=] 引用的资源是 [=DID 主体=]。
+   资源可以是数字的或物理的，抽象的或具体的。任何可以分配 URI 的资源都可以分配 [=DID=]。由 [=DID=] 引用的资源是 [=DID主体=]。
      </p>
      <p>
-   [=DID 控制者=] 决定 [=DID 主体=]。从 [=DID=] 本身无法确定 [=DID 主体=]，因为 [=DIDs=] 通常只对机器有意义，而对人类无意义。[=DID=] 不太可能包���关于 [=DID 主体=] 的任何信息，因此只有通过解析 [=DID=] 为 [=DID 文档=]、获取关于 [=DID=] 的可验证凭证或通过其他描述 [=DID=] 的方式才能发现更多关于 [=DID 主体=] 的信息。
+   [=DID控制者=] 决定 [=DID主体=]。从 [=DID=] 本身无法确定 [=DID主体=]，因为 [=DIDs=] 通常只对机器有意义，而对人类无意义。[=DID=] 不太可能包���关于 [=DID主体=] 的任何信息，因此只有通过解析 [=DID=] 为 [=DID文档=]、获取关于 [=DID=] 的可验证凭证或通过其他描述 [=DID=] 的方式才能发现更多关于 [=DID主体=] 的信息。
      </p>
      <p>
-   在检索到的 [=DID 文档=] 中，`id` 属性的值必须始终与正在解析的 [=DID=] 匹配，但 [=DID=] 所引用的实际资源是否可以随时间变化取决于 [=DID 方法=]。例如，允许 [=DID 主体=] 变化的 [=DID 方法=] 可用于为某个特定角色（例如公司的 CEO）当前的占有者生成 [=DID=]，而实际占有该角色的人可能会因解析 [=DID=] 的时间不同而有所不同。
+   在检索到的 [=DID文档=] 中，`id` 属性的值必须始终与正在解析的 [=DID=] 匹配，但 [=DID=] 所引用的实际资源是否可以随时间变化取决于 [=DID方法=]。例如，允许 [=DID主体=] 变化的 [=DID方法=] 可用于为某个特定角色（例如公司的 CEO）当前的占有者生成 [=DID=]，而实际占有该角色的人可能会因解析 [=DID=] 的时间不同而有所不同。
      </p>
    </section>
 
    <section class="informative">
-     <h2>引用 DID 文档</h2>
+     <h2>引用 DID文档</h2>
      <p>
-   [=DID=] 引用 [=DID 主体=] 并<em>解析为</em> [=DID 文档=]（通过 [=DID 方法=] 指定的协议）。[=DID 文档=] 不是与 [=DID 主体=] 分离的单独资源，也没有与 [=DID=] 分离的 [=URI=]。[=DID 文档=] 是 [=DID 解析=] 的产物，由 [=DID 控制者=] 控制，用于描述 [=DID 主体=]。
+   [=DID=] 引用 [=DID主体=] 并<em>解析为</em> [=DID文档=]（通过 [=DID方法=] 指定的协议）。[=DID文档=] 不是与 [=DID主体=] 分离的单独资源，也没有与 [=DID=] 分离的 [=URI=]。[=DID文档=] 是 [=DID解析=] 的产物，由 [=DID控制者=] 控制，用于描述 [=DID主体=]。
      </p>
      <p>
    此区别通过下方的图模型进行了说明。
@@ -2950,80 +2956,80 @@ of the [[[CID]]] specification.
        <figure id="did-and-did-document-graph">
          <img style="margin: auto; display: block; width: 75%;"
               src="diagrams/figure-a.1-did-and-did-document-graph.svg" alt="
-   图表显示了 DID 控制者如何分配 DIDs 以引用 DID 主体并解析为描述 DID 主体的 DID 文档的图模型。
+   图表显示了 DID控制者如何分配 DIDs 以引用 DID主体并解析为描述 DID主体的 DID文档的图模型。
    ">
          <figcaption>
-   [=DID=] 是由 [=DID 控制者=] 分配的标识符，用于引用 [=DID 主体=] 并解析为描述 [=DID 主体=] 的 [=DID 文档=]。[=DID 文档=] 是 [=DID 解析=] 的产物，而不是与 [=DID 主体=] 分离的单独资源。另见：<a class="longdesc-link"
+   [=DID=] 是由 [=DID控制者=] 分配的标识符，用于引用 [=DID主体=] 并解析为描述 [=DID主体=] 的 [=DID文档=]。[=DID文档=] 是 [=DID解析=] 的产物，而不是与 [=DID主体=] 分离的单独资源。另见：<a class="longdesc-link"
    href="#did-and-did-document-graph-longdesc">叙述性描述</a>。
          </figcaption>
        </figure>
 
      <div class="longdesc" id="did-and-did-document-graph-longdesc">
-   图表顶部有两个填充的黑色圆圈，一个在左侧，标记为“DID 控制者”，另一个在右侧，标记为“DID 主体”。下方是一个矩形，右下角向内弯曲形成一个小三角形，标记为“DID 文档”。这些项目之间有箭头连接，具体如下：一个实心红色箭头直接从 DID 控制者圆圈向右指向 DID 主体圆圈，上方标记为“大字体的 DID”，下方标记为小斜体的“标识”。其他箭头标签也为小斜体。一个虚线红色箭头标记为“解析为”，从 DID 控制者开始，与第一个箭头在同���行，然后向下弯曲指向 DID 文档矩形。一个绿色箭头标记为“控制”，直接从 DID 控制者指向 DID 文档。一个标记为“控制者”的绿色箭头指向相反方向，从 DID 文档指向 DID 控制者，形成一个向左的弧线。一个蓝色箭头标记为“描述”，直接从 DID 文档指向 DID 主体。
+   图表顶部有两个填充的黑色圆圈，一个在左侧，标记为“DID控制者”，另一个在右侧，标记为“DID主体”。下方是一个矩形，右下角向内弯曲形成一个小三角形，标记为“DID文档”。这些项目之间有箭头连接，具体如下：一个实心红色箭头直接从 DID控制者圆圈向右指向 DID主体圆圈，上方标记为“大字体的 DID”，下方标记为小斜体的“标识”。其他箭头标签也为小斜体。一个虚线红色箭头标记为“解析为”，从 DID控制者开始，与第一个箭头在同���行，然后向下弯曲指向 DID文档矩形。一个绿色箭头标记为“控制”，直接从 DID控制者指向 DID文档。一个标记为“控制者”的绿色箭头指向相反方向，从 DID文档指向 DID控制者，形成一个向左的弧线。一个蓝色箭头标记为“描述”，直接从 DID文档指向 DID主体。
      </div>
    </section>
 
    <section class="informative">
-     <h2>DID 文档中的声明</h2>
+     <h2>DID文档中的声明</h2>
      <p>
-   [=DID 文档=] 中的每个属性都是 [=DID 控制者=] 的声明，用于描述：
+   [=DID文档=] 中的每个属性都是 [=DID控制者=] 的声明，用于描述：
      </p>
      <ul>
        <li>
-   定义 [=DID 主体=] 标识符的字符字符串（例如 `id` 和 `alsoKnownAs` 属性）
+   定义 [=DID主体=] 标识符的字符字符串（例如 `id` 和 `alsoKnownAs` 属性）
        </li>
        <li>
-   如何与 [=DID 主体=] 交互（例如 `verificationMethod` 和 `service` 属性）。
+   如何与 [=DID主体=] 交互（例如 `verificationMethod` 和 `service` 属性）。
        </li>
        <li>
-   如何解释 [=DID 文档=] 的特定表示形式（例如 JSON-LD 表示形式中的 `@context` 属性）。
+   如何解释 [=DID文档=] 的特定表示形式（例如 JSON-LD 表示形式中的 `@context` 属性）。
        </li>
      </ul>
      <p>
-   [=DID 文档=] 中唯一必需的属性是 `id`，因此这是 [=DID 文档=] 中唯一保证存在的声明。此声明在 [[[#did-and-did-document-graph]]] 中通过 [=DID=] 和 [=DID 主体=] 之间的直接链接进行了说明。
+   [=DID文档=] 中唯一必需的属性是 `id`，因此这是 [=DID文档=] 中唯一保证存在的声明。此声明在 [[[#did-and-did-document-graph]]] 中通过 [=DID=] 和 [=DID主体=] 之间的直接链接进行了说明。
      </p>
    </section>
   <section class="informative">
-    <h2>发现有关 DID 主体的更多信息</h2>
+    <h2>发现有关 DID主体的更多信息</h2>
     <p>
-  发现有关 [=DID 主体=] 的更多信息的选项取决于 [=DID 文档=] 中存在的属性。如果存在 `service` 属性，可以从 [=服务端点=] 请求更多信息。例如，通过查询��持可验证凭证的 [=服务端点=]，以获取描述 [=DID 主体=] 的一个或多个声明（属性）。
+  发现有关 [=DID主体=] 的更多信息的选项取决于 [=DID文档=] 中存在的属性。如果存在 `service` 属性，可以从 [=服务端点=] 请求更多信息。例如，通过查询��持可验证凭证的 [=服务端点=]，以获取描述 [=DID主体=] 的一个或多个声明（属性）。
     </p>
     <p>
-  另一个选项是使用 `alsoKnownAs` 属性（如果它存在于 [=DID 文档=] 中）。[=DID ��制者=] 可以使用它提供指向其他 URI（包括其他 [=DID=]）的列表，这些 URI 引用相同的 [=DID 主体=]。解析或解引用这些 URI 可能会生成关于 [=DID 主体=] 的其他描述或表示，如下图所示。
+  另一个选项是使用 `alsoKnownAs` 属性（如果它存在于 [=DID文档=] 中）。[=DID控制者=] 可以使用它提供指向其他 URI（包括其他 [=DID=]）的列表，这些 URI 引用相同的 [=DID主体=]。解析或解引用这些 URI 可能会生成关于 [=DID主体=] 的其他描述或表示，如下图所示。
     </p>
     <figure id="alsoKnownAs-graph">
       <img style="margin: auto; display: block; width: 75%;"
         src="diagrams/figure-a.2-also-known-as-graph.svg" alt="
-        图表显示了一个图模型，其中 alsoKnownAs 属性通过一条弧线指向另一个节点，表示解引用到另一个关于 DID 主体的描述。
+        图表显示了一个图模型，其中 alsoKnownAs 属性通过一条弧线指向另一个节点，表示解引用到另一个关于 DID主体的描述。
       " >
       <figcaption>
-  [=DID 文档=] 可以使用 alsoKnownAs 属性声明另一个 [=URI=]（包括但不限于另一个 [=DID=]）引用相同的 [=DID 主体=]。另见：<a class="longdesc-link"
+  [=DID文档=] 可以使用 alsoKnownAs 属性声明另一个 [=URI=]（包括但不限于另一个 [=DID=]）引用相同的 [=DID主体=]。另见：<a class="longdesc-link"
   href="#alsoKnownAs-graph-longdesc">叙述性描述</a>。
       </figcaption>
     </figure>
     <div class="longdesc" id="alsoKnownAs-graph-longdesc">
-  图表包含三个小的黑色实心圆、两个带弯角的矩形、它们之间的箭头和标签，如下所示。左上方是一个标记为 "DID 控制者" 的圆。右上方是一个标记为 "DID 主体" 的圆。右下方中间是一个未标记的圆。右下方是��个标记为 "描述" 的矩形。在图的中心是一个标记为 "DID 文档" 的矩形。在 DID 文档矩形内，其标签下方是两行代码："alsoKnownAs: [" 和 "URI]"。一条黑色箭头从第二行延伸到右侧，穿过矩形边界，指向图右侧的未标记圆。此箭头上方标记为大字体的 "URI"，下方标记为斜体的 "标识"。一条黑色箭头从未标记圆向下指向描述矩形，标记为 "解引用到"。一条蓝色箭头标记为 "描述"，从描述矩形向右弧形指向 DID 主体。另一条蓝色箭头也标记为 "描述"，直接从标记为 "DID 文档" 的矩形指向右上方的 DID 主体圆。一个红色箭头标记为 "alsoKnownAs"，从 DID 主体指向未标记圆。一个红色箭头标记为大字体的 "DID" 和斜体的 "标识"，位于图顶部，从 DID 控制者指向 DID 主体。一条虚线红色线从同一位置开始，但分支并向下弯曲，指向图中心的 DID 文档矩形。一条绿色箭头标记为 "控制"，直接从 DID 控制者指向 DID 文档。另一条绿色箭头标记为 "控制者"，��� DID 文档指向 DID 控制者，沿图左侧向外弯曲。
+  图表包含三个小的黑色实心圆、两个带弯角的矩形、它们之间的箭头和标签，如下所示。左上方是一个标记为 "DID控制者" 的圆。右上方是一个标记为 "DID主体" 的圆。右下方中间是一个未标记的圆。右下方是��个标记为 "描述" 的矩形。在图的中心是一个标记为 "DID文档" 的矩形。在 DID文档矩形内，其标签下方是两行代码："alsoKnownAs: [" 和 "URI]"。一条黑色箭头从第二行延伸到右侧，穿过矩形边界，指向图右侧的未标记圆。此箭头上方标记为大字体的 "URI"，下方标记为斜体的 "标识"。一条黑色箭头从未标记圆向下指向描述矩形，标记为 "解引用到"。一条蓝色箭头标记为 "描述"，从描述矩形向右弧形指向 DID主体。另一条蓝色箭头也标记为 "描述"，直接从标记为 "DID文档" 的矩形指向右上方的 DID主体圆。一个红色箭头标记为 "alsoKnownAs"，从 DID主体指向未标记圆。一个红色箭头标记为大字体的 "DID" 和斜体的 "标识"，位于图顶部，从 DID控制者指向 DID主体。一条虚线红色线从同一位置开始，但分支并向下弯曲，指向图中心的 DID文档矩形。一条绿色箭头标记为 "控制"，直接从 DID控制者指向 DID文档。另一条绿色箭头标记为 "控制者"，��� DID文档指向 DID控制者，沿图左侧向外弯曲。
     </div>
   </section>
   <section class="informative">
-    <h2>提供 DID 主体的表示形式</h2>
+    <h2>提供 DID主体的表示形式</h2>
     <p>
-  如果 [=DID 主体=] 是可以从互联网检索的数字资源，[=DID 方法=] 可以选择构建一个 [=DID URL=]，该 URL 返回 [=DID 主体=] 本身的表示形式。例如，一个需要持久、可加密验证标识符的数据模式可以被分配一个 [=DID=]，并通过传递指定的 [[[#path]]] �� [[[#query]]] 作为一种标准方式来检索该模式的表示形式。
+  如果 [=DID主体=] 是可以从互联网检索的数字资源，[=DID方法=] 可以选择构建一个 [=DID URL=]，该 URL 返回 [=DID主体=] 本身的表示形式。例如，一个需要持久、可加密验证标识符的数据模式可以被分配一个 [=DID=]，并通过传递指定的 [[[#path]]] �� [[[#query]]] 作为一种标准方式来检索该模式的表示形式。
     </p>
     <p>
-  类似地，如果适用的 [=DID 方法=] 支持此功能，[=DID=] 可以用来引用一个数字资源（例如图像），该资源可以直接从 [=可验证数据注册表=] 返回。
+  类似地，如果适用的 [=DID方法=] 支持此功能，[=DID=] 可以用来引用一个数字资源（例如图像），该资源可以直接从 [=可验证数据注册表=] 返回。
     </p>
   </section>
   <section class="informative">
     <h2>为现有的网络资源分配 DID</h2>
     <p>
-  如果网页或任何其他网络资源的控制者希望为其分配一个持久、可加密验证的标识符，控制者可以为其分配一个 [=DID=]。例如，一个由博客托管公司托管的博客的作者（在该托管公司的域名下）可以为该博客创建一个 [=DID=]。在 [=DID 文档=] 中，作者可以包含指向博客当前 URL 的 `alsoKnownAs` 属性，例如：
+  如果网页或任何其他网络资源的控制者希望为其分配一个持久、可加密验证的标识符，控制者可以为其分配一个 [=DID=]。例如，一个由博客托管公司托管的博客的作者（在该托管公司的域名下）可以为该博客创建一个 [=DID=]。在 [=DID文档=] 中，作者可以包含指向博客当前 URL 的 `alsoKnownAs` 属性，例如：
     </p>
     `
       "alsoKnownAs": ["https://myblog.blogging-host.example/home"]
     `
     <p>
-  如果作者随后将博客迁移到不同的托管公司（或作者自己���域名），作者可以更新 [=DID 文档=]，以指向博客的新 URL，例如：
+  如果作者随后将博客迁移到不同的托管公司（或作者自己���域名），作者可以更新 [=DID文档=]，以指向博客的新 URL，例如：
     </p>
     `
       "alsoKnownAs": ["https://myblog.example/"]
@@ -3034,119 +3040,119 @@ of the [[[CID]]] specification.
     </p>
   </section>
   <section class="informative">
-    <h2>DID 控制者与 DID 主体之间的关系</h2>
+    <h2>DID控制者与 DID主体之间的关系</h2>
     <p>
-  为了避免混淆，将 [=DID 主体=] 根据其与 [=DID 控制者=] 的关系分为两个不相交的集合是有帮助的。
+  为了避免混淆，将 [=DID主体=] 根据其与 [=DID控制者=] 的关系分为两个不相交的集合是有帮助的。
     </p>
     <section class="informative">
-      <h3>集合 #1：DID 主体<em>是</em>DID 控制者</h3>
+      <h3>集合 #1：DID主体<em>是</em>DID控制者</h3>
       <p>
-  第一种情况，如 [[[#controller-subject-equivalence]]] 所示，是 [=DID 主体=] 也是 [=DID 控制者=] 的常见场景。这种情况发生在个人或组织创建 [=DID=] 以自我标识时。
+  第一种情况，如 [[[#controller-subject-equivalence]]] 所示，是 [=DID主体=] 也是 [=DID控制者=] 的常见场景。这种情况发生在个人或组织创建 [=DID=] 以自我标识时。
       </p>
       <figure id="controller-subject-equivalence">
         <img style="margin: auto; display: block; width: 75%;"
           src="diagrams/figure-b.1-controller-and-subject-equivalence.svg"
           alt="
-  图表显示了一个图模型，其中 DID 主体与 DID 控制者之间有一个等价弧线。
+  图表显示了一个图模型，其中 DID主体与 DID控制者之间有一个等价弧线。
         " >
         <figcaption>
-  [=DID 主体=] 与 [=DID 控制者=] 是同一实体。另见：<a class="longdesc-link"
+  [=DID主体=] 与 [=DID控制者=] 是同一实体。另见：<a class="longdesc-link"
   href="#controller-subject-equivalence-longdesc">叙述性描述</a>。
         </figcaption>
       </figure>
       <div class="longdesc" id="controller-subject-equivalence-longdesc">
-  图表中有两个小的黑色圆，一个在左上方，标记为 "DID 控制者"，另一个在右上方，标记为 "DID 主体"。一条实心红色箭头从 DID 控制者圆指向 DID 主体圆，箭头上方标记为大字体的 "DID"，下方标记为小斜体的 "标识"。一条虚线红色双向箭头标记为 "等价"，在两个圆之间延伸，形成一个弧线。在图的下方是一个带弯角的矩形，黑色轮廓，标记为 "DID 文档"。箭头在此 DID 文档矩形与 DID 控制者和 DID 主体的小黑色圆之间指向，带有斜体标签，如下所示。一条蓝色箭头从 DID 文档指向 DID 主体，标记为 "描述"。一条绿色箭头从 DID 控制者指向 DID 文档，标记为 "控制"。一条绿色箭头从 DID 文档指向 DID 控制者，沿图左侧向外弯曲，标记为 "控制者"。一条虚线红色箭头标记为 "解析为"，从 DID 控制者开始向右，分支并向下弯曲，指向 DID 文档。
+  图表中有两个小的黑色圆，一个在左上方，标记为 "DID控制者"，另一个在右上方，标记为 "DID主体"。一条实心红色箭头从 DID控制者圆指向 DID主体圆，箭头上方标记为大字体的 "DID"，下方标记为小斜体的 "标识"。一条虚线红色双向箭头标记为 "等价"，在两个圆之间延伸，形成一个弧线。在图的下方是一个带弯角的矩形，黑色轮廓，标记为 "DID文档"。箭头在此 DID文档矩形与 DID控制者和 DID主体的小黑色圆之间指向，带有斜体标签，如下所示。一条蓝色箭头从 DID文档指向 DID主体，标记为 "描述"。一条绿色箭头从 DID控制者指向 DID文档，标记为 "控制"。一条绿色箭头从 DID文档指向 DID控制者，沿图左侧向外弯曲，标记为 "控制者"。一条虚线红色箭头标记为 "解析为"，从 DID控制者开始向右，分支并向下弯曲，指向 DID文档。
       </div>
       <p>
-  从图模型的角度来看，即使 [[[#controller-subject-equivalence]]] 中标识为 [=DID 控制者=] 和 [=DID 主体=] 的节点是不同的，但它们之间存在一个逻辑弧线，用于表达语义等价关系。
+  从图模型的角度来看，即使 [[[#controller-subject-equivalence]]] 中标识为 [=DID控制者=] 和 [=DID主体=] 的节点是不同的，但它们之间存在一个逻辑弧线，用于表达语义等价关系。
       </p>
     </section>
     <section class="informative">
-      <h3>集合 #2：DID 主体<em>不是</em>DID 控制者</h3>
+      <h3>集合 #2：DID主体<em>不是</em>DID控制者</h3>
       <p>
-  第二种情况是 [=DID 主体=] 是与 [=DID 控制者=] 分离的实体。例如，父母为孩子创建并维护一个 [=DID=]���公司为子公司创建并维护一个 [=DID=]；或者制造商为产品、物联网设备或数字文件创建并维护一个 [=DID=]。
+  第二种情况是 [=DID主体=] 是与 [=DID控制者=] 分离的实体。例如，父母为孩子创建并维护一个 [=DID=]���公司为子公司创建并维护一个 [=DID=]；或者制造商为产品、物联网设备或数字文件创建并维护一个 [=DID=]。
       </p>
       <p>
-  从图模型的角度来看，与集合 1 的唯一区别是 [=DID 主体=] 和 [=DID 控制者=] 节点之间没有等价弧线关系。
+  从图模型的角度来看，与集合 1 的唯一区别是 [=DID主体=] 和 [=DID控制者=] 节点之间没有等价弧线关系。
       </p>
     </section>
   </section>
     <section class="informative">
-      <h2>多个 DID 控制者</h2>
+      <h2>多个 DID控制者</h2>
       <p>
-    一个 [=DID 文档=] 可能有多个 [=DID 控制者=]。这种情况可能以两种方式发生。
+    一个 [=DID文档=] 可能有多个 [=DID控制者=]。这种情况可能以两种方式发生。
       </p>
       <section class="informative">
         <h3>独立控制</h3>
         <p>
-    在这种情况下，每个 [=DID 控制者=] 可以独立行动，即每个控制者都拥有完全的权限来独立更新 [=DID 文档=]。从图模型的角度来看，这种配置中：
+    在这种情况下，每个 [=DID控制者=] 可以独立行动，即每个控制者都拥有完全的权限来独立更新 [=DID文档=]。从图模型的角度来看，这种配置中：
         </p>
         <ul>
           <li>
-    每个额外的 [=DID 控制者=] 是另一个独立的图节点（可能由其自身的 [=DID=] 标识）。
+    每个额外的 [=DID控制者=] 是另一个独立的图节点（可能由其自身的 [=DID=] 标识）。
           </li>
           <li>
-    每个 [=DID 控制者=] 和 [=DID 文档=] 之间存在相同的弧线（“控制”和“控制者”）。
+    每个 [=DID控制者=] 和 [=DID文档=] 之间存在相同的弧线（“控制”和“控制者”）。
           </li>
         </ul>
         <figure id="independent-did-controllers">
           <img style="margin: auto; display: block; width: 75%;"
             src="diagrams/figure-c.1-independent-did-controllers.svg" alt="
-            图表显示了三个 DID 控制者，每个控制者与 DID 文档之间具有独立的控制关系
+            图表显示了三个 DID控制者，每个控制者与 DID文档之间具有独立的控制关系
           " >
           <figcaption>
-    多个独立的 [=DID 控制者=]，每个控制者都可以独立行动。另见：<a href="#independent-did-controllers-longdesc" class="longdesc-link">文字描述</a>
+    多个独立的 [=DID控制者=]，每个控制者都可以独立行动。另见：<a href="#independent-did-controllers-longdesc" class="longdesc-link">文字描述</a>
           </figcaption>
         </figure>
         <div class="longdesc" id="independent-did-controllers-longdesc">
-    左侧垂直排列了三个黑色圆圈，每个圆圈标记为 “DID 控制者”。从每个圆圈延伸出一对绿色箭头，指向图的中心，一个标记为 “DID 文档” 的矩形。矩形的右下角向内弯曲，形成一个小三角形，仿佛表示一张带卷角的纸张。每对绿色箭头中，一条箭头从黑色圆圈指向矩形，标记为 “控制”，另一条箭头从矩形指向黑色圆圈，标记为 “控制者”。从矩形的右侧延伸出一条蓝色箭头，标记为 “描述”，指向一个标记为 “DID 主体” 的黑色圆圈。
+    左侧垂直排列了三个黑色圆圈，每个圆圈标记为 “DID控制者”。从每个圆圈延伸出一对绿色箭头，指向图的中心，一个标记为 “DID文档” 的矩形。矩形的右下角向内弯曲，形成一个小三角形，仿佛表示一张带卷角的纸张。每对绿色箭头中，一条箭头从黑色圆圈指向矩形，标记为 “控制”，另一条箭头从矩形指向黑色圆圈，标记为 “控制者”。从矩形的右侧延伸出一条蓝色箭头，标记为 “描述”，指向一个标记为 “DID主体” 的黑色圆圈。
         </div>
       </section>
       <section class="informative">
         <h3>群组控制</h3>
         <p>
-    在群组控制的情况下，预期 [=DID 控制者=] 以某种方式共同行动，例如使用需要多个数字签名（“多签”）或阈值数量数字签名（“m-of-n”）的加密算法。这些额外的验证证明阈值可以在 <a data-cite="CID#dfn-verification-method">验证方法</a> 中表达，如 [[[#verification-methods]]] 所述，或者可以是 <a data-cite="CID#dfn-verification-method">验证方法</a> 验证材料的内在部分，其中参与生成特定数字签名的 [=DID 控制者=] 数量可能因隐私原因而隐藏。需要通过群组成员执行的加密操作组合生成证明的验证方法可以用于控制 DID 文档的内容；具体实现方式取决于各自的 DID 方法规范。
+    在群组控制的情况下，预期 [=DID控制者=] 以某种方式共同行动，例如使用需要多个数字签名（“多签”）或阈值数量数字签名（“m-of-n”）的加密算法。这些额外的验证证明阈值可以在 <a data-cite="CID#dfn-verification-method">验证方法</a> 中表达，如 [[[#verification-methods]]] 所述，或者可以是 <a data-cite="CID#dfn-verification-method">验证方法</a> 验证材料的内在部分，其中参与生成特定数字签名的 [=DID控制者=] 数量可能因隐私原因而隐藏。需要通过群组成员执行的加密操作组合生成证明的验证方法可以用于控制 DID文档的内容；具体实现方式取决于各自的 DID方法规范。
         </p>
         <p>
-    从功能角度来看，这种选项类似于单个 [=DID 控制者=]，因为尽管 [=DID 控制者=] 群组中的每个控制者都有自己的图节点，但实际控制会合并为一个表示 [=DID 控制者=] 群组的单一逻辑图节点，如 [[[#group-did-controllers]]] 所示。
+    从功能角度来看，这种选项类似于单个 [=DID控制者=]，因为尽管 [=DID控制者=] 群组中的每个控制者都有自己的图节点，但实际控制会合并为一个表示 [=DID控制者=] 群组的单一逻辑图节点，如 [[[#group-did-controllers]]] 所示。
         </p>
         <figure id="group-did-controllers">
           <img style="margin: auto; display: block; width: 75%;"
             src="diagrams/figure-c.2-group-did-controllers.svg" alt="
-    图表显示了三个 DID 控制者作为一个单一的 DID 控制者群组来控制一个 DID 文档
+    图表显示了三个 DID控制者作为一个单一的 DID控制者群组来控制一个 DID文档
           " >
           <figcaption>
-    多个 [=DID 控制者=] 被期望作为一个 [=DID 控制者=] 群组共同行动。另见：<a class="longdesc-link"
+    多个 [=DID控制者=] 被期望作为一个 [=DID控制者=] 群组共同行动。另见：<a class="longdesc-link"
     href="#group-did-controllers-longdesc">叙述性描述</a>。
           </figcaption>
         </figure>
         <div class="longdesc" id="group-did-controllers-longdesc">
-    左侧有三个黑色实心圆，由左侧的一个大括号标���为 “DID 控制者群组”。从这三个圆圈中的每一个延伸出一条绿色箭头，指向右侧中心。这三条箭头汇聚到一个单一的白色实心圆。一个绿色箭头对从这个白色圆圈的右侧水平连接到一个形状像卷角页面的矩形，标记为 “DID 文档”。上方箭头指向右侧，从白色圆圈到矩形，标记为 “控制”。下方箭头指向左侧，从矩形到白色圆圈，标记为 “控制者”。从矩形的右侧延伸出一条蓝色箭头，标记为 “描述”，指向一个标记为 “DID 主体” 的黑色圆圈。
+    左侧有三个黑色实心圆，由左侧的一个大括号标���为 “DID控制者群组”。从这三个圆圈中的每一个延伸出一条绿色箭头，指向右侧中心。这三条箭头汇聚到一个单一的白色实心圆。一个绿色箭头对从这个白色圆圈的右侧水平连接到一个形状像卷角页面的矩形，标记为 “DID文档”。上方箭头指向右侧，从白色圆圈到矩形，标记为 “控制”。下方箭头指向左侧，从矩形到白色圆圈，标记为 “控制者”。从矩形的右侧延伸出一条蓝色箭头，标记为 “描述”，指向一个标记为 “DID主体” 的黑色圆圈。
         </div>
         <p>
-    这种配置通常适用于 [=DID 主体=] 是组织、公司、政府机构、社区或其他不由单个个体控制的群体的情况。
+    这种配置通常适用于 [=DID主体=] 是组织、公司、政府机构、社区或其他不由单个个体控制的群体的情况。
         </p>
       </section>
     </section>
     <section class="informative">
-      <h2>更改 DID 主体</h2>
+      <h2>更改 DID主体</h2>
       <p>
-    一个 [=DID 文档=] 具有唯一的 [=DID=]，该 [=DID=] 引用 [=DID 主体=]。该 [=DID=] 以 `id` 属性的值表示。此属性值在 [=DID 文档=] 的生命周期内是不可变的。
+    一个 [=DID文档=] 具有唯一的 [=DID=]，该 [=DID=] 引用 [=DID主体=]。该 [=DID=] 以 `id` 属性的值表示。此属性值在 [=DID文档=] 的生命周期内是不可变的。
       </p>
       <p>
-    然而，由 [=DID=] 标识的资源，即 [=DID 主体=]，可能会随着时间的推移而发生变化。这完全由 [=DID 控制者=] 决定。更多详细信息，请参见 [[[#persistence]]] 部分。
+    然而，由 [=DID=] 标识的资源，即 [=DID主体=]，可能会随着时间的推移而发生变化。这完全由 [=DID控制者=] 决定。更多详细信息，请参见 [[[#persistence]]] 部分。
       </p>
     </section>
     <section class="informative">
-      <h2>更改 DID 控制者</h2>
+      <h2>更改 DID控制者</h2>
       <p>
-    [=DID 文档=] 的 [=DID 控制者=] 可能会随着时间的推移而发生变化。然而，根据实现方式的不同，[=DID 控制者=] 的更改可能不会通过 [=DID 文档=] 本身的更改显现出来。例如，如果更改是通过转移用于 [=DID 文档=] 中一个或多个 <a data-cite="CID#dfn-verification-method">验证方法</a> 的底层加密密钥或其他控制手段来实现的，那么这种更改可能与标准的密钥轮换无法区分。
+    [=DID文档=] 的 [=DID控制者=] 可能会随着时间的推移而发生变化。然而，根据实现方式的不同，[=DID控制者=] 的更改可能不会通过 [=DID文档=] 本身的更改显现出来。例如，如果更改是通过转移用于 [=DID文档=] 中一个或多个 <a data-cite="CID#dfn-verification-method">验证方法</a> 的底层加密密钥或其他控制手段来实现的，那么这种更改可能与标准的密钥轮换无法区分。
       </p>
       <p>
     另一方面，如果通过更改 [=`controller`=] 属性的值来实现更改，则这种更改是透明的。
       </p>
       <p>
-    如果验证 [=DID 控制者=] 的更改很重要，建议实现者根据修订后的 [=DID 文档=] 中的 <a data-cite="CID#dfn-verification-method">验证方法</a> 对新的 [=DID 控制者=] 进行 [=认证=]。
+    如果验证 [=DID控制者=] 的更改很重要，建议实现者根据修订后的 [=DID文档=] 中的 <a data-cite="CID#dfn-verification-method">验证方法</a> 对新的 [=DID控制者=] 进行 <a data-cite="CID#dfn-authentication">认证</a>。
       </p>
     </section>
   </section>
@@ -3164,10 +3170,10 @@ of the [[[CID]]] specification.
 
       <ul>
         <li>
-  非规范性地引用 DID 解析规范，以指导实现者遵循常见的 DID URL 实现模式。
+  非规范性地引用 DID解析规范，以指导实现者遵循常见的 DID URL 实现模式。
         </li>
         <li>
-  详细说明了何时认为 DID 文档开始存在。
+  详细说明了何时认为 DID文档开始存在。
         </li>
         <li>
   将 PNG 图表转换为 SVG 图表。
@@ -3213,7 +3219,7 @@ of the [[[CID]]] specification.
   将 `publicKeyBase58` 替换为 `publicKeyMultibase`。
         </li>
         <li>
-  更新 DID 文档示例部分。
+  更新 DID文档示例部分。
         </li>
         <li>
   对安全性注意事项部分进行了大量编辑性清理。
@@ -3229,22 +3235,22 @@ of the [[[CID]]] specification.
   引入了一个抽象数据模型，可以序列化为多种表示形式，包括 JSON 和 JSON-LD。
         </li>
         <li>
-  引入了一个 DID 扩展存储库，用于注册扩展属性、表示形式、DID 解析输入元数据和输出元数据、DID 文档元数据、DID 参数和 DID 方法。
+  引入了一个 DID 扩展存储库，用于注册扩展属性、表示形式、DID解析输入元数据和输出元数据、DID文档元数据、DID 参数和 DID方法。
         </li>
         <li>
-  将 DID 文档元数据（如创建和更新值）与 DID 文档属性分离。
+  将 DID文档元数据（如创建和更新值）与 DID文档属性分离。
         </li>
         <li>
-  移除 DID 文档中的嵌入式证明。
+  移除 DID文档中的嵌入式证明。
         </li>
         <li>
   添加了用于身份验证、断言、密钥协商、能力调用和能力委托的验证关系。
         </li>
         <li>
-  支持在 DID 文档中关联多个标识符，例如 DID 控制者、别名、等效 ID 和规范 ID。
+  支持在 DID文档中关联多个标识符，例如 DID控制者、别名、等效 ID 和规范 ID。
         </li>
         <li>
-  通过减少 DID 文档中可能包含个人身份信息的信息来增强隐私。
+  通过减少 DID文档中可能包含个人身份信息的信息来增强隐私。
         </li>
         <li>
   添加了关于安全性注意事项和隐私注意事项的大量内容。
@@ -3253,10 +3259,10 @@ of the [[[CID]]] specification.
   添加了一个表示形式部分，详细说明了如何以多种不同格式生成和消费抽象数据模型，以及所有表示形式、生产者和消费者的通用规则。
         </li>
         <li>
-  添加了一个部分，详细说明了所有 DID 解析器预期公开的 DID 解析和 DID URL 解引用接口定义，以及这些过程的输入和输出。
+  添加了一个部分，详细说明了所有 DID解析器预期公开的 DID解析和 DID URL 解引用接口定义，以及这些过程的输入和输出。
         </li>
         <li>
-  在附录中提供了更复杂的 DID 文档序列化示例。
+  在附录中提供了更复杂的 DID文档序列化示例。
         </li>
         <li>
   为 DID Core 中指定的多种表示形式添加了 IANA 注意事项。
@@ -3303,7 +3309,7 @@ of the [[[CID]]] specification.
 
 </section>
   <section class="appendix">
-      <h1>IANA 注意事项</h1>
+      <h1 id="iana-considerations">IANA 注意事项</h1>
 
       <p>
   本节将在本规范成为 W3C 提议推荐标准时提交给互联网工程指导组 (IESG) 进行审查、批准并注册到 IANA。
