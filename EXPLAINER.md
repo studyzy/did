@@ -1,82 +1,26 @@
-# Decentralized Identifiers (DIDs) 1.1 – Explainer
+# 去中心化标识符（Decentralized Identifiers, DIDs）1.1 – 说明文档
 
-## Discussion Venues
+## 讨论场所
 
-The Decentralized Identifiers (DIDs) 1.1 specification is developed openly by
-the W3C Decentralized Identifier Working Group. Anyone interested can join the
-conversation. The working group maintains a public GitHub repository where
-issues and pull requests are used for discussion and development. There is also
-an open mailing list for broader conversation: public-did-wg@w3.org, with
-archives available online. As the spec itself notes, feedback is welcomed via
-the GitHub issue tracker or the mailing list. (For more details on use cases and
-requirements, see the W3C DID Use Cases and Requirements document.)
+去中心化标识符（Decentralized Identifiers, DIDs）1.1 规范由 W3C 去中心化标识符工作组公开开发。任何感兴趣的人都可以参与讨论。工作组维护一个公共 GitHub 仓库，通过 issues 和 pull requests 进行讨论和开发。此外还有一个开放的邮件列表用于更广泛的交流：public-did-wg@w3.org，存档可在线查阅。正如规范本身所述，欢迎通过 GitHub issue 跟踪器或邮件列表提供反馈。（有关用例和需求的更多详情，请参阅 W3C DID 用例和需求文档。）
 
-## User-Facing Problem
+## 面向用户的问题
 
-Today’s digital identity is often controlled by large centralized authorities.
-For example, email addresses, social media accounts, and even government IDs
-(passports, driver’s licenses) are issued by external organizations. These
-identifiers are “not under our control” and depend on a central issuer. They may
-work only in certain systems (e.g. your employer’s network or a particular
-website) and can fail if the issuing body changes its rules or goes offline.
-Moreover, many such identifiers unnecessarily reveal personal data when they are
-used, and stolen or replicated copies can lead to fraud and identity theft. From
-the user’s perspective, this means relying on others to manage our online
-identities. If your email provider were hacked or your login service went down,
-you could suddenly lose access to many accounts. Every time you “Sign in with X”
-or hand over your driver’s license to a service, you trust a third party with
-your identity and data. These centralized systems create single points of
-failure and privacy risks. Users have little control over how their identifiers
-are issued or revoked, and they often end up sharing more personal information
-than necessary. The DID specification is motivated by solving exactly these
-problems – giving end users control, continuity, and privacy for their
-identifiers without a central gatekeeper.
+当今的数字身份通常由大型中心化机构控制。例如，电子邮件地址、社交媒体账户，甚至政府颁发的身份证件（护照、驾驶证）都是由外部组织签发的。这些标识符"不在我们的控制之下"，依赖于中心化的签发者。它们可能仅在特定系统中有效（例如您雇主的网络或某个特定网站），如果签发机构更改规则或下线，这些标识符就可能失效。此外，许多此类标识符在使用时会不必要地泄露个人数据，被盗或复制的副本可能导致欺诈和身份盗窃。从用户的角度来看，这意味着依赖他人来管理我们的在线身份。如果您的电子邮件提供商被黑客入侵或登录服务宕机，您可能会突然失去对许多账户的访问权限。每次您"使用 X 登录"或将驾驶证交给某个服务时，您都是在将自己的身份和数据托付给第三方。这些中心化系统造成了单点故障和隐私风险。用户对其标识符的签发或撤销几乎没有控制权，而且往往不得不分享超出必要范围的个人信息。DID 规范正是为了解决这些问题而诞生——在没有中心化守门人的情况下，赋予最终用户对其标识符的控制权、连续性和隐私保护。
 
-## Proposed Approach
+## 提议的方案
 
-A Decentralized Identifier (DID) is essentially a new kind of identifier that a
-user or entity fully controls.
+去中心化标识符（DID）本质上是一种用户或实体可以完全控制的新型标识符。
 
-DIDs have the form `did:<method>:<specific-id>`. For example, in the DID
-did:example:123456, `did:` is the scheme, `example` is the method name, and
-`123456` is the method-specific identifier. This syntax is standardized by the
-DID spec.
+DID 的格式为 `did:<method>:<specific-id>`。例如，在 DID did:example:123456 中，`did:` 是方案标识，`example` 是方法名称，`123456` 是方法特定标识符。此语法由 DID 规范标准化。
 
-There can be many different DID methods (each with its own rules) – for
-instance, `did:ethr` might indicate a DID on the Ethereum blockchain, while
-`did:web` might use DNS and web hosting. Each method specification defines how
-DIDs using that method are created, updated, and resolved. Each DID resolves to
-a corresponding DID Document.
+可以存在许多不同的 DID方法（DID method）（每种方法都有自己的规则）——例如，`did:ethr` 可能表示以太坊区块链上的 DID，而 `did:web` 可能使用 DNS 和网页托管。每个方法规范定义了使用该方法的 DID 如何创建、更新和解析。每个 DID 解析为对应的 DID文档（DID document）。
 
-A DID Document is a simple machine-readable JSON document that describes how to
-interact with the entity identified by the DID. In practice, a DID Document
-usually contains public cryptographic keys and optional service endpoints. These
-public keys are the means by which the DID controller (the person or
-organization controlling the DID) can prove ownership of the identifier. For
-example, if Alice controls a DID, she holds the private keys matching the public
-keys in the DID Document. When she wants to authenticate or sign something,
-others check against the public key in her DID Document. In the spec’s words, a
-DID Document is “a set of data describing the DID subject, including mechanisms,
-such as cryptographic public keys, that the DID subject … can use to
-authenticate itself and prove its association with the DID”. A DID Document may
-also list services (e.g. URLs for messaging or data access) associated with that
-identity. Resolvers and verifiable data registries complete the picture.
+DID文档是一个简单的机器可读 JSON 文档，描述如何与 DID 所标识的实体进行交互。在实践中，DID文档通常包含公开的加密材料（cryptographic material）和可选的服务端点（service endpoint）。这些公钥是 DID控制者（DID controller，即控制该 DID 的个人或组织）证明标识符所有权的手段。例如，如果 Alice 控制一个 DID，她持有与 DID文档中公钥匹配的私钥。当她想要进行身份验证（authentication）或签名时，他人可以对照她的 DID文档中的公钥进行验证。用规范的话来说，DID文档是"一组描述 DID主体（DID subject）的数据，包括 DID主体可以用来验证自身身份并证明其与 DID 关联的机制，如加密公钥"。DID文档还可以列出与该身份相关的服务（service）（例如用于消息传递或数据访问的 URL）。DID解析器（DID resolver）和可验证数据注册表（verifiable data registry）完善了整个体系。
 
-A DID resolver is software (or a service) that takes a DID as input and returns
-its DID Document. How it does this depends on the method: for example, a
-blockchain-based method might look up a transaction on a ledger, whereas a
-web-based method might fetch data from a specific URL. These underlying storage
-systems are often called verifiable data registries. The spec defines a
-verifiable data registry as any system (like a distributed ledger or database)
-that lets DIDs and DID Documents be created, updated, and deactivated.
-Importantly, the DID Core spec does not mandate any particular technology for
-this. It explicitly states that implementers can use blockchains, peer-to-peer
-networks, centralized registries – whatever suits the application. The goal is
-flexibility: almost any identity system can adopt DIDs by defining an
-appropriate method.
+DID解析器是一种软件（或服务），接受 DID 作为输入并返回其 DID文档。其实现方式取决于具体方法：例如，基于区块链的方法可能在账本上查找交易，而基于 Web 的方法可能从特定 URL 获取数据。这些底层存储系统通常被称为可验证数据注册表。规范将可验证数据注册表定义为任何允许创建、更新和停用 DID 及 DID文档的系统（如分布式账本（distributed ledger）或数据库）。重要的是，DID Core 规范并不强制要求使用任何特定技术。它明确指出，实现者可以使用区块链、点对点网络、中心化注册表——任何适合应用场景的技术。目标是灵活性：几乎任何身份系统都可以通过定义适当的方法来采用 DID。
 
-Here is a very simple example of a DID Document for illustration (using a
-made-up did:example method):
+以下是一个非常简单的 DID文档示例（使用虚构的 did:example 方法）：
 
 ```json
 {
@@ -91,118 +35,34 @@ made-up did:example method):
 }
 ```
 
-This document says that the DID `did:example:123456789abcdefghi` has a public
-key (in multibase format) that can be used to authenticate its controller. A
-user or system can retrieve this document (via the resolver for the example
-method) and trust anything signed by that key. In practice, a DID Document can
-be richer – it might include multiple keys (for key rotation or different
-purposes) and service endpoints – but this shows the core idea.
+该文档表明 DID `did:example:123456789abcdefghi` 拥有一个公钥（以 multibase 格式表示），可用于对其控制者进行身份验证。用户或系统可以（通过 example 方法的解析器）检索此文档，并信任由该密钥签名的任何内容。在实践中，DID文档可以更加丰富——它可能包含多个密钥（用于密钥轮换或不同用途）和服务端点——但这展示了核心思想。
 
-## Practical Use Cases
+## 实际用例
 
-DIDs have many practical uses for everyday people, devices, and services. For
-instance, a person could use a DID to log into websites or apps. Instead of
-creating a username and password for each service, Alice could present proof of
-control over her DID when needed (for example, signing a challenge). Because the
-public key was fetched from her DID Document, the website can verify her
-identity without a password. If Alice wants extra privacy, she can use different
-DIDs for different contexts (work vs. personal) and reveal only the information
-she chooses.
+DID 对日常生活中的人、设备和服务有许多实际用途。例如，一个人可以使用 DID 登录网站或应用程序。Alice 无需为每个服务创建用户名和密码，只需在需要时出示对其 DID 的控制证明（例如签署一个挑战）。由于公钥是从她的 DID文档中获取的，网站可以在无需密码的情况下验证她的身份。如果 Alice 想要更多隐私，她可以在不同场景（工作与个人）使用不同的 DID，仅透露她选择的信息。
 
-In the Internet of Things, each device can have a DID and corresponding keys.
-For example, a smart home thermostat might have `did:home:thermostat123`. Its
-DID Document could list the thermostat’s public key for authentication, and even
-a service endpoint where the device accepts configuration commands. When the
-homeowner’s app wants to talk to the thermostat, it fetches
-`did:home:thermostat123`, verifies the device’s signature, and then communicates
-securely with the trusted endpoint. Because the device’s identity is not tied to
-any central manufacturer’s login service, the homeowner retains control over it.
-Websites and online services themselves can also use DIDs.
+在物联网领域，每个设备都可以拥有一个 DID 和相应的密钥。例如，一个智能家居恒温器可能拥有 `did:home:thermostat123`。其 DID文档可以列出恒温器用于身份验证的公钥，甚至还有一个接受配置命令的服务端点。当房主的应用程序想要与恒温器通信时，它获取 `did:home:thermostat123`，验证设备的签名，然后与受信任的端点进行安全通信。由于设备的身份不依赖于任何中心化制造商的登录服务，房主保留了对其的控制权。网站和在线服务本身也可以使用 DID。
 
-A company could publish a DID to represent a service or organization, embedding
-in its DID Document a public key for API signing or a URL for service discovery.
-Clients trusting that DID can then interact with the service without relying on
-traditional SSL certificate authorities. In supply chains, products can be
-assigned DIDs so that each item’s origin and ownership history are verifiable.
+公司可以发布一个 DID 来代表服务或组织，在其 DID文档中嵌入用于 API 签名的公钥或用于服务发现的 URL。信任该 DID 的客户端可以与服务交互，而无需依赖传统的 SSL 证书颁发机构。在供应链中，产品可以被分配 DID，使每个物品的来源和所有权历史可被验证。
 
-In each case, the DID acts as a portable identifier that can move across
-systems: for example, you could take your identity DID from one social media
-platform to another, or control your device’s DID even if you replace your home
-router.
+在每种情况下，DID 都充当一个可跨系统移植的标识符：例如，您可以将自己的身份 DID 从一个社交媒体平台带到另一个，或者即使更换了家庭路由器也能控制设备的 DID。
 
-## Alternatives Considered
+## 考虑过的替代方案
 
-Before DIDs, there were other identity solutions, each with trade-offs.
-Federated login systems (OAuth 2.0/OpenID Connect) let you sign in using a
-Google, Facebook, or corporate account. While convenient, these still rely on a
-central provider who can track or revoke your identity at will. They also
-typically require revealing personal data (like your email or profile info) to
-multiple sites. By contrast, DID does not assume any fixed authority: you can
-choose which service (or none) to trust. As the DID spec puts it, DIDs are
-“designed so that they may be decoupled from centralized registries, identity
-providers, and certificate authorities”, whereas OAuth/OpenID services are
-exactly centralized identity providers.
+在 DID 之前，已有其他身份解决方案，各有权衡。联邦登录系统（OAuth 2.0/OpenID Connect）允许您使用 Google、Facebook 或企业账户登录。虽然方便，但这些系统仍然依赖一个中心化提供商，该提供商可以随意跟踪或撤销您的身份。它们通常还要求向多个站点透露个人数据（如您的电子邮件或个人资料信息）。相比之下，DID 不假定任何固定的权威机构：您可以选择信任哪个服务（或不信任任何服务）。正如 DID 规范所述，DID"被设计为可以与中心化注册表、身份提供商和证书颁发机构解耦"，而 OAuth/OpenID 服务恰恰是中心化的身份提供商。
 
-Another approach is using blockchain addresses or public key certificates
-directly as identities. For example, your cryptocurrency wallet address is a
-kind of identifier on one blockchain, but it is not easily portable or
-human-readable across systems. Classic PKI (certificate authority) systems (like
-SSL certificates) also provide verifiable identities, but they require trusting
-CAs that issue and manage certificates. DIDs generalize these ideas: many DID
-methods do use blockchains or other ledgers under the hood, but the DID
-abstraction allows multiple methods.
+另一种方法是直接使用区块链地址或公钥证书作为身份。例如，您的加密货币钱包地址是某个区块链上的一种标识符，但它不容易跨系统移植，也不便于人类阅读。经典的 PKI（证书颁发机构）系统（如 SSL 证书）也提供可验证的身份，但它们需要信任签发和管理证书的证书颁发机构。DID 对这些思想进行了泛化：许多 DID方法确实在底层使用区块链或其他账本，但 DID 抽象层允许使用多种方法。
 
-In other words, a DID can be backed by Ethereum (did:ethr), by a private ledger,
-by DNS (did:web), or even by your own custom database – all following the same
-DID model. This flexibility is why the W3C spec emphasizes that DIDs should be
-portable and “system- and network-independent”. In summary, unlike single-vendor
-or single-technology schemes, DIDs offer a unified, extensible framework where
-many different underlying systems can interoperate securely.
+换言之，一个 DID 可以由以太坊（did:ethr）、私有账本、DNS（did:web），甚至您自己的自定义数据库支撑——所有这些都遵循相同的 DID 模型。这就是 W3C 规范强调 DID 应该是可移植的且"独立于系统和网络"的原因。总之，与单一供应商或单一技术方案不同，DID 提供了一个统一的、可扩展的框架，使许多不同的底层系统能够安全地互操作。
 
-## Accessibility, Security, and Privacy Considerations
+## 无障碍性、安全性和隐私考虑
 
-The DID specification has been developed with attention to inclusivity,
-security, and privacy. Because DIDs and DID Documents are simply text-based
-standards (JSON), they can be used with any technology that handles web
-identifiers or JSON data. The spec enables DID Documents to be interpreted as
-JSON-LD, which can help with internationalization (e.g. including language tags)
-and use in different environments.
+DID 规范在开发过程中关注了包容性、安全性和隐私。由于 DID 和 DID文档只是基于文本的标准（JSON），它们可以与任何处理 Web 标识符或 JSON 数据的技术配合使用。规范允许将 DID文档解释为 JSON-LD，这有助于国际化（例如包含语言标签）以及在不同环境中的使用。
 
-The W3C working group follows open processes, and the draft spec is publicly
-available and will be translated and reviewed to ensure broad accessibility.
-Security is built in by design. A key DID design goal is to “enable sufficient
-security for requesting parties to depend on DID documents for their required
-level of assurance”. In practice, this means the DID Controller must prove
-possession of private keys to authenticate. For example, to prove control of a
-DID, an entity typically produces a digital signature with the private key,
-which others verify against the public key in the DID Document. This
-cryptographic proof is stronger and more flexible than passwords or centralized
-tokens. Because DIDs are decentralized, there is no single server whose
-compromise would break the scheme; even if one registry is attacked, other
-methods or registries can still operate independently. The spec also requires
-DID methods to document their security requirements, such as how to resist
-common attacks and how to handle key loss or recovery.
+W3C 工作组遵循开放流程，规范草案公开可用，并将被翻译和审查以确保广泛的无障碍性。安全性是设计的内在组成部分。DID 的一个关键设计目标是"为请求方提供足够的安全性，使其能够依赖 DID文档达到所需的保证级别"。在实践中，这意味着 DID控制者必须证明拥有私钥才能进行身份验证。例如，要证明对 DID 的控制权，实体通常使用私钥生成数字签名，他人则通过 DID文档中的公钥对其进行验证。这种加密证明比密码或中心化令牌更强大、更灵活。由于 DID 是去中心化的，不存在一个被攻破就会导致整个方案崩溃的单一服务器；即使某个注册表遭到攻击，其他方法或注册表仍可独立运行。规范还要求 DID方法记录其安全要求，例如如何抵御常见攻击以及如何处理密钥丢失或恢复。
 
-Privacy is another core concern. The DID architecture explicitly supports user
-privacy. For instance, the spec’s goals include “minimal, selective, and
-progressive disclosure” of information. A DID by itself does not reveal your
-name or personal details – it’s just an opaque identifier tied to a public key.
-You can also create multiple DIDs for different contexts, so your activities in
-each context are unlinkable unless you choose otherwise. As the spec explains,
-each entity can have “as many DIDs as necessary to maintain their desired
-separation of identities, personas, and interactions”. Only the data you (or
-your DID controller) choose to publish goes into a DID Document. Any additional
-profile or attribute information can be kept separate or shared via specialized
-credentials (e.g. verifiable claims) only with the parties you trust. In short,
-DIDs give users control to share the minimum data needed: the public keys for
-verification are public, but other personal data can remain private or managed
-outside of the DID system.
+隐私是另一个核心关切。DID 架构明确支持用户隐私。例如，规范的目标包括"最小化、选择性和渐进式的信息披露"。DID 本身不会透露您的姓名或个人详情——它只是一个与公钥绑定的不透明标识符。您还可以为不同场景创建多个 DID，这样您在每个场景中的活动就是不可关联的，除非您选择将它们关联。正如规范所解释的，每个实体可以拥有"所需数量的 DID，以维护其期望的身份、角色和交互的分离"。只有您（或您的 DID控制者）选择发布的数据才会进入 DID文档。任何额外的个人资料或属性信息可以单独保存，或仅通过专门的凭证（如可验证凭证（Verifiable Credentials））与您信任的各方共享。简而言之，DID 赋予用户控制权，使其仅分享所需的最少数据：用于验证的公钥是公开的，但其他个人数据可以保持私密或在 DID 系统之外管理。
 
-Further Reading: See the official W3C DID Core spec (v1.1) for full details, and
-the W3C Use Cases and Requirements document for more examples and motivations.
+延伸阅读：有关完整详情，请参阅官方 W3C DID Core 规范（v1.1），有关更多示例和动机，请参阅 W3C 用例和需求文档。
 
-This document was generated using ChatGPT's "Research Mode" to read the W3C TAG's Explainer authoring guidelines, read the W3C DID v1.1 specification,
-and then write an explainer that conforms to the TAG's guidelines. The entire
-content was then lightly edited by an Editor of the DID v1.1 specification.
-This is an experiment to see if we can replace hours of Editor labor with
-a few minutes of LLM time.
+本文档使用 ChatGPT 的"研究模式"生成，该模式阅读了 W3C TAG 的说明文档编写指南和 W3C DID v1.1 规范，然后撰写了一份符合 TAG 指南的说明文档。全部内容随后由 DID v1.1 规范的一位编辑进行了轻度编辑。这是一次实验，旨在探索我们是否可以用几分钟的 LLM 时间来替代数小时的编辑工作。

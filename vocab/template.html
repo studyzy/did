@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="zh">
   <head>
     <meta charset='utf-8'/>
     <title></title>
@@ -103,117 +103,115 @@
   </head>
   <body  typeof="owl:Ontology">
     <section id="abstract">
-      <p>This document describes the <span property="dc:title" id="title"></span>, i.e.,
-         the <span property="dc:description" id="description">.</span>
+      <p>本文档描述了<span property="dc:title" id="title"></span>，即
+         <span property="dc:description" id="description">。</span>
       </p>
-      <p>Alternate versions of the vocabulary definition exist in
-        <a rel="alternate" href="vocabulary.ttl">Turtle</a> and
-        <a rel="alternate" href="vocabulary.jsonld">JSON-LD</a>.
+      <p>词汇表定义的替代版本提供了
+        <a rel="alternate" href="vocabulary.ttl">Turtle</a> 和
+        <a rel="alternate" href="vocabulary.jsonld">JSON-LD</a> 格式。
       </p>
       <dl>
-        <dt>Published:</dt><dd><time property="dc:date" id="time"></time></dd>
-        <dt>Version Info:</dt>
+        <dt>发布日期：</dt><dd><time property="dc:date" id="time"></time></dd>
+        <dt>版本信息：</dt>
         <dd>1.1</dd>
-        <dt id="see_also">See Also: </dt>
+        <dt id="see_also">另见：</dt>
        </dl>
     </section>
     <section id="sotd">
       <p>
-        Comments regarding this document are welcome. Please file issues
-        directly on <a href="https://github.com/w3c/did/issues/">GitHub</a>, or send them to
+        欢迎对本文档提出意见。请直接在 <a href="https://github.com/w3c/did/issues/">GitHub</a> 上提交问题，或发送至
         <a href="mailto:public-did-wg@w3.org">mailto:public-did-wg@w3.org</a>
-        (<a href="mailto:public-did-wg@w3.org?subject=subscribe">subscribe</a>,
-        <a href="https://lists.w3.org/Archives/Public/public-did-wg">archives</a>).
+        （<a href="mailto:public-did-wg@w3.org?subject=subscribe">订阅</a>，
+        <a href="https://lists.w3.org/Archives/Public/public-did-wg">归档</a>）。
       </p>
     </section>
 
     <section>
-      <h2>Namespaces</h2>
-      <p>This specification makes use a number of external vocabulary namespaces.</p>
+      <h2>命名空间</h2>
+      <p>本规范使用了若干外部词汇表命名空间。</p>
       <details>
-        <summary>Click here for details.</summary>
+        <summary>点击此处查看详情。</summary>
         <dl class="terms" id="namespaces">
-        </dl>        
+        </dl>
       </details>
     </section>
 
     <section>
-      <h2><code>@context</code> files</h2>
-      <p>Several <code>@context</code> files make use of the terms defined in this specification.</p>
+      <h2><code>@context</code> 文件</h2>
+      <p>若干 <code>@context</code> 文件使用了本规范中定义的术语。</p>
       <details>
-        <summary>Click here for details.</summary>
+        <summary>点击此处查看详情。</summary>
         <ul id="contexts">
         </ul>
       </details>
     </section>
 
     <section id="term_definitions">
-      <h1>Regular terms</h1>
+      <h1>常规术语</h1>
 
       <section id="property_definitions" class="term_definitions">
-        <h2>Property definitions</h2>
+        <h2>属性定义</h2>
       </section>
 
       <section id="class_definitions" class="term_definitions">
-        <h2>Class definitions</h2>
+        <h2>类定义</h2>
       </section>
-  
+
       <section id="datatype_definitions" class="term_definitions">
-        <h2>Datatype definitions</h2>
+        <h2>数据类型定义</h2>
       </section>
-  
+
       <section id="individual_definitions" class="term_definitions">
-        <h2>Definitions for individuals</h2>
+        <h2>个体定义</h2>
       </section>
-    </section>   
+    </section>
 
     <section id="reserved_term_definitions">
-      <h1>Reserved terms</h1>
-    
-      <p>All terms in this section are <em><strong>reserved</strong></em>.
-        Implementers may use these properties, but should expect them and/or their meanings to change during the process to
-        normatively specify them.
+      <h1>保留术语</h1>
+
+      <p>本节中的所有术语均为<em><strong>保留</strong></em>术语。
+        实现者可以使用这些属性，但应预期它们及/或其含义在规范化制定过程中可能会发生变更。
       </p>
-    
+
       <section id="reserved_property_definitions" class="term_definitions">
-        <h2>Reserved properties</h2>
+        <h2>保留属性</h2>
       </section>
 
       <section id="reserved_class_definitions" class="term_definitions">
-        <h2>Reserved classes</h2>
+        <h2>保留类</h2>
       </section>
-    
+
       <section id="reserved_datatype_definitions" class="term_definitions">
-        <h2>Reserved datatype definitions</h2>
+        <h2>保留数据类型定义</h2>
       </section>
-    
+
       <section id="reserved_individual_definitions" class="term_definitions">
-        <h2>Reserved individuals</h2>
+        <h2>保留个体</h2>
       </section>
     </section>
 
     <section id="deprecated_term_definitions">
-      <h1>Deprecated terms</h1>
+      <h1>已弃用术语</h1>
 
-      <p class="annoy">All terms in this section are <em><strong>deprecated</strong></em>, and are only kept in this vocabulary for backward compatibility. 
-        <br><br>New applications should not use them.
+      <p class="annoy">本节中的所有术语均<em><strong>已弃用</strong></em>，仅为向后兼容而保留在本词汇表中。
+        <br><br>新应用不应使用这些术语。
       </p>
 
       <section id="deprecated_property_definitions" class="term_definitions">
-        <h2>Deprecated properties</h2>
+        <h2>已弃用属性</h2>
       </section>
 
       <section id="deprecated_class_definitions" class="term_definitions">
-        <h2>Deprecated classes</h2>
+        <h2>已弃用类</h2>
       </section>
 
       <section id="deprecated_datatype_definitions" class="term_definitions">
-        <h2>Deprecated datatype definitions</h2>
+        <h2>已弃用数据类型定义</h2>
       </section>
-    
+
       <section id="deprecated_individual_definitions" class="term_definitions">
-        <h2>Deprecated individuals</h2>
+        <h2>已弃用个体</h2>
       </section>
-    </section>  
+    </section>
   </body>
 </html>
